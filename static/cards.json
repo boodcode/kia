@@ -1,0 +1,382 @@
+{
+  "kmByDay" : [
+     {
+       "ev": {
+         "question":  "Vous faites de petits trajets au quotidien ?",
+         "reponse": "Le Niro EV 100% électrique possède une autonomie largement suffisante pour vous mener où bon vous semble. Avec lui, inutile de recharger votre voiture tous les jours. Une seule fois par semaine peut même suffire !"
+       },
+       "phev": {
+         "question":  "Vous vous déplacez peu au quotidien ?",
+         "reponse": "Avec le Niro Hybride Rechargeable et son autonomie électrique jusqu'à 65km (cycle mixte WLTP), vos déplacements quotidiens s'effectuent en 100% électrique sans jamais passer par la pompe. Et si vous oubliez de recharger le soir, pas d’inquiétude, le moteur thermique prend le relais !"
+       },
+       "hev": {
+         "question":  "Vous roulez un peu chaque jour ?",
+         "reponse": "Le Niro Hybride sait se distinguer sur les petites distances. Vous allez adorer démarrer et vous garer sans bruit ni pollution dans les parkings grâce au moteur Hybride."
+       }
+     },
+     {
+       "ev": {
+         "question":  "Vous faites plus de 50 km par jour ?",
+         "reponse": "Avec le Niro EV 100% électrique et ses 460 km d'autonomie, inutile de recharger votre voiture tous les jours pour vos trajets quotidiens. Une ou deux fois par semaine suffisent !"
+       },
+       "phev": {
+         "question":  "Vous roulez plus de 50 km par jour?",
+         "reponse": "Le Niro Hybride Rechargeable vous offre tous les choix. Celui de rouler en moteur thermique sur l'essentiel de votre trajet, et de repasser en électrique en ville pour un déplacement aussi silencieux que respectueux de l'environnement. "
+       },
+       "hev": {
+         "question":  "Vous parcourez plus de 50 km par jour?",
+         "reponse": "Pour tous vos trajets, le Niro Hybride associe plaisir de la conduite et optimisation de votre consommation de carburant grâce à sa batterie qui améliore en permanence les performances du moteur thermique et prend le relais à bas régime."
+       }
+     },
+     {
+       "ev": {
+         "question":  "Vous faites plus de 150 km par jour ?",
+         "reponse": "LLe Niro EV 100% électrique est doté d'une autonomie de 460 km. Le plus ? Sa recharge ultra-rapide en 43 min. C'est ça aussi, la tranquillité d'esprit."
+       },
+       "phev": {
+         "question":  "Vous roulez plus de 150 km par jour ?",
+         "reponse": "Le Niro Hybride Rechargeable vous offre le meilleur des deux mondes. La liberté de rouler à l'essence quand bon vous semble et de profiter chaque jour d'un \"plein électrique\" et économique sur une bonne partie de votre trajet."
+       },
+       "hev": {
+         "question":  "Vous parcourez plus de 150 km par jour ?",
+         "reponse": "Le Niro Hybride est certainement la nouvelle façon de rouler à l'essence, en profitant d'une batterie électrique qui augmente l'efficacité du moteur thermique à tout instant."
+       }
+     }
+   ],
+  "kmByYear" : [
+    {
+      "ev": {
+        "question":  "Vous faites moins de 10 000 km par an ?",
+        "reponse": "Vous ne pourrez qu'apprécier le confort de conduite et le silence du nouveau Niro EV 100% électrique."
+      },
+      "phev": {
+        "question":  "Vous roulez moins de 10 000 km par an ?",
+        "reponse": "Vous allez apprécier le confort de conduite du Niro Hybride Rechargeable et son comportement dynamique sur la route. La bonne surprise ? En ville, vous basculez sur l'électrique pour supprimer les nuisances sonores, la pollution, et... la consommation de carburant !"
+      },
+      "hev": {
+        "question":  "Vous parcourez moins de 10 000 km par an ?",
+        "reponse": "Le Niro Hybride vous offre, outre le confort d'une conduite automatique, la performance d'un moteur à essence, renforcée par une batterie intelligente qui optimise chaque accélération et maîtrise votre consommation de carburant."
+      }
+    },
+    {
+      "ev": {
+        "question":  "Vous parcourez jusqu'à 20 000 km par an ?",
+        "reponse": "Profitez d'un réseau en pleine expansion composé de plus de 38 000 bornes de rechargement en France. Besoin de plus de puissance ? Vous avez aussi accès au réseau de super chargeurs Ionity. et l'application Kia Charge s'occupe de tout : trouver les bornes les plus proches, donner les prix en temps réel, et même les points d'intérêt à proximité."
+      },
+      "phev": {
+        "question":  "Vous faites jusqu'à 20 000 km par an ?",
+        "reponse": "Avec l'autonomie du moteur thermique, vous pouvez parcourir d'aussi longues distances qu'avec une voiture traditionnelle dans un grand confort de conduite. La bonne surprise ? En ville, vous basculez sur l'électrique pour supprimer les nuisances sonores, la pollution, et la consommation de carburant."
+      },
+      "hev": {
+        "question":  "Vous roulez jusqu'à 20 000 km par an ?",
+        "reponse": "Le Niro Hybride avale les kilomètres dans un confort et un plaisir de conduite absolus, tout en maîtrisant votre consommation de carburant grâce à sa batterie intelligente qui vient en renfort du moteur thermique. "
+      }
+    },
+    {
+      "ev": {
+        "question":  "Vous parcourez plus de 20 000 km par an ?",
+        "reponse": "Profitez d'un réseau en pleine expansion composé de plus de 38 000 bornes de rechargement en France. Besoin de plus de puissance ? Vous avez aussi accès au réseau de super chargeurs Ionity. et l'application Kia Charge s'occupe de tout : trouver les bornes les plus proches, donner les prix en temps réel, et même les points d'intérêt à proximité."
+      },
+      "phev": {
+        "question":  "Vous faites plus de 20 000 km par an ?",
+        "reponse": "Avec l'autonomie du moteur thermique, vous pouvez parcourir d'aussi longues distances que sur les voitures traditionnelles. La bonne surprise ? En ville, vous basculez sur l'électrique pour supprimer les nuisances sonores, la pollution, et la consommation de carburant."
+      },
+      "hev": {
+        "question":  "Vous roulez plus de 20 000 km par an ?",
+        "reponse": "Le Niro Hybride avale les kilomètres dans un confort et un plaisir de conduite absolus, tout en maîtrisant votre consommation de carburant grâce à sa batterie intelligente qui vient en renfort du moteur thermique. "
+      }
+    }
+  ],
+  "voyagesOver400km" : [
+    {
+      "ev": {
+        "question":  "Vos vacances vous emmènent rarement à plus de 400 km de chez vous ?",
+        "reponse": "Autant dire que l'essentiel de vos déplacements seront couverts par une seule recharge de votre nouveau Niro EV 100% électrique. 460 km d'autonomie et 38 000 bornes de recharge partout en France, vous pouvez rouler sereinement !"
+      },
+      "phev": {
+        "question":  "Vous prenez rarement vos vacances à plus de 400 km de chez vous ?",
+        "reponse": "Vous allez apprécier le confort du nouveau Niro Hybride Rechargeable. En effet, sur une longue distance vous pouvez commencer votre trajet en mode électrique, puis poursuivre votre voyage en mode thermique. Vous n'avez rien à faire, le passage d'une énergie à l'autre se fait automatiquement sans même que vous interveniez. Et côté autonomie, les pompes à essence sont partout sur votre trajet."
+      },
+      "hev": {
+        "question":  "En vacances, vous roulez rarement plus de 400 km ?",
+        "reponse": "Quel plaisir de savoir qu'à tout moment, grâce à la batterie intelligente embarquée à bord du nouveau Niro Hybride, vous réduisez votre consommation de carburant. Son secret ? Elle optimise les performances du véhicule en permanence."
+      }
+    },
+    {
+      "ev": {
+        "question":  "En vacances, vous roulez de temps en temps sur plus de 400 km ?",
+        "reponse": "Bienvenue dans un monde où la recharge est enfin simple et efficace ! Votre carte Kia charge et l’application du même nom vous donnent accès à un réseau en pleine expansion, composé de plus de 336 800 bornes de recharge réparties dans 29 pays européens, dont plus de 38 000 en France. Besoin de plus de puissance ? Vous avez aussi accès au réseau de super chargeurs Ionity. "
+      },
+      "phev": {
+        "question":  "En vacances, vous parcourez parfois plus de 400 km ?",
+        "reponse": "Vous allez apprécier le confort du nouveau Niro Hybride Rechargeable. En effet, sur une longue distance vous pouvez commencer votre trajet en mode électrique, puis poursuivre votre voyage en mode thermique. Vous n'avez rien à faire, le passage d'une énergie à l'autre se fait automatiquement sans même que vous interveniez. Et côté autonomie, les pompes à essence sont partout sur votre trajet."
+      },
+      "hev": {
+        "question":  "En vacances, vous dépassez parfois 400 km ?",
+        "reponse": "Quel plaisir de savoir qu'à tout moment, grâce à la batterie intelligente embarquée à bord du nouveau Niro Hybride, vous réduisez votre consommation de carburant. Son secret ? Elle optimise les performances du véhicule en permanence."
+      }
+    },
+    {
+      "ev": {
+        "question":  "En vacances, vous roulez souvent plus sur plus de 400 km ?",
+        "reponse": "Bienvenue dans un monde où la recharge est enfin simple et efficace ! Votre carte Kia charge et l’application du même nom vous donnent accès à un réseau en pleine expansion, composé de plus de 336 800 bornes de recharge réparties dans 29 pays européens, dont plus de 38 000 en France. Besoin de plus de puissance ? Vous avez aussi accès au réseau de super chargeurs Ionity. "
+      },
+      "phev": {
+        "question":  "En vacances, vous faites couramment plus de 400 km ?",
+        "reponse": "Vous allez apprécier le confort du nouveau Niro Hybride Rechargeable. En effet, sur une longue distance vous pouvez commencer votre trajet en mode électrique, puis poursuivre votre voyage en mode thermique. Vous n'avez rien à faire, le passage d'une énergie à l'autre se fait automatiquement sans même que vous interveniez. Et côté autonomie, les pompes à essence sont partout sur votre trajet."
+      },
+      "hev": {
+        "question":  "Vous effectuez souvent des trajets de plus de 400 km en vacances ?",
+        "reponse": "Armé pour les longues distances, vous êtes assuré d'adopter une conduite vertueuse dont la consommation est optimisée en permanence, tout en améliorant les performances du véhicule grâce à la batterie intelligente du nouveau Niro Hybride."
+      }
+    }
+  ],
+  "frequenceVille" : [
+    {
+      "ev": {
+        "question":  "Vous roulez peu en ville ?",
+        "reponse": "Le nouveau Niro EV 100% électrique est parfaitement adapté à la ville avec sa présence sonore ultra discrète et non polluante partout où vous passez. Découvrez une nouvelle façon de vivre vos déplacements en milieu urbain avec la certitude de ne jamais déranger."
+      },
+      "phev": {
+        "question":  "Vous vous déplacez peu en ville ?",
+        "reponse": "Le nouveau Niro Hybride Rechargeable dispose d'une technologie intelligente dite \"Green Zone\" qui s'appuie sur vos informations de navigation pour reconnaître les zones sensibles à la pollution et basculer automatiquement en mode électrique. Vous n'avez plus à vous soucier de rien : à l'abord des zones résidentielles, près des écoles, des grands hôpitaux ou de vos lieux favoris, la voiture gère seule le passage en électrique pour un meilleur respect de l'environnement."
+      },
+      "hev": {
+        "question":  "Vous empruntez peu votre voiture en ville ?",
+        "reponse": "Roulez sans contraintes : le nouveau Niro Hybride gère automatiquement la batterie électrique et le moteur thermique pour une conduite simple et une consommation réduite. "
+      }
+    },
+    {
+      "ev": {
+        "question":  "Vous roulez régulièrement en ville ?",
+        "reponse": "Le nouveau Niro EV 100% électrique est parfaitement adapté à la ville avec sa présence sonore ultra discrète et non polluante partout où vous passez. Découvrez une nouvelle façon de vivre vos déplacements en milieu urbain avec la certitude de ne jamais déranger."
+      },
+      "phev": {
+        "question":  "Vous vous déplacez régulièrement en ville ?",
+        "reponse": "Le nouveau Niro Hybride Rechargeable dispose d'une technologie intelligente dite \"Green Zone\" qui s'appuie sur vos informations de navigation pour reconnaître les zones sensibles à la pollution et basculer automatiquement en mode électrique. Vous n'avez plus à vous soucier de rien : à l'abord des zones résidentielles, près des écoles, des grands hôpitaux ou de vos lieux favoris, la voiture gère seule le passage en électrique pour un meilleur respect de l'environnement."
+      },
+      "hev": {
+        "question":  "Vous empruntez peu votre voiture en ville ?",
+        "reponse": "Roulez sans contraintes : le nouveau Niro Hybride gère automatiquement la batterie électrique et le moteur thermique pour une conduite simple et une consommation réduite."
+      }
+    },
+    {
+      "ev": {
+        "question":  "Vous roulez souvent en ville ?",
+        "reponse": "Le nouveau Niro EV 100% électrique est parfaitement adapté à la ville avec sa présence sonore ultra discrète et non polluante partout où vous passez. Découvrez une nouvelle façon de vivre vos déplacements en milieu urbain avec la certitude de ne jamais déranger."
+      },
+      "phev": {
+        "question":  "Vous vous déplacez régulièrement en ville ?",
+        "reponse": "Le nouveau Niro Hybride Rechargeable dispose d'une technologie intelligente dite \"Green Zone\" qui s'appuie sur vos informations de navigation pour reconnaître les zones sensibles à la pollution et basculer automatiquement en mode électrique. Vous n'avez plus à vous soucier de rien : à l'abord des zones résidentielles, près des écoles, des grands hôpitaux ou de vos lieux favoris, la voiture gère seule le passage en électrique pour un meilleur respect de l'environnement."
+      },
+      "hev": {
+        "question":  "Vous empruntez peu votre voiture en ville ?",
+        "reponse": "Roulez sans contraintes : le nouveau Niro Hybride gère automatiquement la batterie électrique et le moteur thermique pour une conduite simple et une consommation réduite."
+      }
+    }
+  ],
+  "frequenceExtraUrbain" : [
+    {
+      "ev": {
+        "question":  "Vous roulez peu souvent sur les routes secondaires ?",
+        "reponse": "Découvrez le plaisir de rouler dans le plus grand confort à bord du nouveau Niro EV 100% électrique. Que vous empruntiez des petites routes, des nationales ou des voies rapides, faites l'expérience d'une conduite sereine et sans bruit, même à 110 km/h. Le plus ? La puissance du moteur électrique est instantanément disponible, ce qui offre de belles reprises à l'usage."
+      },
+      "phev": {
+        "question":  "Vous vous déplacez rarement en dehors de la ville ?",
+        "reponse": "Le nouveau Niro Hybride Rechargeable vous offre le meilleur des deux mondes. Une vraie autonomie électrique et une vraie autonomie thermique. Le meilleur dans tout ça ? Le passage d'une énergie à l'autre se fait sans même que vous ayez besoin d'intervenir, et vous gardez la certitude de ne jamais tomber en panne grâce au réseau national des stations essence."
+      },
+      "hev": {
+        "question":  "Vous roulez parfois en dehors de la ville ?",
+        "reponse": "Ce que vous apprécierez avant tout, à bord du nouveau Niro Hybride, c'est le confort et la dynamique de conduite. Vous disposez d'un moteur à essence déjà efficient, qui voit ses perfomances améliorées par une batterie intelligente qui optimise en permanence votre consommation de carburant, notamment en se rechargeant à chaque décélération ou chaque freinage. "
+      }
+    },
+    {
+      "ev": {
+        "question":  "Vous roulez régulièrement sur les routes secondaires ?",
+        "reponse": "Découvrez le plaisir de rouler dans le plus grand confort à bord du nouveau Niro EV 100% électrique. Que vous empruntiez des petites routes, des nationales ou des voies rapides, faites l'expérience d'une conduite sereine et sans bruit, même à 110 km/h. Le plus ? La puissance du moteur électrique est instantanément disponible, ce qui offre de belles reprises à l'usage."
+      },
+      "phev": {
+        "question":  "Vous vous déplacez régulièrement en dehors de la ville ?",
+        "reponse": "Le nouveau Niro Hybride Rechargeable vous offre le meilleur des deux mondes. Une vraie autonomie électrique et une vraie autonomie thermique. Le meilleur dans tout ça ? Le passage d'une énergie à l'autre se fait sans même que vous ayez besoin d'intervenir, et vous gardez la certitude de ne jamais tomber en panne grâce au réseau national des stations essence."
+      },
+      "hev": {
+        "question":  "Vous roulez régulièrement en dehors de la ville ?",
+        "reponse": "Ce que vous apprécierez avant tout, à bord du nouveau Niro Hybride, c'est le confort et la dynamique de conduite. Vous disposez d'un moteur à essence déjà efficient, qui voit ses perfomances améliorées par une batterie intelligente qui optimise en permanence votre consommation de carburant, notamment en se rechargeant à chaque décélération ou chaque freinage. Et les stations essence se trouvent partout !"
+      }
+    },
+    {
+      "ev": {
+        "question":  "Vous roulez  souvent sur les routes secondaires ?",
+        "reponse": "Découvrez le plaisir de rouler dans le plus grand confort à bord du nouveau Niro EV 100% électrique. Que vous empruntiez des petites routes, des nationales ou des voies rapides, faites l'expérience d'une conduite sereine et sans bruit, même à 110 km/h. Le plus ? La puissance du moteur électrique est instantanément disponible, ce qui offre de belles reprises à l'usage."
+      },
+      "phev": {
+        "question":  "Vous vous déplacez souvent en dehors de la ville ?",
+        "reponse": "Le nouveau Niro Hybride Rechargeable vous offre le meilleur des deux mondes. Une vraie autonomie électrique et une vraie autonomie thermique. Le meilleur dans tout ça ? Le passage d'une énergie à l'autre se fait sans même que vous ayez besoin d'intervenir, et vous gardez la certitude de ne jamais tomber en panne grâce au réseau national des stations essence."
+      },
+      "hev": {
+        "question":  "Vous roulez souvent en dehors de la ville ?",
+        "reponse": "Ce que vous apprécierez avant tout, à bord du nouveau Niro Hybride, c'est le confort et la dynamique de conduite. Vous disposez d'un moteur à essence déjà efficient, qui voit ses perfomances améliorées par une batterie intelligente qui optimise en permanence votre consommation de carburant, notamment en se rechargeant à chaque décélération ou chaque freinage. Et les stations essence se trouvent partout !"
+      }
+    }
+  ],
+  "frequenceAutoroute" : [
+    {
+      "ev": {
+        "question":  "Vous prenez parfois l'autoroute ?",
+        "reponse": "Avaler les kilomètres sur l'autoroute ne fait pas peur au nouveau Niro EV 100 % électrique. Côté confort, son moteur électrique délivre sa puissance instantanément, ce qui offre de belles reprises et un plaisir de conduite qui font oublier la route. Par ailleurs, les 38 000 bornes de recharge réparties sur le territoire permettent d'aborder n'importe quel parcours avec sérénité."
+      },
+      "phev": {
+        "question":  "Vous empruntez parfois l'autoroute ?",
+        "reponse": "Avec sa double motorisation électrique et thermique, le nouveau Niro Hybride Rechargeable s'adapte à toutes les circonstances. Sur les zones dégagées comme l'autoroute, vous utilisez davantage le moteur thermique. À l'abord des villes, vous retrouvez aussitôt une conduite électrique à la fois silencieusse et économique. "
+      },
+      "hev": {
+        "question":  "Vous faites peu d'autoroute ?",
+        "reponse": "À bord du nouveau Niro Hybride, vous roulez en véritable éco-citoyen. Votre moteur thermique, intelligemment secondé par une batterie intelligente, délivre le maximum de ses performances. La batterie optimise chaque accélération et récupère de l'énergie à chaque décélération et chaque freinage. Le résultat ? Une consommation de carburant bien maîtrisée qui fait du bien au portefeuille."
+      }
+    },
+    {
+      "ev": {
+        "question":  "Vous prenez régulièrement l'autoroute ?",
+        "reponse": "Avaler les kilomètres sur l'autoroute ne fait pas peur au nouveau Niro EV 100 % électrique. Côté confort, son moteur électrique délivre sa puissance instantanément, ce qui offre de belles reprises et un plaisir de conduite qui font oublier la route. Par ailleurs, les 38 000 bornes de recharge réparties sur le territoire permettent d'aborder n'importe quel parcours avec sérénité."
+      },
+      "phev": {
+        "question":  "Vous empruntez régulièrement l'autoroute ?",
+        "reponse": "Avec sa double motorisation électrique et thermique, le nouveau Niro Hybride Rechargeable s'adapte à toutes les circonstances. Sur les zones dégagées comme l'autoroute. À l'abord des villes, vous retrouvez aussitôt une conduite électrique à la fois silencieusse et économique. "
+      },
+      "hev": {
+        "question":  "Vous roulez régulièrement sur l'autoroute ?",
+        "reponse": "À bord du nouveau Niro Hybride, vous roulez en véritable éco-citoyen. Votre moteur thermique, intelligemment secondé par une batterie intelligente, délivre le maximum de ses performances. La batterie optimise chaque accélération et récupère de l'énergie à chaque décélération et chaque freinage. Le résultat ? Une consommation de carburant bien maîtrisée qui fait du bien au portefeuille."
+      }
+    },
+    {
+      "ev": {
+        "question":  "Vous prenez souvent l'autoroute ?",
+        "reponse": "Avaler les kilomètres sur l'autoroute ne fait pas peur au nouveau Niro EV 100 % électrique. Côté confort, son moteur électrique délivre sa puissance instantanément, ce qui offre de belles reprises et un plaisir de conduite qui font oublier la route. Par ailleurs, les 38 000 bornes de recharge réparties sur le territoire permettent d'aborder n'importe quel parcours avec sérénité."
+      },
+      "phev": {
+        "question":  "Vous empruntez souvent l'autoroute ?",
+        "reponse": "Avec sa double motorisation électrique et thermique, le nouveau Niro Hybride Rechargeable s'adapte à toutes les circonstances. Sur les zones dégagées comme l'autoroute. À l'abord des villes, vous retrouvez aussitôt une conduite électrique à la fois silencieusse et économique. "
+      },
+      "hev": {
+        "question":  "Vous roulez souvent sur l'autoroute ?",
+        "reponse": "À bord du nouveau Niro Hybride, vous roulez en véritable éco-citoyen. Votre moteur thermique, intelligemment secondé par une batterie intelligente, délivre le maximum de ses performances. La batterie optimise chaque accélération et récupère de l'énergie à chaque décélération et chaque freinage. Le résultat ? Une consommation de carburant bien maîtrisée qui fait du bien au portefeuille."
+      }
+    }
+  ],
+  "coffre": {
+    "ev": {
+        "question":  "Besoin d'un grand coffre ?",
+        "reponse": "Le nouveau Niro EV 100% électrique possède 475 l de volume de chargement, dont un nouveau coffre de 20 l à l'avant. Cela fait de lui le coffre le plus spacieux des trois modèles électrifiés. Hyper pratique avec sa banquette arrière 60/40 rabattable depuis le coffre. Paré pour les vacances !"
+    },
+    "phev": {
+        "question":  "Le volume du coffre est important pour vous ?",
+        "reponse": "Le nouveau Niro Hybride Rechargeable possède un coffre de 348 l. Hyper pratique avec sa banquette arrière 60/40 rabattable depuis le coffre. Largement de quoi répondre aux besoins de la famille et à vos diverses activités !"
+    },
+    "hev": {
+        "question":  "Le volume du coffre, ça vous parle ?",
+        "reponse": "Avec son coffre de 451 l, le nouveau Niro Hybride répond largement aux besoins de déplacement de votre famille. Hyper pratique avec sa banquette arrière 60/40 rabattable depuis le coffre. "
+    }
+  },
+  "puissance": {
+    "ev": {
+      "question":  "Besoin d'un grand coffre ?",
+      "reponse": "Grâce au moteur électrique du nouveau Niro EV 100% électrique, c'est bien toute la puissance du véhicule qui est disponible instantanément. Découvrez à son bord une nouvelle façon de conduire et la sensation de reprises dynamiques qui se font sans effort. "
+    },
+    "phev": {
+      "question":  "La puissance du véhicule est un critère de choix pour vous ?",
+      "reponse": "Le nouveau Niro Hybride Rechargeable affiche une puissance combinée de ses moteurs électriques et thermiques de 183 ch, soit 42 ch supplémentaires par rapport à la génération précédente. La bonne nouvelle ? La puissance de chaque moteur est parfaitement adaptée à l'usage que vous en faites."
+    },
+    "hev": {
+      "question":  "La puissance du véhicule est un point important pour vous ?",
+      "reponse": "Le nouveau Niro Hybride vous offre une puissance combinée 141 ch, répartie entre son moteur thermique et sa batterie intelligente, ce qui optimise son efficience. Vous disposez ainsi d'une puissance bien calibrée, qui vous garantit un confort de conduite appréciable."
+    }
+  },
+  "autonomie": {
+    "ev": {
+      "question":  "Vous avez besoin d'une certaine autonomie ?",
+      "reponse": "Le Niro EV 100% électrique dispose de 460 km d'autonomie, ce qui couvre la majorité des déplacements du quotidien. À bord, son système de freinage régénératif intelligent 2.0 permet un ajustement automatique de la récupération d’énergie en fonction des informations de trafic et de la navigation."
+    },
+    "phev": {
+      "question":  "L'autonomie du véhicule est-elle importante pour vous ?",
+      "reponse": "Selon vos besoins quotidiens et jusqu'à 65 km, vous pouvez rouler exclusivement en mode 100% électrique, et réserver l'utilisation du moteur thermique aux longs trajets."
+    },
+    "hev": {
+      "question":  "L'autonomie du véhicule est-elle déterminante pour vous ?",
+      "reponse": "Voilà une question dont vous n'avez pas à vous soucier avec le nouveau Niro Hybride puisque sa batterie ne nécessite aucune recharge, utilisant intelligemment les décélérations et les freinages pour se recharger en permanence."
+    }
+  },
+  "silence": {
+    "ev": {
+      "question":  "Vous aimez vous déplacer silencieusement ?",
+      "reponse": "À bord du Niro EV 100% électrique, vivez l'expérience de l'absence de bruit parasite. Pas de bruit de moteur naturellement, mais aussi une excellente isolation du bruit extérieur pour profiter pleinement de l'expérience de conduite."
+    },
+    "phev": {
+      "question":  "Vous appréciez de rouler sans bruit ?",
+      "reponse": "En fonction des informations de navigation du Niro Hybride Rechargeable, vous basculez automatiquement en mode électrique à l'abord des zones résidentielles, près des écoles, des grands hôpitaux ou de vos lieux favoris, grâce à la technologie \"Green Zone\"."
+    },
+    "hev": {
+      "question":  "Vous aimez rouler sans bruit ?",
+      "reponse": "Quoi de plus agréable que de quitter sa place de stationnement ou de pénétrer dans un parking souterrain sans émettre le moindre bruit ? C'est exactement ce que vous offre le nouveau Niro Hybride grâce à la gestion de sa batterie intelligente qui permet de rouler en électrique à faible vitesse."
+    }
+  },
+  "rechargeDomicile": [
+    {
+      "ev": {
+        "question":  "Vous pouvez rechargez sur une prise à domicile ou êtes prêt à en installer une ?",
+        "reponse": "Faites installer une borne domestique pour recharger la batterie grande autonomie de votre Niro EV 100 % électrique. Au quotidien, quand la batterie est vide, branchez votre véhicule et faites le plein en une nuit. Sur la route, accédez aux super chargeurs pour effectuer un plein électrique en un temps record (recharge de 10 à 80% en seulement 43 minutes)."
+      },
+      "phev": {
+        "question":  "Vous disposez d'une prise à domicile ou êtes prêt à en installer une ?",
+        "reponse": "Rechargez facilement votre Niro Hybride Rechargeable sur une prise standard, sans autre installation, et retrouvez jusqu'à 65 km d'autonomie électrique. Il suffit de 3 heures pour recharger votre batterie !"
+      },
+      "hev": {
+        "question":  "Vous avez une prise de rechargement à domicile ?",
+        "reponse": "Avec le nouveau Niro Hybride, vous n'avez jamais besoin de recharger la batterie. Elle se recharge toute seule à chaque décélération et à chaque freinage."
+      }
+    },
+    {
+      "ev": {
+        "question":  "Vous ne disposez pas de prise à domicile ou n'envisagez pas d'en installer une ?",
+        "reponse": "Avec 38 000 bornes de recharge partout en France, roulez serein et rechargez facilement votre Niro EV 100% électrique lors de vos déplacements grâce à Kia Charge et au réseau de super-chargeurs ultra-rapides Ionity. Cerise sur le gâteau : l'application Kia Charge vous guide pas à pas !"
+      },
+      "phev": {
+        "question":  "Vous n'avez pas de prise à domicile ou ne souhaitez pas en installer une ?",
+        "reponse": "Avec un réseau de plus de 38 000 bornes de recharge partout en France, roulez serein et rechargez facilement votre Niro Hybride Rechargeable lors de vos déplacements. Cerise sur le gâteau : l'application Kia Charge vous guide pas à pas, et le reste du temps, le moteur thermique prend le relais !"
+      },
+      "hev": {
+        "question":  "Vous n'avez pas de prise de rechargement à domicile ?",
+        "reponse": "Avec le nouveau Niro Hybride vous n'avez jamais besoin de recharger la batterie. Elle se recharge toute seule à chaque décélération et à chaque freinage. Vous pouvez rouler sereinement tout au long de l'année."
+      }
+    }
+  ],
+  "rechargeBorne": [
+    {
+      "ev": {
+        "question":  "Vous disposez d'une borne de rechargement à proximité ?",
+        "reponse": "Profitez pleinement de votre Niro EV 100% électrique en vous tournant vers des chargeurs rapides qui vous assurent un plein électrique en un temps record :  43 min suffisent pour passer de 10 à 80 % de charge !"
+      },
+      "phev": {
+        "question":  "Vous avez une borne de rechargement à proximité ?",
+        "reponse": "Rechargez votre Niro Hybride Rechargeable à proximité de votre domicile sur une des nombreuses bornes grâce à l'application Kia Charge qui vous géolocalise en temps réel. Dans tous les cas, vous disposez de toute l'autonomie du moteur thermique pour rejoindre la borne la plus proche."
+      },
+      "hev": {
+        "question":  "Vous êtes proche de bornes de rechargement ?",
+        "reponse": "Avec le nouveau Niro Hybride, cela ne change rien car vous n'avez jamais besoin de recharger la batterie. Elle se recharge toute seule à chaque décélération et à chaque freinage. Vous pouvez rouler sereinement tout au long de l'année."
+      }
+    },
+    {
+      "ev": {
+        "question":  "Vous ne disposez pas d'une borne de rechargement à proximité ?",
+        "reponse": "Avec son autonomie de 460 km, le nouveau Niro EV 100% électrique vous garantit qu'une des 38 000 bornes de recharge partout  en France se trouvera sur votre chemin. Rechargez facilement votre Kia lors de vos déplacements grâce à Kia Charge et au réseau de super-chargeurs ultra-rapides Ionity. 43 min suffisent pour passer de 10 à 80 % de charge, il n'y a pas à hésiter !"
+      },
+      "phev": {
+        "question":  "Vous n'avez pas de borne à proximité ?",
+        "reponse": "Le nouveau Niro Hybride Rechargeable possède une autonomie électrique de 65 km, largement le temps de trouver en chemin une borne de recharge grâce à l'application Kia Charge qui vous géolocalise en temps réel. "
+      },
+      "hev": {
+        "question":  "La première borne de rechargement est loin de chez vous ?",
+        "reponse": "Cela n'a aucune importance. Avec le nouveau Niro Hybride, vous n'avez jamais besoin de recharger la batterie. Elle se recharge toute seule à chaque décélération et à chaque freinage. Vous pouvez rouler sereinement tout au long de l'année."
+      }
+    }
+  ]
+}
