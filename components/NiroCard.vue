@@ -1,6 +1,8 @@
 <template>
   <div :id="qType" :class="car" class="nirocard"  >
-    <div :class="`visuel visuel-${car}`">{{qType}} - {{car}}</div>
+    <div :class="`visuel visuel-${car}`">
+      <span style="background-color: black;color:#999 !important;padding:3px 6px;">{{qType}} - {{car}}</span>
+    </div>
     <div class="content">
       <div class="picto">
         <pictoEV v-if="car==='ev'"></pictoEV>
@@ -62,6 +64,7 @@ export default{
       else if (qType === "frequenceAutoroute") { rep = (this.$store.state.user.conduite[qType] === "Parfois")  ? 0 : (this.$store.state.user.conduite[qType] === "Régulièrement") ? 1 : 2; }
       else if (qType === "rechargeDomicile") { rep = (this.$store.state.user.conduite[qType] === true || this.$store.state.user.conduite[qType] === 1)  ? 0 : 1; }
       else if (qType === "rechargeBorne") { rep = (this.$store.state.user.conduite[qType] === true || this.$store.state.user.conduite[qType] === 1)  ? 0 : 1; }
+      else if (qType === "coffre") {rep =0;}
       //
       return rep;
     },

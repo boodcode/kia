@@ -1,7 +1,5 @@
 <template>
   <div>
-    <p>{{$store.state.twoCars}}<br>{{activeIndex}}</p>
-
     <div class="slider">
       <div class="slider-slides">
         <div
@@ -26,23 +24,38 @@
           <div class="overlay"></div>
           <NiroCard :q-type="qType" :car="twoCars[1]" />
         </div>
+        <div class="slider-slide" data-slide-index="16" data-slide-active=false data-liked=false :data-car="twoCars[0]">
+          <div class="overlay"></div>
+          <NiroCard :q-type="userPriority(1)" :car="twoCars[0]" />
+        </div>
+        <div class="slider-slide" data-slide-index="17" data-slide-active=false data-liked=false :data-car="twoCars[1]">
+          <div class="overlay"></div>
+          <NiroCard :q-type="userPriority(1)" :car="twoCars[1]" />
+        </div>
+        <div class="slider-slide" data-slide-index="18" data-slide-active=false data-liked=false :data-car="twoCars[0]">
+          <div class="overlay"></div>
+          <NiroCard :q-type="userPriority(2)" :car="twoCars[0]" />
+        </div>
+        <div class="slider-slide" data-slide-index="19" data-slide-active=false data-liked=false :data-car="twoCars[1]">
+          <div class="overlay"></div>
+          <NiroCard :q-type="userPriority(2)" :car="twoCars[1]" />
+        </div>
       </div>
       <div class="slider-nav">
         <div :class="{fantom: activeIndex===0}" class="slider-nav-prev" @click="prevSlide"><bt /></div>
-        <div @click="startParticules(activeIndex)"><like-bt/></div>
+        <div @click="toggleLike(activeIndex)"><like-bt/></div>
         <div :class="{fantom: activeIndex===maxSlides-1}" class="slider-nav-next" @click="nextSlide"><bt /></div>
       </div>
     </div>
     <div class="tuto">
       <div class="content">
-        <h4>À vous le dernier mot !</h4>
+        <h4>À vous le dernier mot&nbsp;!</h4>
         <p>Pour affiner votre choix, faites défiler les propositions<br>et «&#8239;likez&#8239;» celles qui vous correspondent le mieux.</p>
         <figure><img src="~/assets/images/picto-affinez@2x.png" alt="principe slider"></figure>
         <div class="cta" @click="closeTuto">C'est parti</div>
       </div>
     </div>
   </div>
-
 </template>
 
 
@@ -52,8 +65,6 @@ import {removeNode} from "vuedraggable/src/util/helper";
 import Emitter from '~/assets/js/Emitter'
 import SwipeEvents from "assets/js/utils/SwipeEvents";
 
-
-
 export default {
   components: {
   },
@@ -62,6 +73,7 @@ export default {
       qTypes: ['kmByDay', 'kmByYear', 'voyagesOver400km', 'frequenceVille', 'frequenceExtraUrbain', 'frequenceAutoroute', 'rechargeDomicile', 'rechargeBorne'],
       activeIndex: 4,
       maxSlides: 2,
+      statusLike: false,
       sliderOptions: {
         timing: 0.5,
         ease: Expo.easeOut,
@@ -111,7 +123,6 @@ export default {
     document.querySelector('.slider-slide[data-slide-active="true"]').classList.add('active')
 
 
-
     const activeSlide = slides[this.activeIndex];
     activeSlide.dataset.slideActive = true
 
@@ -119,9 +130,7 @@ export default {
       gsap.to('.tuto', {scale:1,opacity:1, duration:0.5, ease:Expo.easeOut})
       setCookie('tutoShow', true, 10)
     }
-
-    this.particules = new Emitter();
-
+    // this.particules = new Emitter();
     //
     const swipeTouch = new SwipeEvents()
     this.swipeInstance = swipeTouch
@@ -131,7 +140,9 @@ export default {
 
   },
   methods:{
-
+    userPriority(priority){
+      return this.$store.state.user.conduite.priority['p'+priority]
+    },
     closeTuto(){
       gsap.to('.tuto', {scale:0, opacity:0,duration:0.5, ease:Expo.easeOut})
     },
@@ -144,13 +155,19 @@ export default {
       }
     },
     //
-    startParticules(index){
-      this.particules = new Emitter();
-      this.particules.startAnim()
+    toggleLike(index){
       const slide = document.querySelector('.slider-slide:nth-of-type(' + (index+1) +')')
-      slide.dataset.liked = 'true'
+
+      if(slide.dataset.liked==="true") {
+        slide.dataset.liked = 'false'
+        this.$store.commit('decrementCarLikes', slide.dataset.car)
+        this.stopParticules()
+      } else {
+        slide.dataset.liked = 'true';
+        this.startParticules(index)
+        this.$store.commit('incrementCarLikes', slide.dataset.car)
+      }
       //
-      this.$store.commit('incrementCarLikes', slide.dataset.car)
       if(this.$store.state.evLikes>=3){
         setCookie('match', 'ev')
         this.$router.push({path: '/votre-match', params:{car: 'ev'}})
@@ -169,10 +186,19 @@ export default {
         this.$store.commit('setTheMatch', 'hev')
         this.stopParticules()
       }
-      //
+    },
+    startParticules(index){
+      const slide = document.querySelector('.slider-slide:nth-of-type(' + (index+1) +')')
+      document.querySelector('#emitter').classList.add('liked')
+
+      slide.dataset.liked = 'true'
+      this.particules = new Emitter();
+      this.particules.startAnim()
     },
     stopParticules(){
       this.particules = null
+      document.querySelector('#emitter').classList.remove('liked')
+
       gsap.to('.dot',  {
         duration: 1,
         opacity:0,onComplete: ()=>{
@@ -180,6 +206,7 @@ export default {
         }
       });
     },
+    //
     prevSlide(){
       const elem = document.querySelector('.slider-slide.active');
       const styles = window.getComputedStyle(elem)
@@ -208,6 +235,8 @@ export default {
       const elem = document.querySelector('.slider-slide.active');
       const styles = window.getComputedStyle(elem)
       const decal = elem.offsetWidth + parseFloat(styles.marginLeft) + parseFloat(styles.marginRight)
+
+
 
       if(this.activeIndex<this.maxSlides-1){
         if(!gsap.isTweening('.slider-slides')){
@@ -244,14 +273,14 @@ export default {
       // console.log(arr)
       return arr;
     },
-
-
   }
 }
 </script>
 <style lang="scss">
 .slider {
-  position: relative;
+  position: absolute;
+  top:50%;
+  transform: translate3d(-50%, -50%, 0);
   width:100vw;
   //overflow:hidden;
   display: flex;
@@ -266,11 +295,11 @@ export default {
     width:350px;
     transform: translate3d(-195px, 0, 0);
     margin:0 20px;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    //box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
     .overlay {
       position: absolute;
       top:0;left:0;width:100%;height:100%;
-      background-color: rgba(0,0,0,0.05);
+      background-color: rgba(42,32,24,0.85);
       z-index:1000;
     }
     &.active {
@@ -345,6 +374,12 @@ export default {
     width:60%;
     max-width:640px;
     transform: translate3d(-50%, -50%, 0);
+    @media screen and(max-width: 640px) {
+      transform: translate3d(-50%, calc(-50% - 50px), 0);
+      figure {
+        margin: 40px auto 60px !important;
+      }
+    }
     h4{
       font-size: 36px;
       color:#FFFFFF;

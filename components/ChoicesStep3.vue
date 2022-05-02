@@ -10,7 +10,6 @@
   </div>
 </template>
 <script>
-
 import VerticalSlider from "assets/js/VerticalSlider";
 import EventBus from "assets/js/utils/event-bus";
 

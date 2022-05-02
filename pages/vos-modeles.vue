@@ -188,6 +188,7 @@ export default {
           position:relative;
           text {
             fill: white;
+            text-shadow: 0 0  20px rgba(0, 0, 0, 0.25);
             &.line1, &.line2 {
               font-size: 40px;
               font-family: "Kia Signature Fix Bold";

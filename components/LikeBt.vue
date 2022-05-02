@@ -25,7 +25,7 @@ export default {
   position: relative;
 
   #emitter {
-    background-image: url('~/assets/images/like@2x.png');
+    background-image: url('~/assets/images/unlike@2x.png');
     background-size: cover;
     position: absolute;
     width: 55px;
@@ -34,6 +34,10 @@ export default {
     left: 50%;
     transform: translate3d(-50%, -50%, 0);
     cursor: pointer !important;
+
+    &.liked{
+      background-image: url('~/assets/images/like@2x.png');
+    }
   }
 }
 

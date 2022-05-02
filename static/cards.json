@@ -263,62 +263,70 @@
       }
     }
   ],
-  "coffre": {
-    "ev": {
+  "coffre": [
+    {
+      "ev": {
         "question":  "Besoin d'un grand coffre ?",
         "reponse": "Le nouveau Niro EV 100% électrique possède 475 l de volume de chargement, dont un nouveau coffre de 20 l à l'avant. Cela fait de lui le coffre le plus spacieux des trois modèles électrifiés. Hyper pratique avec sa banquette arrière 60/40 rabattable depuis le coffre. Paré pour les vacances !"
-    },
-    "phev": {
+      },
+      "phev": {
         "question":  "Le volume du coffre est important pour vous ?",
         "reponse": "Le nouveau Niro Hybride Rechargeable possède un coffre de 348 l. Hyper pratique avec sa banquette arrière 60/40 rabattable depuis le coffre. Largement de quoi répondre aux besoins de la famille et à vos diverses activités !"
-    },
-    "hev": {
+      },
+      "hev": {
         "question":  "Le volume du coffre, ça vous parle ?",
         "reponse": "Avec son coffre de 451 l, le nouveau Niro Hybride répond largement aux besoins de déplacement de votre famille. Hyper pratique avec sa banquette arrière 60/40 rabattable depuis le coffre. "
+      }
     }
-  },
-  "puissance": {
-    "ev": {
-      "question":  "Besoin d'un grand coffre ?",
-      "reponse": "Grâce au moteur électrique du nouveau Niro EV 100% électrique, c'est bien toute la puissance du véhicule qui est disponible instantanément. Découvrez à son bord une nouvelle façon de conduire et la sensation de reprises dynamiques qui se font sans effort. "
-    },
-    "phev": {
-      "question":  "La puissance du véhicule est un critère de choix pour vous ?",
-      "reponse": "Le nouveau Niro Hybride Rechargeable affiche une puissance combinée de ses moteurs électriques et thermiques de 183 ch, soit 42 ch supplémentaires par rapport à la génération précédente. La bonne nouvelle ? La puissance de chaque moteur est parfaitement adaptée à l'usage que vous en faites."
-    },
-    "hev": {
-      "question":  "La puissance du véhicule est un point important pour vous ?",
-      "reponse": "Le nouveau Niro Hybride vous offre une puissance combinée 141 ch, répartie entre son moteur thermique et sa batterie intelligente, ce qui optimise son efficience. Vous disposez ainsi d'une puissance bien calibrée, qui vous garantit un confort de conduite appréciable."
+  ],
+  "puissance":  [
+    {
+      "ev": {
+        "question": "Besoin d'un grand coffre ?",
+        "reponse": "Grâce au moteur électrique du nouveau Niro EV 100% électrique, c'est bien toute la puissance du véhicule qui est disponible instantanément. Découvrez à son bord une nouvelle façon de conduire et la sensation de reprises dynamiques qui se font sans effort. "
+      },
+      "phev": {
+        "question": "La puissance du véhicule est un critère de choix pour vous ?",
+        "reponse": "Le nouveau Niro Hybride Rechargeable affiche une puissance combinée de ses moteurs électriques et thermiques de 183 ch, soit 42 ch supplémentaires par rapport à la génération précédente. La bonne nouvelle ? La puissance de chaque moteur est parfaitement adaptée à l'usage que vous en faites."
+      },
+      "hev": {
+        "question": "La puissance du véhicule est un point important pour vous ?",
+        "reponse": "Le nouveau Niro Hybride vous offre une puissance combinée 141 ch, répartie entre son moteur thermique et sa batterie intelligente, ce qui optimise son efficience. Vous disposez ainsi d'une puissance bien calibrée, qui vous garantit un confort de conduite appréciable."
+      }
     }
-  },
-  "autonomie": {
-    "ev": {
-      "question":  "Vous avez besoin d'une certaine autonomie ?",
-      "reponse": "Le Niro EV 100% électrique dispose de 460 km d'autonomie, ce qui couvre la majorité des déplacements du quotidien. À bord, son système de freinage régénératif intelligent 2.0 permet un ajustement automatique de la récupération d’énergie en fonction des informations de trafic et de la navigation."
-    },
-    "phev": {
-      "question":  "L'autonomie du véhicule est-elle importante pour vous ?",
-      "reponse": "Selon vos besoins quotidiens et jusqu'à 65 km, vous pouvez rouler exclusivement en mode 100% électrique, et réserver l'utilisation du moteur thermique aux longs trajets."
-    },
-    "hev": {
-      "question":  "L'autonomie du véhicule est-elle déterminante pour vous ?",
-      "reponse": "Voilà une question dont vous n'avez pas à vous soucier avec le nouveau Niro Hybride puisque sa batterie ne nécessite aucune recharge, utilisant intelligemment les décélérations et les freinages pour se recharger en permanence."
+  ],
+  "autonomie": [
+    {
+      "ev": {
+        "question":  "Vous avez besoin d'une certaine autonomie ?",
+        "reponse": "Le Niro EV 100% électrique dispose de 460 km d'autonomie, ce qui couvre la majorité des déplacements du quotidien. À bord, son système de freinage régénératif intelligent 2.0 permet un ajustement automatique de la récupération d’énergie en fonction des informations de trafic et de la navigation."
+      },
+      "phev": {
+        "question":  "L'autonomie du véhicule est-elle importante pour vous ?",
+        "reponse": "Selon vos besoins quotidiens et jusqu'à 65 km, vous pouvez rouler exclusivement en mode 100% électrique, et réserver l'utilisation du moteur thermique aux longs trajets."
+      },
+      "hev": {
+        "question":  "L'autonomie du véhicule est-elle déterminante pour vous ?",
+        "reponse": "Voilà une question dont vous n'avez pas à vous soucier avec le nouveau Niro Hybride puisque sa batterie ne nécessite aucune recharge, utilisant intelligemment les décélérations et les freinages pour se recharger en permanence."
+      }
     }
-  },
-  "silence": {
-    "ev": {
-      "question":  "Vous aimez vous déplacer silencieusement ?",
-      "reponse": "À bord du Niro EV 100% électrique, vivez l'expérience de l'absence de bruit parasite. Pas de bruit de moteur naturellement, mais aussi une excellente isolation du bruit extérieur pour profiter pleinement de l'expérience de conduite."
-    },
-    "phev": {
-      "question":  "Vous appréciez de rouler sans bruit ?",
-      "reponse": "En fonction des informations de navigation du Niro Hybride Rechargeable, vous basculez automatiquement en mode électrique à l'abord des zones résidentielles, près des écoles, des grands hôpitaux ou de vos lieux favoris, grâce à la technologie \"Green Zone\"."
-    },
-    "hev": {
-      "question":  "Vous aimez rouler sans bruit ?",
-      "reponse": "Quoi de plus agréable que de quitter sa place de stationnement ou de pénétrer dans un parking souterrain sans émettre le moindre bruit ? C'est exactement ce que vous offre le nouveau Niro Hybride grâce à la gestion de sa batterie intelligente qui permet de rouler en électrique à faible vitesse."
+  ],
+  "silence": [
+      {
+      "ev": {
+        "question":  "Vous aimez vous déplacer silencieusement ?",
+        "reponse": "À bord du Niro EV 100% électrique, vivez l'expérience de l'absence de bruit parasite. Pas de bruit de moteur naturellement, mais aussi une excellente isolation du bruit extérieur pour profiter pleinement de l'expérience de conduite."
+      },
+      "phev": {
+        "question":  "Vous appréciez de rouler sans bruit ?",
+        "reponse": "En fonction des informations de navigation du Niro Hybride Rechargeable, vous basculez automatiquement en mode électrique à l'abord des zones résidentielles, près des écoles, des grands hôpitaux ou de vos lieux favoris, grâce à la technologie \"Green Zone\"."
+      },
+      "hev": {
+        "question":  "Vous aimez rouler sans bruit ?",
+        "reponse": "Quoi de plus agréable que de quitter sa place de stationnement ou de pénétrer dans un parking souterrain sans émettre le moindre bruit ? C'est exactement ce que vous offre le nouveau Niro Hybride grâce à la gestion de sa batterie intelligente qui permet de rouler en électrique à faible vitesse."
+      }
     }
-  },
+  ],
   "rechargeDomicile": [
     {
       "ev": {

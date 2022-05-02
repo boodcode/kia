@@ -36,8 +36,6 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa',
     ['nuxt-vue-select', { /* option */ }]
 
   ],
@@ -48,12 +46,6 @@ export default {
     baseURL: '/',
   },
 
-  // PWA module configuration: https://go.nuxtjs.dev/pwa
-  pwa: {
-    manifest: {
-      lang: 'en',
-    },
-  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},

@@ -10,10 +10,10 @@ export default class Emitter {
     this.emitterSize = 60;
     this.dotPool = [];
     this.dotQuantity = 15;
-    this.dotSizeMax = 60;
-    this.dotSizeMin = 10;
+    this.dotSizeMax = 80;
+    this.dotSizeMin = 20;
     this.speed = 1;
-    this.gravity = 1;
+    this.gravity = 0;
     this.dotIndex = 0;
     //
     this.init()
@@ -35,7 +35,7 @@ export default class Emitter {
   }
 
   startAnim = () => {
-    gsap.timeline({repeat: -1}).call(this.shootDot, [], 2 / this.dotQuantity);
+    gsap.timeline({repeat: 20}).call(this.shootDot, [], 2 / this.dotQuantity);
   }
 
   shootDot = () => {
@@ -43,7 +43,8 @@ export default class Emitter {
     const dot = this.dotPool[this.dotIndex++];
     if (this.dotIndex === this.dotQuantity) this.dotIndex = 0;
     const size = this.getRandom(this.dotSizeMin, this.dotSizeMax);
-    const angle = Math.random() * Math.PI * 2; // random angle
+    const angle = (Math.random() * Math.PI /2) - (45*  180 / Math.PI); // random angle
+    // const angle = 30;
     // figure out the maximum distance from the center, factoring in the size of the dot (it must never go outside the circle), and then pick a random spot along that length where we'll plot the point.
     const length = Math.random() * (this.emitterSize / 2 - size / 2);
     // place the dot at a random spot within the emitter, and set its size.

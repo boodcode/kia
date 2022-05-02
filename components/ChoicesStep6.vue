@@ -56,7 +56,7 @@
               label="label"
               :reduce="(option)=> option.dealer_internalid"
               placeholder="Sélectionnez votre concession"
-              autoscroll= true
+              autoscroll
               @input="oninput"
             ></v-select>
           </span>
@@ -75,7 +75,7 @@
   </div>
 </template>
 <script>
-import gsap from "gsap";
+import gsap, {Expo} from "gsap";
 // import { createPopper } from '@popperjs/core'
 import dealers from '~/assets/json/dealers'
 
@@ -160,6 +160,10 @@ export default {
       gsap.to(desc, {opacity:1, duration:0.5})
     }) */
   },
+  updated() {
+    console.log('updated')
+    this.checkFields();
+    },
   methods: {
     /* withPopper(dropdownList, component, { width }) {
       /!**
@@ -210,6 +214,8 @@ export default {
     oninput(value){
       this.user.concession= value;
       this.$store.commit('user/updateDatas', {...this.$store.state.user.datas, concession:value})
+      this.checkFields()
+
     },
     checkFields() {
       const regCp = new RegExp(/[0-9]{5}/, 'g');
@@ -231,24 +237,37 @@ export default {
       if(this.user.concession !==''){this.fieldsOK++;} else {this.fieldAlert('concession', 'champ obligatoire');}
       if(this.user.optin){this.fieldsOK++;} else {this.fieldAlert('optin', 'champ obligatoire');}
 
-        gsap.to('.desc', {opacity:1, duration:0.5})
+      // gsap.to('.desc', {opacity:1, duration:0.5})
+
+      if(this.fieldsOK === 8){
+        gsap.to('.send', {backgroundColor:'#FFFFFF', color: '#000000', duration:0.5, ease:Expo.easeOut})
+      } else {
+        gsap.to('.send', {backgroundColor:'transparent', color: '#FFFFFF', duration:0.5, ease:Expo.easeIn})
+      }
 
       return this.fieldsOK === 8;
     },
     fieldAlert(id,m){
       const error = document.createElement("div");
       error.classList.add('error');
+       console.log(this.fieldsOK)
 
       if(id==='optin'){
-        error.innerHTML = ' | ' + m;
+        error.innerHTML = (this.fieldsOK === 0) ? '' : ' | ' + m;
         document.querySelector('#' + id).parentNode.querySelector('label').after(error);
-      } else {
-        const desc = document.querySelector('#' + id).parentNode.querySelector('.desc')
-        gsap.to(desc, {opacity:1, duration:0.5})
-        error.innerHTML = ' | ' + m;
-        document.querySelector('#' + id).before(error);
-      }
-    },
+      } else if(this.fieldsOK === 0){
+          console.log('-->')
+          error.innerHTML = '';
+        } else {
+          console.log('<--')
+          document.querySelectorAll('.desc').forEach(desc => {
+            gsap.to(desc, {opacity:1, duration:0.5})
+            error.innerHTML = ' | ' + m;
+            document.querySelector('#' + id).before(error);
+          })
+        }
+    }
+    ,
     checkTop3Cars(){
       this.$store.commit('top3/initTop3', {ev: 0, phev: 0, hev: 0})
       const kmByDay = this.$store.state.user.conduite.kmByDay;
@@ -591,7 +610,7 @@ export default {
     justify-content: space-between;
     align-items: flex-start;
     .field{
-      width:calc(50% - 20px)
+      width:calc(50% - 5px)
     }
   }
   .field {
@@ -627,8 +646,9 @@ export default {
       padding-bottom: 4px;
     }
     input{
-      width: 100%;
+      width: calc(100% - 22px);
       border: 1px solid var(--vs-colors--dark);
+      border-radius: none !important;
       height:38px;
       background-color: transparent !important;
       padding: 0 10px;
@@ -756,6 +776,19 @@ export default {
         border-radius: 0 !important;
       }
     }
+
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus{
+      //border: 1px solid green;
+      -webkit-text-fill-color: #999;
+      -webkit-box-shadow: 0 0 0px 1000px rgba(48, 37, 33, 1) inset;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+
+
+
   }
 
 
@@ -804,10 +837,8 @@ export default {
 
   }
 
-
-
   @media screen and(max-width: 640px) {
-    width:calc(100% - 22px);
+    width: 100%;
     margin-top: 20px;
     .field{
       margin-bottom: 0.5em;

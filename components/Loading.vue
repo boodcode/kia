@@ -21,10 +21,12 @@ export default {
   mounted() {
     const tlLoad = gsap.timeline({});
     const time = this.time;
+    let delayPositionTL = 0;
     gsap.set('.loading-cpt-full', { WebkitMaskPosition: '80% 0%' })
 
     tlLoad.to('.loading-cpt-full', { WebkitMaskPosition: '25% 0%', duration: time, ease: Linear.easeNone });
     if(this.$route.name === 'votre-match') {
+      delayPositionTL = 4;
       tlLoad.to('.loading-cpt-votrecoupdefoudre', {opacity: 1, duration: time, ease: Linear.easeNone});
       tlLoad.to('.loading-cpt-votrecoupdefoudre', {
         scale: 1.2,
@@ -32,10 +34,10 @@ export default {
         duration: 0.5,
         ease: Linear.easeNone,
         onComplete: this.complete
-      }, parseInt(time) + 4);
+      }, parseInt(time) + delayPositionTL);
     }
-    tlLoad.to('.loading-cpt-black', {opacity:0, duration:1}, time)
-    tlLoad.to('.loading-cpt-full', { scale: 1.2, opacity:0, duration: 0.5, ease: Linear.easeNone, onComplete: this.complete }, parseInt(time)+4);
+    tlLoad.to('.loading-cpt-black', {opacity:0, duration:1}, time-1)
+    tlLoad.to('.loading-cpt-full', { scale: 1.2, opacity:0, duration: 0.5, ease: Linear.easeNone, onComplete: this.complete }, parseInt(time)+delayPositionTL);
   },
   methods: {
     complete() {
@@ -51,7 +53,7 @@ export default {
   position:absolute;
   width:500px;
   height: 250px;
-  top:400px;
+  top:50%;
   left:50%;
   transform: translate3d(-250px, -125px, 0);
 

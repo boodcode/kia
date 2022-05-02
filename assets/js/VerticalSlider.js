@@ -34,9 +34,9 @@ export default class VerticalSlider {
 
   drawSVGPaths = (element) => {
     const svg = document.querySelector('.slider-frequence#' + element.id +' svg');
-     svg.setAttributeNS(null, 'width', this.settings.pad_width + this.settings.pad_border_size);
-     svg.setAttributeNS(null, 'height', this.settings.drag_length);
-     svg.setAttributeNS(null, 'viewBox', '0 0 '+(this.settings.pad_width + this.settings.pad_border_size)+' '+this.settings.drag_length);
+     svg.setAttributeNS(null, 'width', this.settings.pad_width + this.settings.drag_thickness/2);
+     svg.setAttributeNS(null, 'height', this.settings.drag_length+this.settings.drag_thickness);
+     svg.setAttributeNS(null, 'viewBox', '0 0 '+(this.settings.pad_width + this.settings.drag_thickness/2)+' '+(this.settings.drag_length+this.settings.drag_thickness));
 
     const path1 = document.createElementNS("http://www.w3.org/2000/svg", 'line');
     const path2 = document.createElementNS("http://www.w3.org/2000/svg", 'path');
@@ -47,8 +47,8 @@ export default class VerticalSlider {
     gsap.set(path1, {
       attr: {
         id: "path1",
-        x1:this.settings.drag_thickness/2, y1:this.settings.drag_length,
-        x2:this.settings.drag_thickness/2, y2:0,
+        x1:this.settings.drag_thickness, y1:this.settings.drag_length+this.settings.drag_thickness,
+        x2:this.settings.drag_thickness, y2:0,
         fill: 'transparent',
         stroke:'#29160e',
         'stroke-width': this.settings.drag_thickness,
@@ -58,7 +58,7 @@ export default class VerticalSlider {
     gsap.set(path2, {
       attr: {
         id: "path2",
-        d: "M " + this.settings.drag_thickness/2 + " " + this.settings.drag_length+ " v -" + this.settings.drag_length,
+        d: "M " + this.settings.drag_thickness + " " + (this.settings.drag_length+this.settings.drag_thickness) + " v -" + (this.settings.drag_length+this.settings.drag_thickness),
         fill: 'transparent',
         stroke:'#ebe0d8',
         'stroke-width': this.settings.drag_thickness,
@@ -69,7 +69,7 @@ export default class VerticalSlider {
     gsap.set(pad, {
       attr: {
         id: "pad",
-        r: this.settings.pad_width*0.75,
+        r: this.settings.pad_width,
         fill: '#f8b746',
         stroke:'#fff',
         'stroke-width': this.settings.pad_border_size,
@@ -91,8 +91,8 @@ export default class VerticalSlider {
 
     gsap.set(pad, {
       transformOrigin:  "0px 0px",
-      x:(this.settings.drag_thickness)/2,
-      y:this.settings.drag_length
+      x:13.5,
+      y:(this.settings.drag_length)
     })
 
     const tl = gsap.timeline({paused: true});

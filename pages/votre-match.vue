@@ -34,13 +34,13 @@ export default {
         },
         phev : {
           img: phevImg,
-          h4: 'PHEV<br>100% électrique',
-          p : 'Le style phev conjugué au futur'
+          h4: 'Niro<br>Hybride rechargeable',
+          p : 'La motorisation optimisée'
         },
         hev : {
           img: hevImg,
-          h4: 'HEV<br>100% électrique',
-          p : 'Le style hev conjugué au futur'
+          h4: 'Niro<br>Hybride',
+          p : 'Le style allié  à l\'intelligence'
         },
 
       },
@@ -90,6 +90,11 @@ export default {
     bottom:50px;
     text-align: center;
     color:#FFFFFF;
+
+    @media screen and (max-width: 640px)  {
+      bottom:100px;
+    }
+
     h4 {
       font-family: "Kia Signature Fix Bold", serif;
       margin-bottom:0;
@@ -104,8 +109,14 @@ export default {
   .conseiller{
     opacity:0;
     h4{
+      width: 80%;
+      margin: 0 auto 30px;
       font-size: 30px;
-      margin-bottom: 50px;
+
+      @media screen and (max-width: 640px)  {
+        font-size: 16px;
+        margin: 0 auto 15px;
+      }
     }
   }
 

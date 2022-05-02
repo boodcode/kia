@@ -62,7 +62,7 @@ export default{
   left: 0;
   bottom: 0;
   right: 0;
-  z-index: 100000;
+  z-index: 10000000;
   background: rgba(33, 33, 33, 0.9);
   transform: translateY(60%) scale(0);
   transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
