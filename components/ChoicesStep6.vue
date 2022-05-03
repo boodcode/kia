@@ -120,11 +120,11 @@ export default {
   },
   created(){
     this.$nuxt.$on('RADIO_CHECKED', (v)=> {
-      this.$store.commit('user/updateDatas', {...this.$store.state.user.datas, civ:v})
+      this.$store.commit('user/updateInfos', {...this.$store.state.user.infos, civ:v})
     })
   },
   mounted() {
-    this.user.civ = this.$store.state.user.datas.civ;
+    this.user.civ = this.$store.state.user.infos.civ;
     this.dealersListe.map(function(d) {
       d.label = (d.dealer_postcode).toString().substring(0,2) +' — '+ (d.dealer_residence).toUpperCase();
       return d;
@@ -137,13 +137,13 @@ export default {
       }
       //
       this.user.optin = e.target.checked;
-      this.$store.commit('user/updateDatas', {...this.$store.state.user.datas, optin: this.user.optin})
+      this.$store.commit('user/updateInfos', {...this.$store.state.user.infos, optin: this.user.optin})
     })
     document.querySelectorAll('input[type="radio"]').forEach((elem) => {
       elem.addEventListener('click', (e) => {
        if(e.target.checked){
-         this.$store.commit('user/updateDatas', {...this.$store.state.user.datas, civ: e.target.value})
-         this.user.civ = this.$store.state.user.datas.civ;
+         this.$store.commit('user/updateInfos', {...this.$store.state.user.infos, civ: e.target.value})
+         this.user.civ = this.$store.state.user.infos.civ;
        }
       })
     })
@@ -165,55 +165,9 @@ export default {
     this.checkFields();
     },
   methods: {
-    /* withPopper(dropdownList, component, { width }) {
-      /!**
-       * We need to explicitly define the dropdown width since
-       * it is usually inherited from the parent with CSS.
-       *!/
-      dropdownList.style.width = width
-
-      /!**
-       * Here we position the dropdownList relative to the $refs.toggle Element.
-       *
-       * The 'offset' modifier aligns the dropdown so that the $refs.toggle and
-       * the dropdownList overlap by 1 pixel.
-       *
-       * The 'toggleClass' modifier adds a 'drop-up' class to the Vue Select
-       * wrapper so that we can set some styles for when the dropdown is placed
-       * above.
-       *!/
-      const popper = createPopper(component.$refs.toggle, dropdownList, {
-        placement: this.placement,
-        modifiers: [
-          {
-            name: 'offset',
-            options: {
-              offset: [0, -1],
-            },
-          },
-          {
-            name: 'toggleClass',
-            enabled: true,
-            phase: 'write',
-            fn({ state }) {
-              component.$el.classList.toggle(
-                'drop-up',
-                state.placement === 'bottom'
-              )
-            },
-          },
-        ],
-      })
-
-      /!**
-       * To prevent memory leaks Popper needs to be destroyed.
-       * If you return function, it will be called just before dropdown is removed from DOM.
-       *!/
-      return () => popper.destroy()
-    }, */
     oninput(value){
       this.user.concession= value;
-      this.$store.commit('user/updateDatas', {...this.$store.state.user.datas, concession:value})
+      this.$store.commit('user/updateInfos', {...this.$store.state.user.infos, concession:value})
       this.checkFields()
 
     },
@@ -266,8 +220,7 @@ export default {
             document.querySelector('#' + id).before(error);
           })
         }
-    }
-    ,
+    },
     checkTop3Cars(){
       this.$store.commit('top3/initTop3', {ev: 0, phev: 0, hev: 0})
       const kmByDay = this.$store.state.user.conduite.kmByDay;
@@ -500,22 +453,20 @@ export default {
        if(this.checkFields()){
         console.log('all Fields are OK', this.user);
 
-        this.$store.commit('user/updateDatas', {...this.$store.state.user, datas: this.user })
+
+        this.$store.commit('user/updateInfos', this.user)
         this.checkTop3Cars();
         this.$router.push('/vos-modeles')
+        console.log(this.$store.state.user.infos)
 
         // console.log(this.register);
-        /*  this.$axios.$post('/auth/register', this.register).then(
+         this.$axios.$post('/webservice/rest/kia/lp_niro_2022.php?step=1', this.user).then(
           (res) => {
-            // console.log(res);
-            if(res==='already registered'){
-              this.showMessageAlreadyRegistered = true;
-            } else {
-              this.$router.push('/');
-            }
+            console.log(res);
+            this.$store.commit('user/updateId', res.id);
           },
           (err) => console.log(err)
-        );  */
+        );
       } else {
          console.log('all Fields are not OK');
       };
@@ -599,7 +550,6 @@ export default {
   font-size: 13px !important;
   font-family: "Kia Signature Fix Light", serif !important;
 }
-
 
 .form {
   margin-top: 20px;

@@ -7,25 +7,47 @@
         <svg id="demo" xmlns="http://www.w3.org/2000/svg" width="100%" :height="windowHeight-145" >
           <defs>
             <mask id="theMaskTop1" maskUnits="userSpaceOnUse">
-              <rect class="rectTop1" fill="white" :x="(myWidth*0)-(myWidth/2)" :y="(myWidth/4)-(myWidth)" :width="(myWidth)" :height="myWidth*2" />
+              <!--rect class="rectTop1" fill="white" :x="(myWidth*0)-(myWidth/2)" :y="(myWidth/4)-(myWidth)" :width="(myWidth)" :height="myWidth*2" /-->
+              <rect class="rectTop1" fill="white" :x="(myWidth * 1/4)-maskWidth/2" :y="(myWidth/4)-maskHeight/2" :width="maskWidth" :height="maskHeight" />
             </mask>
             <mask id="theMaskTop2" maskUnits="userSpaceOnUse">
-              <rect class="rectTop2" fill="white" :x="(myWidth*1)-(myWidth/2)" :y="(myWidth/4)-(myWidth)" :width="(myWidth)" :height="myWidth*2" />
+              <!--rect class="rectTop2" fill="white" :x="(myWidth*1)-(myWidth/2)" :y="(myWidth/4)-(myWidth)" :width="(myWidth)" :height="myWidth*2" /-->
+              <rect class="rectTop2" fill="white" :x="(myWidth * 3/4)-maskWidth/2" :y="(myWidth/4)-maskHeight/2" :width="maskWidth" :height="maskHeight" />
             </mask>
           </defs>
-          <g id="maskRevealTop1" class="visuel" mask="url(#theMaskTop1)">
-            <image :xlink:href="imageSourceTop1" x="0" y="0" :height="windowHeight-145" />
-            <text text-anchor="start" class="line1" x="50">{{ texts[getTop(1)].line1 }}</text>
-            <text text-anchor="start" class="line2" x="50">{{ texts[getTop(1)].line2 }}</text>
-            <text text-anchor="start" class="line3" x="50">{{ texts[getTop(1)].line3 }}</text>
-          </g>
+
           <g id="maskRevealTop2" class="visuel" mask="url(#theMaskTop2)">
-            <image :xlink:href="imageSourceTop2" :x="windowWidth-((windowHeight-145)*2)" y="0" :height="windowHeight-145" />
-            <text text-anchor="end" class="line1" :x="windowWidth-50">{{ texts[getTop(2)].line1 }}</text>
-            <text text-anchor="end" class="line2" :x="windowWidth-50">{{ texts[getTop(2)].line2 }}</text>
-            <text text-anchor="end" class="line3" :x="windowWidth-50">{{ texts[getTop(2)].line3 }}</text>
+            <image :xlink:href="imageSourceTop2" class="image2" :x="windowWidth-((windowHeight-145)*2)" y="0" :height="windowHeight-145" />
+            <text text-anchor="end" class="line1" :x="windowWidth-30">{{ texts[getTop(2)].line1 }}</text>
+            <text text-anchor="end" class="line2" :x="windowWidth-30">{{ texts[getTop(2)].line2 }}</text>
+            <text text-anchor="end" class="line3" :x="windowWidth-30">{{ texts[getTop(2)].line3 }}</text>
+          </g>
+          <g id="maskRevealTop1" class="visuel" mask="url(#theMaskTop1)">
+            <image :xlink:href="imageSourceTop1" class="image1" x="0" y="0" :height="windowHeight-145" />
+            <text text-anchor="start" class="line1" x="30">{{ texts[getTop(1)].line1 }}</text>
+            <text text-anchor="start" class="line2" x="30">{{ texts[getTop(1)].line2 }}</text>
+            <text text-anchor="start" class="line3" x="30">{{ texts[getTop(1)].line3 }}</text>
           </g>
         </svg>
+        <div class="mobile">
+
+          <div :style="{backgroundImage: `url(${imageSourceTop1})`}" class="imagemobile1">
+            <div class="text">
+              <div class="line1">{{texts[getTop(1)].line1}}</div>
+              <div class="line2">{{texts[getTop(1)].line2}}</div>
+              <div class="line3">{{texts[getTop(1)].line3}}</div>
+            </div>
+
+          </div>
+          <div :style="{backgroundImage: `url(${imageSourceTop2})`}" class="imagemobile2">
+            <div class="text">
+              <div class="line1">{{texts[getTop(2)].line1}}</div>
+              <div class="line2">{{texts[getTop(2)].line2}}</div>
+              <div class="line3">{{texts[getTop(2)].line3}}</div>
+            </div>
+
+          </div>
+        </div>
         <NuxtLink to="/affinez-votre-choix" class="cta discover">Découvrez pourquoi et affinez votre choix</NuxtLink>
       </div>
     </div>
@@ -38,11 +60,13 @@ import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 import EventBus from "assets/js/utils/event-bus";
 
 gsap.registerPlugin(DrawSVGPlugin);
-const angle = -20;
-
 export default {
   data: () => {
       return {
+        maskWidth: window.innerWidth/2 + window.innerWidth* Math.sin(10*Math.PI/180)/2,
+        maskHeight: 5000,
+        ratioLimit:1.4,
+        angle: -10,
         windowWidth: window.innerWidth,
         windowHeight: window.innerHeight,
         texts:{
@@ -88,18 +112,19 @@ export default {
     this.resize()
     window.addEventListener('resize', this.resize)
 
-
-
     this.$store.commit('setTwoCars', this.getSortedKeys(this.$store.state.top3).slice(0, 2))
 
   },
+
   methods:{
 
     resize(){
-
       this.windowWidth = window.innerWidth;
       this.windowHeight = window.innerHeight;
 
+      this.maskWidth = window.innerWidth/2 + window.innerWidth* Math.sin(10*Math.PI/180)/2
+
+      this.startReveal()
       const svg = document.querySelector('.tops svg').getBoundingClientRect()
       //
       gsap.set('#maskRevealTop1 .line1', {y:this.windowHeight - 280})
@@ -111,6 +136,8 @@ export default {
       gsap.set('#maskRevealTop2 .line3', {y: 150})
 
     },
+
+
     getTop(n){
       if(!this.$route.query.top1) {
         const arr = this.$store.state.top3;
@@ -142,27 +169,44 @@ export default {
       // const svg = document.querySelector('.tops svg').getBoundingClientRect()
       gsap.to('.reveal-anim', {opacity:1, duration:1})
 
-      gsap.set('#maskRevealTop1 .line1', {y:this.windowHeight - 280, opacity:0, x:"-=100"})
-      gsap.set('#maskRevealTop1 .line2', {y:this.windowHeight - 235, opacity:0, x:"-=100"})
-      gsap.set('#maskRevealTop1 .line3', {y:this.windowHeight - 200, opacity:0})
+      if(this.windowWidth/this.windowHeight > this.ratioLimit){
 
-      gsap.set('#maskRevealTop2 .line1', {y: 70, opacity:0, x:"-=100"})
-      gsap.set('#maskRevealTop2 .line2', {y: 115, opacity:0, x:"-=100"})
-      gsap.set('#maskRevealTop2 .line3', {y: 150, opacity:0})
+        gsap.to('.mobile', {opacity:0, duration:1})
+        gsap.to('#demo', {opacity:1, duration:1})
 
-      gsap.set('.rectTop1', { transformOrigin: 'center center', rotation:0})
-      gsap.to('.rectTop1', {duration:timing, rotation:-angle, ease:Expo.easeOut})
+        gsap.set('#maskRevealTop1 .line1', {y:this.windowHeight - 280, opacity:0, x:"-=100"})
+        gsap.set('#maskRevealTop1 .line2', {y:this.windowHeight - 235, opacity:0, x:"-=100"})
+        gsap.set('#maskRevealTop1 .line3', {y:this.windowHeight - 200, opacity:0})
 
-      gsap.set('.rectTop2', { transformOrigin: 'center center', rotation:0})
-      gsap.to('.rectTop2', {duration:timing, rotation:-angle, ease:Expo.easeOut})
+        gsap.set('#maskRevealTop2 .line1', {y: 70, opacity:0, x:"-=100"})
+        gsap.set('#maskRevealTop2 .line2', {y: 115, opacity:0, x:"-=100"})
+        gsap.set('#maskRevealTop2 .line3', {y: 150, opacity:0})
 
-      gsap.to('#maskRevealTop1 .line1', {opacity:1, x:0, duration:timingTexts, delay:timing-2, ease:Expo.easeOut})
-      gsap.to('#maskRevealTop1 .line2', {opacity:1, x:0, duration:timingTexts, delay:timing-2, ease:Expo.easeOut})
-      gsap.to('#maskRevealTop1 .line3', {opacity:1, duration:timingTexts/2, delay:timing+timingTexts-4, ease:Expo.easeOut})
+        gsap.set('.rectTop1', { transformOrigin: 'center center', rotation:0})
+        if(!gsap.isTweening('.rectTop1')) {
+          const rect1Tween = gsap.to('.rectTop1', {duration: timing, x:(this.windowWidth * 1/4)-this.maskWidth/2, rotation: -this.angle, ease: Expo.easeOut})
+          rect1Tween.play()
+        }
 
-      gsap.to('#maskRevealTop2 .line1', {opacity:1, x:0, duration:timingTexts, delay:timing, ease:Expo.easeOut})
-      gsap.to('#maskRevealTop2 .line2', {opacity:1, x:0, duration:timingTexts, delay:timing, ease:Expo.easeOut})
-      gsap.to('#maskRevealTop2 .line3', {opacity:1, duration:timingTexts/2, delay:timing+timingTexts-4, ease:Expo.easeOut})
+        gsap.set('.rectTop2', { transformOrigin: 'center center', rotation:0})
+        if(!gsap.isTweening('.rectTop2')) {
+          const rect2Tween = gsap.to('.rectTop2', {duration:timing, rotation:-this.angle, ease:Expo.easeOut})
+          rect2Tween.play()
+        }
+
+
+        gsap.to('#maskRevealTop1 .line1', {opacity:1, x:0, duration:timingTexts, delay:timing-2, ease:Expo.easeOut})
+        gsap.to('#maskRevealTop1 .line2', {opacity:1, x:0, duration:timingTexts, delay:timing-2, ease:Expo.easeOut})
+        gsap.to('#maskRevealTop1 .line3', {opacity:1, duration:timingTexts/2, delay:timing+timingTexts-5, ease:Expo.easeOut})
+
+        gsap.to('#maskRevealTop2 .line1', {opacity:1, x:0, duration:timingTexts, delay:timing, ease:Expo.easeOut})
+        gsap.to('#maskRevealTop2 .line2', {opacity:1, x:0, duration:timingTexts, delay:timing, ease:Expo.easeOut})
+        gsap.to('#maskRevealTop2 .line3', {opacity:1, duration:timingTexts/2, delay:timing+timingTexts-4, ease:Expo.easeOut})
+      }else {
+        gsap.to('.mobile', {opacity:1, duration:1})
+        gsap.to('#demo', {opacity:0, duration:1})
+      }
+
     }
   }
 }
@@ -188,7 +232,7 @@ export default {
           position:relative;
           text {
             fill: white;
-            text-shadow: 0 0  20px rgba(0, 0, 0, 0.25);
+            text-shadow: 0 0  10px rgba(0, 0, 0, 0.35);
             &.line1, &.line2 {
               font-size: 40px;
               font-family: "Kia Signature Fix Bold";
@@ -197,6 +241,45 @@ export default {
               font-size: 24px;
               font-family: "Kia Signature Fix Light";
             }
+          }
+        }
+      }
+      .mobile{
+        position:absolute;
+        opacity: 0;
+        width:100%;
+        height:calc(100vh - 140px);
+        left:0;
+        .imagemobile1{
+          position: relative;
+          background-size: cover;
+          background-position: top;
+          height: calc(50%);
+          .text{
+            text-align: right;
+            position: absolute;
+            bottom: 0;
+            right:0;
+          }
+        }
+        .imagemobile2{
+          background-size: cover;
+
+          background-position: bottom;
+          height: calc(50%);
+          .text{ text-align: left;}
+        }
+        .text {
+          color: white;
+          padding: 25px;
+          text-shadow: 0 0  10px rgba(0, 0, 0, 0.35);
+          .line1, .line2 {
+            font-size: 30px;
+            font-family: "Kia Signature Fix Bold";
+          }
+          .line3{
+            font-size: 18px;
+            font-family: "Kia Signature Fix Light";
           }
         }
       }

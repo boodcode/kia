@@ -11,7 +11,7 @@
             :data-car="twoCars[0]"
           >
             <div class="overlay"></div>
-            <NiroCard :q-type="qType" :car="twoCars[0]" />
+            <NiroCard :q-type="qType" :car="twoCars[0]"  />
           </div>
         <div
           v-for="(qType,i) in qTypes" :key="qType + i"
@@ -22,7 +22,7 @@
           :data-car="twoCars[1]"
         >
           <div class="overlay"></div>
-          <NiroCard :q-type="qType" :car="twoCars[1]" />
+          <NiroCard :q-type="qType" :car="twoCars[1]"  />
         </div>
         <div class="slider-slide" data-slide-index="16" data-slide-active=false data-liked=false :data-car="twoCars[0]">
           <div class="overlay"></div>

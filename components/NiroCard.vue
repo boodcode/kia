@@ -1,7 +1,7 @@
 <template>
   <div :id="qType" :class="car" class="nirocard"  >
-    <div :class="`visuel visuel-${car}`">
-      <span style="background-color: black;color:#999 !important;padding:3px 6px;">{{qType}} - {{car}}</span>
+    <div :class="`visuel visuel-${car}`" :style="{backgroundImage: `url(${imageCard})`}">
+      <!--span-- style="background-color: black;color:#999 !important;padding:3px 6px;top:3px;position:relative;">{{car}}-{{qType}}</span-->
     </div>
     <div class="content">
       <div class="picto">
@@ -40,6 +40,9 @@ export default{
   computed:{
     src() {
       return require(`~/assets/images/picto_${this.car}.svg`)
+    },
+    imageCard(){
+      return require(`~/assets/images/cards/${this.car}-${this.qType}.jpg`)
     }
   },
   created(){

@@ -62,7 +62,15 @@ export default {
       gsap.to('.conseiller', {opacity: 1, y:0, delay:8.5, duration:2, ease:Expo.easeOut})
     },
     more(){
-
+      this.$axios.$post('/webservice/rest/kia/lp_niro_2022.php?step=2', {
+        id:this.$store.state.user.id,
+        car:this.car
+      }).then(
+        (res) => {
+          console.log(res);
+        },
+        (err) => console.log(err)
+      );
     }
   }
 }

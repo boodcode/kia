@@ -1,5 +1,6 @@
 export const state = () => ({
-    datas: {
+  id:"",
+  infos: {
       civ: 'M',
       email: '',
       firstname: '',
@@ -10,7 +11,7 @@ export const state = () => ({
       concession: '',
       optin: false
     },
-    conduite: {
+  conduite: {
      kmByDay: 0,
      kmByYear: 0,
      voyagesOver400km: 'Rarement',
@@ -29,10 +30,13 @@ export const state = () => ({
 })
 
 export const mutations = {
-    updateDatas(state, datasData) {
-      state.datas = datasData;
-    },
-    updateConduite(state, conduiteData) {
-      state.conduite = conduiteData;
-    },
-  }
+  updateId(state, value){
+    state.id = value;
+  },
+  updateInfos(state, value) {
+    state.infos = value;
+  },
+  updateConduite(state, value) {
+    state.conduite = value;
+  },
+}
