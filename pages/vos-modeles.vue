@@ -1,6 +1,6 @@
 <template>
   <div class="reveal">
-    <loading time=1></loading>
+    <loading time=3></loading>
     <div class="reveal-anim">
       <h3>2 motorisations sont faites pour vous</h3>
       <div class="tops">
@@ -113,11 +113,9 @@ export default {
     window.addEventListener('resize', this.resize)
 
     this.$store.commit('setTwoCars', this.getSortedKeys(this.$store.state.top3).slice(0, 2))
-
   },
 
   methods:{
-
     resize(){
       this.windowWidth = window.innerWidth;
       this.windowHeight = window.innerHeight;
@@ -136,8 +134,6 @@ export default {
       gsap.set('#maskRevealTop2 .line3', {y: 150})
 
     },
-
-
     getTop(n){
       if(!this.$route.query.top1) {
         const arr = this.$store.state.top3;
