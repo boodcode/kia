@@ -76,9 +76,6 @@
 </template>
 <script>
 import gsap, {Expo} from "gsap";
-// import { createPopper } from '@popperjs/core'
-import dealers from '~/assets/json/dealers'
-
 export default {
   components: {
   },
@@ -88,7 +85,7 @@ export default {
       subtitle: 'Nous avons besoin d’en savoir un peu plus',
       checkForm: false,
       fieldsOK:0,
-      dealersListe: dealers,
+      dealersListe: [],
       civs:[
         {
           label:"Monsieur",
@@ -122,13 +119,19 @@ export default {
     this.$nuxt.$on('RADIO_CHECKED', (v)=> {
       this.$store.commit('user/updateInfos', {...this.$store.state.user.infos, civ:v})
     })
+    fetch('/dealers.json')
+      .then(r => r.json())
+      .then(json => {
+        this.dealersListe = json
+        this.dealersListe.map(function(d) {
+          d.label = (d.dealer_postcode).toString().substring(0,2) +' — '+ (d.dealer_residence).toUpperCase();
+          return d;
+        })
+      })
   },
   mounted() {
     this.user.civ = this.$store.state.user.infos.civ;
-    this.dealersListe.map(function(d) {
-      d.label = (d.dealer_postcode).toString().substring(0,2) +' — '+ (d.dealer_residence).toUpperCase();
-      return d;
-    })
+
     document.querySelector('input[type="checkbox"]').addEventListener('click', (e)=>{
       if(e.target.checked === true || e.target.checked === "checked") {
         e.target.checked = "checked";
@@ -155,10 +158,6 @@ export default {
         gsap.to(desc, {opacity:1, duration:0.5})
       })
     })
-    /* document.querySelector('select').addEventListener('change', (e)=>{
-      const desc  = e.target.closest('span').querySelector('.desc')
-      gsap.to(desc, {opacity:1, duration:0.5})
-    }) */
   },
   updated() {
     console.log('updated')
@@ -451,16 +450,26 @@ export default {
       this.checkTop3Cars();
 
        if(this.checkFields()){
-        console.log('all Fields are OK', this.user);
+        // console.log('all Fields are OK', this.user);
 
 
         this.$store.commit('user/updateInfos', this.user)
         this.checkTop3Cars();
         this.$router.push('/vos-modeles')
-        console.log(this.$store.state.user.infos)
 
-        // console.log(this.register);
-         this.$axios.$post('/webservice/rest/kia/lp_niro_2022.php?step=1', this.user).then(
+         const bestCarModel = this.getSortedKeys(this.$store.state.top3).slice(0, 1)[0]
+         let best=''
+         if(bestCarModel === 'ev'){ best = 'NIRO HEV (SG2)'}
+         else if(bestCarModel === 'phev'){ best = 'NIRO PHEV (SG2)'}
+         else if(bestCarModel === 'phev'){ best = 'NIRO EV (SG2 EV)'}
+
+         // console.log({ model: best, userInfos : this.user, userDatas : this.$store.state.user.conduite, source:  this.$store.state.source });
+         this.$axios.$post('/webservice/rest/kia/lp_niro_2022.php?step=1', {
+           model: best,
+           userInfos : this.user,
+           userPrefs : this.$store.state.user.conduite,
+           source:  this.$store.state.source
+         }).then(
           (res) => {
             console.log(res);
             this.$store.commit('user/updateId', res.id);
@@ -475,6 +484,22 @@ export default {
       const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(String(this.user.email).toLowerCase());
     },
+    getSortedKeys(obj) {
+      // console.log(obj)
+      const keys = Object.keys(obj);
+      const arr =  keys.sort(function(a,b){return obj[b]-obj[a]})
+      if(arr[1]==='ev' && (arr[0] === 'phev' || arr[0]==='hev')){
+        const arr1 = arr[0];
+        arr[0] = 'ev';
+        arr[1] = arr1;
+      }
+      if(arr[0]==='hev' && arr[1] === 'phev'){
+        arr[0] = 'phev';
+        arr[1] = 'hev';
+      }
+      // console.log(arr)
+      return arr;
+    }
   }
 }
 </script>

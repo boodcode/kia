@@ -20,7 +20,12 @@ export default {
   },
   mounted() {
    iNoBounce.enable();
+   if(this.$route.query.source){
+     this.$store.commit('setSource', this.$route.query.source)
+   }
   }
+
+
 }
 </script>
 <style lang="scss">

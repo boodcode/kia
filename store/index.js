@@ -5,10 +5,14 @@ export const state = () => ({
   evLikes:0,
   phevLikes:0,
   hevLikes:0,
-  thematch:'hev'
+  thematch:'hev',
+  source: 'undefined'
 })
 
 export const mutations = {
+  setSource(state, val){
+    state.source = val;
+  },
   increment(state) {
     state.activeStep++
   },

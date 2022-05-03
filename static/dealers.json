@@ -1,10 +1,24 @@
 [
   {
+    "dealer_internalid": "FR012",
+    "dealer_postcode": "01100",
+    "dealer_residence": "OYONNAX",
+    "dealer_longitude": 5.64178099999999,
+    "dealer_latitude": 46.251634
+  },
+  {
     "dealer_internalid": "FR014",
     "dealer_postcode": "01200",
     "dealer_residence": "CHATILLON EN MICHAILLE",
     "dealer_longitude": 5.79386,
     "dealer_latitude": 46.129414
+  },
+  {
+    "dealer_internalid": "FR017",
+    "dealer_postcode": "01220",
+    "dealer_residence": "SAUVERNY",
+    "dealer_longitude": 6.10685348510742,
+    "dealer_latitude": 46.3153096265664
   },
   {
     "dealer_internalid": "FR010",
@@ -14,6 +28,41 @@
     "dealer_latitude": 46.1868448
   },
   {
+    "dealer_internalid": "FR020",
+    "dealer_postcode": "02000",
+    "dealer_residence": "LAON",
+    "dealer_longitude": 3.653448,
+    "dealer_latitude": 49.578358
+  },
+  {
+    "dealer_internalid": "FR024",
+    "dealer_postcode": "02100",
+    "dealer_residence": "SAINT QUENTIN",
+    "dealer_longitude": 3.306885,
+    "dealer_latitude": 49.95122
+  },
+  {
+    "dealer_internalid": "FR025",
+    "dealer_postcode": "02200",
+    "dealer_residence": "SOISSONS",
+    "dealer_longitude": 3.34095760000002,
+    "dealer_latitude": 49.3717732999999
+  },
+  {
+    "dealer_internalid": "FR031",
+    "dealer_postcode": "03110",
+    "dealer_residence": "CHARMEIL",
+    "dealer_longitude": 3.39345,
+    "dealer_latitude": 46.15314
+  },
+  {
+    "dealer_internalid": "FR040",
+    "dealer_postcode": "04100",
+    "dealer_residence": "MANOSQUE",
+    "dealer_longitude": 5.787229,
+    "dealer_latitude": 43.826754
+  },
+  {
     "dealer_internalid": "FR055",
     "dealer_postcode": "05000",
     "dealer_residence": "GAP",
@@ -21,25 +70,46 @@
     "dealer_latitude": 44.5666
   },
   {
+    "dealer_internalid": "FR056",
+    "dealer_postcode": "05100",
+    "dealer_residence": "Briançon",
+    "dealer_longitude": 6.627738000000022,
+    "dealer_latitude": 44.883573
+  },
+  {
+    "dealer_internalid": "FR063",
+    "dealer_postcode": "06110",
+    "dealer_residence": "LE CANNET",
+    "dealer_longitude": 7.01194369999996,
+    "dealer_latitude": 43.5784789
+  },
+  {
     "dealer_internalid": "FR069",
     "dealer_postcode": "06200",
-    "dealer_residence": "NICE",
+    "dealer_residence": "NICE Ouest",
     "dealer_longitude": 7.20333,
     "dealer_latitude": 43.6716
   },
   {
     "dealer_internalid": "FR053",
     "dealer_postcode": "06300",
-    "dealer_residence": "NICE",
+    "dealer_residence": "NICE Centre",
     "dealer_longitude": 7.291989999999942,
     "dealer_latitude": 43.7067
   },
   {
-    "dealer_internalid": "FR979",
+    "dealer_internalid": "FR981",
     "dealer_postcode": "06500",
     "dealer_residence": "MENTON",
     "dealer_longitude": 7.507267,
     "dealer_latitude": 43.775231
+  },
+  {
+    "dealer_internalid": "FR072",
+    "dealer_postcode": "07200",
+    "dealer_residence": "AUBENAS",
+    "dealer_longitude": 4.4041784,
+    "dealer_latitude": 44.617733
   },
   {
     "dealer_internalid": "FR081",
@@ -49,1445 +119,1494 @@
     "dealer_latitude": 49.73869
   },
   {
+    "dealer_internalid": "FR090",
+    "dealer_postcode": "09100",
+    "dealer_residence": "PAMIERS",
+    "dealer_longitude": 1.630955,
+    "dealer_latitude": 43.110257
+  },
+  {
     "dealer_internalid": "FR100",
-    "dealer_postcode": 10600,
+    "dealer_postcode":"10600",
     "dealer_residence": "BARBEREY SAINT SULPICE",
     "dealer_longitude": 4.023142,
     "dealer_latitude": 48.329935
   },
   {
-    "dealer_internalid": "FR012",
-    "dealer_postcode": 1100,
-    "dealer_residence": "OYONNAX",
-    "dealer_longitude": 5.64178099999999,
-    "dealer_latitude": 46.251634
-  },
-  {
     "dealer_internalid": "FR112",
-    "dealer_postcode": 11000,
+    "dealer_postcode":"11000",
     "dealer_residence": "CARCASSONNE",
     "dealer_longitude": 2.303778,
     "dealer_latitude": 43.206869
   },
   {
     "dealer_internalid": "FR111",
-    "dealer_postcode": 11100,
+    "dealer_postcode":"11100",
     "dealer_residence": "NARBONNE",
     "dealer_longitude": 3.031089,
     "dealer_latitude": 43.180443
   },
   {
     "dealer_internalid": "FR122",
-    "dealer_postcode": 12000,
+    "dealer_postcode":"12000",
     "dealer_residence": "RODEZ",
     "dealer_longitude": 2.545019,
     "dealer_latitude": 44.373901
   },
   {
-    "dealer_internalid": "FR017",
-    "dealer_postcode": 1220,
-    "dealer_residence": "SAUVERNY",
-    "dealer_longitude": 6.10685348510742,
-    "dealer_latitude": 46.3153096265664
-  },
-  {
     "dealer_internalid": "FR134",
-    "dealer_postcode": 13010,
+    "dealer_postcode":"13010",
     "dealer_residence": "MARSEILLE",
     "dealer_longitude": 5.399047,
     "dealer_latitude": 43.277661
   },
   {
     "dealer_internalid": "FR138",
-    "dealer_postcode": 13090,
+    "dealer_postcode":"13090",
     "dealer_residence": "AIX EN PROVENCE",
     "dealer_longitude": 5.406486,
     "dealer_latitude": 43.507838
   },
   {
     "dealer_internalid": "FR113",
-    "dealer_postcode": 13127,
+    "dealer_postcode":"13127",
     "dealer_residence": "VITROLLES",
     "dealer_longitude": 5.25297060000002,
     "dealer_latitude": 43.4256866
   },
   {
     "dealer_internalid": "FR135",
-    "dealer_postcode": 13200,
+    "dealer_postcode":"13200",
     "dealer_residence": "ARLES",
     "dealer_longitude": 4.641482,
     "dealer_latitude": 43.664621
   },
   {
     "dealer_internalid": "FR128",
-    "dealer_postcode": 13300,
+    "dealer_postcode":"13300",
     "dealer_residence": "SALON DE PROVENCE",
     "dealer_longitude": 5.080426,
     "dealer_latitude": 43.636122
   },
   {
     "dealer_internalid": "FR126",
-    "dealer_postcode": 13400,
+    "dealer_postcode":"13400",
     "dealer_residence": "AUBAGNE",
     "dealer_longitude": 5.604808,
     "dealer_latitude": 43.283704
   },
   {
     "dealer_internalid": "FR129",
-    "dealer_postcode": 13800,
+    "dealer_postcode":"13800",
     "dealer_residence": "ISTRES",
     "dealer_longitude": 4.979596,
     "dealer_latitude": 43.498044
   },
   {
     "dealer_internalid": "FR145",
-    "dealer_postcode": 14100,
+    "dealer_postcode":"14100",
     "dealer_residence": "LISIEUX",
     "dealer_longitude": 0.222975,
     "dealer_latitude": 49.156899
   },
   {
     "dealer_internalid": "FR144",
-    "dealer_postcode": 14200,
+    "dealer_postcode":"14200",
     "dealer_residence": "HEROUVILLE SAINT CLAIR",
     "dealer_longitude": -0.346007999999999,
     "dealer_latitude": 49.213495
   },
   {
     "dealer_internalid": "FR152",
-    "dealer_postcode": 15000,
+    "dealer_postcode":"15000",
     "dealer_residence": "AURILLAC",
     "dealer_longitude": 2.45588,
     "dealer_latitude": 44.913297
   },
   {
     "dealer_internalid": "FR163",
-    "dealer_postcode": 16430,
+    "dealer_postcode":"16430",
     "dealer_residence": "CHAMPNIERS",
     "dealer_longitude": 0.173625,
     "dealer_latitude": 45.689544
   },
   {
     "dealer_internalid": "FR176",
-    "dealer_postcode": 17100,
+    "dealer_postcode":"17100",
     "dealer_residence": "SAINTES",
     "dealer_longitude": -0.6577700000000277,
     "dealer_latitude": 45.7406
   },
   {
     "dealer_internalid": "FR171",
-    "dealer_postcode": 17138,
+    "dealer_postcode":"17138",
     "dealer_residence": "PUILBOREAU",
     "dealer_longitude": -1.1000728000000208,
     "dealer_latitude": 46.17935629999999
   },
   {
     "dealer_internalid": "FR174",
-    "dealer_postcode": 17430,
+    "dealer_postcode":"17430",
     "dealer_residence": "TONNAY CHARENTE",
     "dealer_longitude": -0.930791,
     "dealer_latitude": 45.960041
   },
   {
     "dealer_internalid": "FR181",
-    "dealer_postcode": 18000,
+    "dealer_postcode":"18000",
     "dealer_residence": "BOURGES",
     "dealer_longitude": 2.439825,
     "dealer_latitude": 47.083747
   },
   {
     "dealer_internalid": "FR180",
-    "dealer_postcode": 18100,
+    "dealer_postcode":"18100",
     "dealer_residence": "Vierzon",
     "dealer_longitude": 2.073812,
     "dealer_latitude": 47.204231
   },
   {
     "dealer_internalid": "FR190",
-    "dealer_postcode": 19000,
+    "dealer_postcode":"19000",
     "dealer_residence": "Tulle",
     "dealer_longitude": 1.73933,
     "dealer_latitude": 45.24036
   },
   {
     "dealer_internalid": "FR194",
-    "dealer_postcode": 19100,
+    "dealer_postcode":"19100",
     "dealer_residence": "BRIVE LA GAILLARDE",
     "dealer_longitude": 1.476716,
     "dealer_latitude": 45.14026
   },
   {
-    "dealer_internalid": "FR020",
-    "dealer_postcode": 2000,
-    "dealer_residence": "LAON",
-    "dealer_longitude": 3.653448,
-    "dealer_latitude": 49.578358
-  },
-  {
     "dealer_internalid": "FR205",
-    "dealer_postcode": 20186,
+    "dealer_postcode":"20186",
     "dealer_residence": "AJACCIO",
     "dealer_longitude": 8.771124,
     "dealer_latitude": 41.950011
   },
   {
     "dealer_internalid": "FR207",
-    "dealer_postcode": 20600,
+    "dealer_postcode":"20600",
     "dealer_residence": "FURIANI",
     "dealer_longitude": 9.41585599999999,
     "dealer_latitude": 42.658414
   },
   {
-    "dealer_internalid": "FR024",
-    "dealer_postcode": 2100,
-    "dealer_residence": "SAINT QUENTIN",
-    "dealer_longitude": 3.306885,
-    "dealer_latitude": 49.95122
-  },
-  {
     "dealer_internalid": "FR212",
-    "dealer_postcode": 21300,
+    "dealer_postcode":"21300",
     "dealer_residence": "CHENÔVE",
     "dealer_longitude": 5.016499999999951,
     "dealer_latitude": 47.2843
   },
   {
-    "dealer_internalid": "FR025",
-    "dealer_postcode": 2200,
-    "dealer_residence": "SOISSONS",
-    "dealer_longitude": 3.34095760000002,
-    "dealer_latitude": 49.3717732999999
-  },
-  {
     "dealer_internalid": "FR220",
-    "dealer_postcode": 22120,
+    "dealer_postcode":"22120",
     "dealer_residence": "YFFINIAC",
     "dealer_longitude": -2.67309,
     "dealer_latitude": 48.47891
   },
   {
     "dealer_internalid": "FR221",
-    "dealer_postcode": 22300,
+    "dealer_postcode":"22300",
     "dealer_residence": "Lannion",
     "dealer_longitude": -3.44902,
     "dealer_latitude": 48.77565
   },
   {
     "dealer_internalid": "FR234",
-    "dealer_postcode": 23000,
+    "dealer_postcode":"23000",
     "dealer_residence": "GUERET",
     "dealer_longitude": 1.880376,
     "dealer_latitude": 46.184195
   },
   {
     "dealer_internalid": "FR241",
-    "dealer_postcode": 24000,
+    "dealer_postcode":"24000",
     "dealer_residence": "PERIGUEUX",
     "dealer_longitude": 0.746427,
     "dealer_latitude": 45.180297
   },
   {
     "dealer_internalid": "FR243",
-    "dealer_postcode": 24100,
+    "dealer_postcode":"24100",
     "dealer_residence": "SAINT LAURENT DES VIGNES",
     "dealer_longitude": 0.447264,
     "dealer_latitude": 44.834204
   },
   {
     "dealer_internalid": "FR242",
-    "dealer_postcode": 24230,
+    "dealer_postcode":"24230",
     "dealer_residence": "VELINES",
     "dealer_longitude": 0.103426,
     "dealer_latitude": 44.852279
   },
   {
     "dealer_internalid": "FR256",
-    "dealer_postcode": 25000,
+    "dealer_postcode":"25000",
     "dealer_residence": "Besançon",
     "dealer_longitude": 5.9929165,
     "dealer_latitude": 47.2415727
   },
   {
     "dealer_internalid": "FR257",
-    "dealer_postcode": 25300,
+    "dealer_postcode":"25300",
     "dealer_residence": "PONTARLIER",
     "dealer_longitude": 6.332824,
     "dealer_latitude": 46.907738
   },
   {
     "dealer_internalid": "FR260",
-    "dealer_postcode": 26000,
+    "dealer_postcode":"26000",
     "dealer_residence": "VALENCE",
     "dealer_longitude": 4.917746,
     "dealer_latitude": 44.94188
   },
   {
     "dealer_internalid": "FR264",
-    "dealer_postcode": 26100,
+    "dealer_postcode":"26100",
     "dealer_residence": "ROMANS",
     "dealer_longitude": 5.080284,
     "dealer_latitude": 45.050981
   },
   {
     "dealer_internalid": "FR262",
-    "dealer_postcode": 26200,
+    "dealer_postcode":"26200",
     "dealer_residence": "MONTELIMAR",
     "dealer_longitude": 4.73168810000004,
     "dealer_latitude": 44.5403788
   },
   {
     "dealer_internalid": "FR272",
-    "dealer_postcode": 27000,
+    "dealer_postcode":"27000",
     "dealer_residence": "EVREUX",
     "dealer_longitude": 1.185207,
     "dealer_latitude": 49.022262
   },
   {
     "dealer_internalid": "FR285",
-    "dealer_postcode": 28500,
+    "dealer_postcode":"28500",
     "dealer_residence": "VERNOUILLET",
     "dealer_longitude": 1.372003,
     "dealer_latitude": 48.718849
   },
   {
     "dealer_internalid": "FR286",
-    "dealer_postcode": 28630,
+    "dealer_postcode":"28630",
     "dealer_residence": "NOGENT LE PHAYE",
     "dealer_longitude": 1.548702,
     "dealer_latitude": 48.455588
   },
   {
     "dealer_internalid": "FR298",
-    "dealer_postcode": 29000,
+    "dealer_postcode":"29000",
     "dealer_residence": "QUIMPER",
     "dealer_longitude": -4.0380401611328125,
     "dealer_latitude": 47.98121643066406
   },
   {
     "dealer_internalid": "FR297",
-    "dealer_postcode": 29200,
+    "dealer_postcode":"29200",
     "dealer_residence": "BREST",
     "dealer_longitude": -4.4680384,
     "dealer_latitude": 48.4158513
   },
   {
     "dealer_internalid": "FR301",
-    "dealer_postcode": 30100,
+    "dealer_postcode":"30100",
     "dealer_residence": "ALES",
     "dealer_longitude": 4.09636,
     "dealer_latitude": 44.13799
   },
   {
     "dealer_internalid": "FR300",
-    "dealer_postcode": 30900,
+    "dealer_postcode":"30900",
     "dealer_residence": "NIMES",
     "dealer_longitude": 4.337583,
     "dealer_latitude": 43.814758
   },
   {
-    "dealer_internalid": "FR031",
-    "dealer_postcode": 3110,
-    "dealer_residence": "CHARMEIL",
-    "dealer_longitude": 3.39345,
-    "dealer_latitude": 46.15314
-  },
-  {
     "dealer_internalid": "FR305",
-    "dealer_postcode": 31200,
+    "dealer_postcode":"31200",
     "dealer_residence": "TOULOUSE",
     "dealer_longitude": 1.43036989999995,
     "dealer_latitude": 43.6350984999999
   },
   {
     "dealer_internalid": "FR307",
-    "dealer_postcode": 31400,
-    "dealer_residence": "Toulouse",
+    "dealer_postcode":"31400",
+    "dealer_residence": "TOULOUSE Labège",
     "dealer_longitude": 1.4986461,
     "dealer_latitude": 43.5700357
   },
   {
     "dealer_internalid": "FR315",
-    "dealer_postcode": 31520,
+    "dealer_postcode":"31520",
     "dealer_residence": "RAMONVILLE",
     "dealer_longitude": 1.47871899999999,
     "dealer_latitude": 43.552311
   },
   {
     "dealer_internalid": "FR306",
-    "dealer_postcode": 31600,
+    "dealer_postcode":"31600",
     "dealer_residence": "MURET",
     "dealer_longitude": 1.33203930000001,
     "dealer_latitude": 43.4761717
   },
   {
     "dealer_internalid": "FR322",
-    "dealer_postcode": 32000,
+    "dealer_postcode":"32000",
     "dealer_residence": "AUCH",
     "dealer_longitude": 0.602875,
     "dealer_latitude": 43.668989
   },
   {
     "dealer_internalid": "FR334",
-    "dealer_postcode": 33210,
+    "dealer_postcode":"33210",
     "dealer_residence": "LANGON",
     "dealer_longitude": -0.266969,
     "dealer_latitude": 44.560767
   },
   {
     "dealer_internalid": "FR331",
-    "dealer_postcode": 33260,
+    "dealer_postcode":"33260",
     "dealer_residence": "LA TESTE DE BUCH",
     "dealer_longitude": -1.1307792,
     "dealer_latitude": 44.6370902
   },
   {
     "dealer_internalid": "FR330",
-    "dealer_postcode": 33500,
+    "dealer_postcode":"33500",
     "dealer_residence": "Libourne",
     "dealer_longitude": -0.23434437811374664,
     "dealer_latitude": 44.93842697143555
   },
   {
     "dealer_internalid": "FR333",
-    "dealer_postcode": 33520,
+    "dealer_postcode":"33520",
     "dealer_residence": "BRUGES",
     "dealer_longitude": -0.610264999999999,
     "dealer_latitude": 44.8877659999999
   },
   {
     "dealer_internalid": "FR339",
-    "dealer_postcode": 33863,
+    "dealer_postcode":"33863",
     "dealer_residence": "VILLENAVE D'ORNON",
     "dealer_longitude": -0.568371,
     "dealer_latitude": 44.797185
   },
   {
     "dealer_internalid": "FR346",
-    "dealer_postcode": 34070,
+    "dealer_postcode":"34070",
     "dealer_residence": "MONTPELLIER",
     "dealer_longitude": 3.865099999999984,
     "dealer_latitude": 43.5811
   },
   {
     "dealer_internalid": "FR347",
-    "dealer_postcode": 34170,
+    "dealer_postcode":"34170",
     "dealer_residence": "CASTELNAU LE LEZ",
     "dealer_longitude": 3.928030000000035,
     "dealer_latitude": 43.6374
   },
   {
     "dealer_internalid": "FR348",
-    "dealer_postcode": 34200,
+    "dealer_postcode":"34200",
     "dealer_residence": "Sète",
     "dealer_longitude": 3.718719,
     "dealer_latitude": 43.4209
   },
   {
     "dealer_internalid": "FR349",
-    "dealer_postcode": 34500,
+    "dealer_postcode":"34500",
     "dealer_residence": "Béziers",
     "dealer_longitude": 3.21579500000007,
     "dealer_latitude": 43.344233
   },
   {
     "dealer_internalid": "FR351",
-    "dealer_postcode": 35400,
+    "dealer_postcode":"35400",
     "dealer_residence": "SAINT-MALO",
     "dealer_longitude": -1.992141,
     "dealer_latitude": 48.62208
   },
   {
     "dealer_internalid": "FR350",
-    "dealer_postcode": 35510,
+    "dealer_postcode":"35510",
     "dealer_residence": "CESSON SEVIGNE",
     "dealer_longitude": -1.66930149999996,
     "dealer_latitude": 48.1123288
   },
   {
     "dealer_internalid": "FR352",
-    "dealer_postcode": 35760,
+    "dealer_postcode":"35760",
     "dealer_residence": "Saint-Gregoire",
     "dealer_longitude": -1.68926,
     "dealer_latitude": 48.13519
   },
   {
     "dealer_internalid": "FR361",
-    "dealer_postcode": 36130,
+    "dealer_postcode":"36130",
     "dealer_residence": "Déols (Châteauroux)",
     "dealer_longitude": 1.706291,
     "dealer_latitude": 46.851534
   },
   {
+    "dealer_internalid": "FR371",
+    "dealer_postcode":"37170",
+    "dealer_residence": "Chambray les Tours",
+    "dealer_longitude": 0.70334,
+    "dealer_latitude": 47.33049
+  },
+  {
     "dealer_internalid": "FR375",
-    "dealer_postcode": 37540,
+    "dealer_postcode":"37540",
     "dealer_residence": "SAINT-CYR-SUR-LOIRE",
     "dealer_longitude": 0.66755,
     "dealer_latitude": 47.43062
   },
   {
     "dealer_internalid": "FR381",
-    "dealer_postcode": 38130,
+    "dealer_postcode":"38130",
     "dealer_residence": "Seyssinet-Pariset",
     "dealer_longitude": 5.6925939,
     "dealer_latitude": 45.1786132
   },
   {
     "dealer_internalid": "FR382",
-    "dealer_postcode": 38200,
+    "dealer_postcode":"38200",
     "dealer_residence": "VIENNE",
     "dealer_longitude": 4.862162,
     "dealer_latitude": 45.539547
   },
   {
     "dealer_internalid": "FR385",
-    "dealer_postcode": 38300,
+    "dealer_postcode":"38300",
     "dealer_residence": "BOURGOIN JALLIEU",
     "dealer_longitude": 5.238608,
     "dealer_latitude": 45.595002
   },
   {
     "dealer_internalid": "FR391",
-    "dealer_postcode": 39000,
+    "dealer_postcode":"39000",
     "dealer_residence": "LONS LE SAUNIER",
     "dealer_longitude": 5.576098,
     "dealer_latitude": 46.67799
   },
   {
     "dealer_internalid": "FR392",
-    "dealer_postcode": 39300,
+    "dealer_postcode":"39300",
     "dealer_residence": "EQUEVILLON",
     "dealer_longitude": 5.945749,
     "dealer_latitude": 46.757034
   },
   {
     "dealer_internalid": "FR393",
-    "dealer_postcode": 39400,
+    "dealer_postcode":"39400",
     "dealer_residence": "MORBIER",
     "dealer_longitude": 6.017053,
     "dealer_latitude": 46.54375
   },
   {
     "dealer_internalid": "FR403",
-    "dealer_postcode": 40100,
+    "dealer_postcode":"40100",
     "dealer_residence": "Dax",
     "dealer_longitude": -1.056403,
     "dealer_latitude": 43.719788
   },
   {
     "dealer_internalid": "FR401",
-    "dealer_postcode": 40280,
+    "dealer_postcode":"40280",
     "dealer_residence": "SAINT PIERRE DU MONT",
     "dealer_longitude": -0.484241,
     "dealer_latitude": 43.869533
   },
   {
-    "dealer_internalid": "FR040",
-    "dealer_postcode": 4100,
-    "dealer_residence": "MANOSQUE",
-    "dealer_longitude": 5.787229,
-    "dealer_latitude": 43.826754
-  },
-  {
     "dealer_internalid": "FR413",
-    "dealer_postcode": 41350,
+    "dealer_postcode":"41350",
     "dealer_residence": "SAINT GERVAIS LA FORET",
     "dealer_longitude": 1.366532,
     "dealer_latitude": 47.569831
   },
   {
     "dealer_internalid": "FR421",
-    "dealer_postcode": 42100,
+    "dealer_postcode":"42100",
     "dealer_residence": "SAINT PRIEST EN JAREZ",
     "dealer_longitude": 4.386034,
     "dealer_latitude": 45.466813
   },
   {
     "dealer_internalid": "FR425",
-    "dealer_postcode": 42120,
+    "dealer_postcode":"42120",
     "dealer_residence": "Le Coteau",
     "dealer_longitude": 4.097322,
     "dealer_latitude": 46.0131
   },
   {
     "dealer_internalid": "FR430",
-    "dealer_postcode": 43700,
+    "dealer_postcode":"43700",
     "dealer_residence": "SAINT GERMAIN LAPRADE",
     "dealer_longitude": 3.956172,
     "dealer_latitude": 45.053909
   },
   {
     "dealer_internalid": "FR449",
-    "dealer_postcode": 44600,
+    "dealer_postcode":"44600",
     "dealer_residence": "Saint-Nazaire",
     "dealer_longitude": -2.272709999999961,
     "dealer_latitude": 47.2569
   },
   {
     "dealer_internalid": "FR448",
-    "dealer_postcode": 44800,
+    "dealer_postcode":"44800",
     "dealer_residence": "Saint-Herblain",
     "dealer_longitude": -1.6147079467773438,
     "dealer_latitude": 47.24937438964844
   },
   {
     "dealer_internalid": "FR452",
-    "dealer_postcode": 45200,
+    "dealer_postcode":"45200",
     "dealer_residence": "AMILLY",
     "dealer_longitude": 2.734864130616188,
     "dealer_latitude": 47.96424043217544
   },
   {
     "dealer_internalid": "FR456",
-    "dealer_postcode": 45300,
+    "dealer_postcode":"45300",
     "dealer_residence": "Pithiviers",
     "dealer_longitude": 2.251875,
     "dealer_latitude": 48.172741
   },
   {
     "dealer_internalid": "FR455",
-    "dealer_postcode": 45400,
+    "dealer_postcode":"45400",
     "dealer_residence": "FLEURY-LES-AUBRAIS",
     "dealer_longitude": 1.8977881,
     "dealer_latitude": 47.9313892
   },
   {
     "dealer_internalid": "FR461",
-    "dealer_postcode": 46000,
+    "dealer_postcode":"46000",
     "dealer_residence": "CAHORS",
     "dealer_longitude": 1.44482,
     "dealer_latitude": 44.43361
   },
   {
     "dealer_internalid": "FR471",
-    "dealer_postcode": 47180,
+    "dealer_postcode":"47180",
     "dealer_residence": "SAINTE BAZEILLE",
     "dealer_longitude": 0.094357,
     "dealer_latitude": 44.536164
   },
   {
     "dealer_internalid": "FR470",
-    "dealer_postcode": 47552,
+    "dealer_postcode":"47552",
     "dealer_residence": "BOE CEDEX",
     "dealer_longitude": 0.6354690000000573,
     "dealer_latitude": 44.1842
   },
   {
     "dealer_internalid": "FR493",
-    "dealer_postcode": 49000,
+    "dealer_postcode":"49000",
     "dealer_residence": "Angers",
     "dealer_longitude": -0.5330432213807388,
     "dealer_latitude": 47.449410188952086
   },
   {
     "dealer_internalid": "FR492",
-    "dealer_postcode": 49300,
+    "dealer_postcode":"49300",
     "dealer_residence": "CHOLET",
     "dealer_longitude": -0.858157,
     "dealer_latitude": 47.072022
   },
   {
+    "dealer_internalid": "FR494",
+    "dealer_postcode":"49400",
+    "dealer_residence": "Distré",
+    "dealer_longitude": -0.127777598295736,
+    "dealer_latitude": 47.230447548451416
+  },
+  {
+    "dealer_internalid": "FR495",
+    "dealer_postcode":"49400",
+    "dealer_residence": "Distré",
+    "dealer_longitude": -0.12780066617048452,
+    "dealer_latitude": 47.230515604794014
+  },
+  {
     "dealer_internalid": "FR504",
-    "dealer_postcode": 50000,
+    "dealer_postcode":"50000",
     "dealer_residence": "Saint Lô",
     "dealer_longitude": -1.0642100000000028,
     "dealer_latitude": 49.1029
   },
   {
+    "dealer_internalid": "FR504",
+    "dealer_postcode":"50000",
+    "dealer_residence": "Saint Lô",
+    "dealer_longitude": -1.0694321,
+    "dealer_latitude": 49.1050175
+  },
+  {
     "dealer_internalid": "FR502",
-    "dealer_postcode": 50110,
+    "dealer_postcode":"50110",
     "dealer_residence": "TOURLAVILLE",
     "dealer_longitude": -1.582782,
     "dealer_latitude": 49.634049
   },
   {
     "dealer_internalid": "FR506",
-    "dealer_postcode": 50220,
+    "dealer_postcode":"50220",
     "dealer_residence": "SAINT QUENTIN SUR LE HOMME",
     "dealer_longitude": -1.349258,
     "dealer_latitude": 48.648789
   },
   {
+    "dealer_internalid": "FR505",
+    "dealer_postcode":"50500",
+    "dealer_residence": "Carentan-les-marais",
+    "dealer_longitude": -1.2574772,
+    "dealer_latitude": 49.3123811
+  },
+  {
     "dealer_internalid": "FR512",
-    "dealer_postcode": 51100,
+    "dealer_postcode":"51100",
     "dealer_residence": "REIMS",
     "dealer_longitude": 4.082743,
     "dealer_latitude": 49.242707
   },
   {
     "dealer_internalid": "FR515",
-    "dealer_postcode": 51200,
+    "dealer_postcode":"51200",
     "dealer_residence": "Epernay",
     "dealer_longitude": 3.955039,
     "dealer_latitude": 49.053565
   },
   {
     "dealer_internalid": "FR514",
-    "dealer_postcode": 51470,
+    "dealer_postcode":"51470",
     "dealer_residence": "SAINT MEMMIE",
     "dealer_longitude": 4.398501,
     "dealer_latitude": 48.944983
   },
   {
     "dealer_internalid": "FR102",
-    "dealer_postcode": 52000,
+    "dealer_postcode":"52000",
     "dealer_residence": "CHAUMONT",
     "dealer_longitude": 5.140636,
     "dealer_latitude": 48.109122
   },
   {
     "dealer_internalid": "FR531",
-    "dealer_postcode": 53000,
+    "dealer_postcode":"53000",
     "dealer_residence": "LAVAL",
     "dealer_longitude": -0.792789999999999,
     "dealer_latitude": 48.0653319999999
   },
   {
     "dealer_internalid": "FR540",
-    "dealer_postcode": 54320,
+    "dealer_postcode":"54320",
     "dealer_residence": "Maxéville",
     "dealer_longitude": 6.135819999999967,
     "dealer_latitude": 48.708
   },
   {
     "dealer_internalid": "FR579",
-    "dealer_postcode": 54720,
+    "dealer_postcode":"54720",
     "dealer_residence": "LEXY",
     "dealer_longitude": 5.73642,
     "dealer_latitude": 49.5108
   },
   {
     "dealer_internalid": "FR552",
-    "dealer_postcode": 55430,
+    "dealer_postcode":"55430",
     "dealer_residence": "BELLEVILLE SUR MEUSE",
     "dealer_longitude": 5.371585,
     "dealer_latitude": 49.184228
   },
   {
     "dealer_internalid": "FR568",
-    "dealer_postcode": 56850,
+    "dealer_postcode":"56850",
     "dealer_residence": "CAUDAN",
     "dealer_longitude": -3.33307,
     "dealer_latitude": 47.78599
   },
   {
     "dealer_internalid": "FR569",
-    "dealer_postcode": 56880,
+    "dealer_postcode":"56880",
     "dealer_residence": "PLOEREN",
     "dealer_longitude": -2.79881001534526,
     "dealer_latitude": 47.66452946545065
   },
   {
     "dealer_internalid": "FR575",
-    "dealer_postcode": 57050,
+    "dealer_postcode":"57050",
     "dealer_residence": "METZ",
     "dealer_longitude": 6.167128,
     "dealer_latitude": 49.142808
   },
   {
     "dealer_internalid": "FR578",
-    "dealer_postcode": 57100,
+    "dealer_postcode":"57100",
     "dealer_residence": "THIONVILLE",
     "dealer_longitude": 6.1599195,
     "dealer_latitude": 49.3414264
   },
   {
+    "dealer_internalid": "FR582",
+    "dealer_postcode":"57400",
+    "dealer_residence": "Sarrebourg",
+    "dealer_longitude": 7.08057,
+    "dealer_latitude": 48.73163
+  },
+  {
     "dealer_internalid": "FR576",
-    "dealer_postcode": 57600,
+    "dealer_postcode":"57600",
     "dealer_residence": "FORBACH",
     "dealer_longitude": 6.89339,
     "dealer_latitude": 49.1480699999999
   },
   {
     "dealer_internalid": "FR581",
-    "dealer_postcode": 58640,
+    "dealer_postcode":"58640",
     "dealer_residence": "Varennes-Vauzelles",
     "dealer_longitude": 3.14516,
     "dealer_latitude": 47.02715
   },
   {
     "dealer_internalid": "FR598",
-    "dealer_postcode": 59161,
+    "dealer_postcode":"59161",
     "dealer_residence": "ESCAUDOEUVRES",
     "dealer_longitude": 3.311214,
     "dealer_latitude": 50.1938549999999
   },
   {
     "dealer_internalid": "FR584",
-    "dealer_postcode": 59223,
+    "dealer_postcode":"59223",
     "dealer_residence": "Roncq",
     "dealer_longitude": 3.129973,
     "dealer_latitude": 50.740037
   },
   {
+    "dealer_internalid": "FR585",
+    "dealer_postcode":"59223",
+    "dealer_residence": "Roncq",
+    "dealer_longitude": 3.13040690000002,
+    "dealer_latitude": 50.739612
+  },
+  {
     "dealer_internalid": "FR589",
-    "dealer_postcode": 59320,
+    "dealer_postcode":"59320",
     "dealer_residence": "ENGLOS",
     "dealer_longitude": 2.95699,
     "dealer_latitude": 50.62659
   },
   {
     "dealer_internalid": "FR593",
-    "dealer_postcode": 59450,
+    "dealer_postcode":"59450",
     "dealer_residence": "SIN LE NOBLE",
     "dealer_longitude": 3.11248,
     "dealer_latitude": 50.364015
   },
   {
     "dealer_internalid": "FR597",
-    "dealer_postcode": 59560,
+    "dealer_postcode":"59560",
     "dealer_residence": "VILLENEUVE D'ASCQ",
     "dealer_longitude": 3.119023,
     "dealer_latitude": 50.637717
   },
   {
     "dealer_internalid": "FR609",
-    "dealer_postcode": 59600,
+    "dealer_postcode":"59600",
     "dealer_residence": "Maubeuge",
     "dealer_longitude": 3.970969400000058,
     "dealer_latitude": 50.2836882
   },
   {
     "dealer_internalid": "FR605",
-    "dealer_postcode": 59640,
+    "dealer_postcode":"59640",
     "dealer_residence": "DUNKERQUE",
     "dealer_longitude": 2.376137,
     "dealer_latitude": 51.027846
   },
   {
     "dealer_internalid": "FR591",
-    "dealer_postcode": 59880,
+    "dealer_postcode":"59880",
     "dealer_residence": "Saint-Saulve",
     "dealer_longitude": 3.551003,
     "dealer_latitude": 50.38214
   },
   {
     "dealer_internalid": "FR608",
-    "dealer_postcode": 60000,
+    "dealer_postcode":"60000",
     "dealer_residence": "Beauvais",
     "dealer_longitude": 2.113955,
     "dealer_latitude": 49.413284
   },
   {
     "dealer_internalid": "FR606",
-    "dealer_postcode": 60740,
+    "dealer_postcode":"60740",
     "dealer_residence": "Saint-Maximin",
     "dealer_longitude": 2.465555,
     "dealer_latitude": 49.239125
   },
   {
     "dealer_internalid": "FR607",
-    "dealer_postcode": 60880,
+    "dealer_postcode":"60880",
     "dealer_residence": "JAUX",
     "dealer_longitude": 2.773452099999986,
     "dealer_latitude": 49.407522
   },
   {
     "dealer_internalid": "FR614",
-    "dealer_postcode": 61000,
+    "dealer_postcode":"61000",
     "dealer_residence": "Cerise",
     "dealer_longitude": 0.116879,
     "dealer_latitude": 48.444779
   },
   {
-    "dealer_internalid": "FR063",
-    "dealer_postcode": 6110,
-    "dealer_residence": "LE CANNET",
-    "dealer_longitude": 7.01194369999996,
-    "dealer_latitude": 43.5784789
+    "dealer_internalid": "FR616",
+    "dealer_postcode":"61100",
+    "dealer_residence": "Flers",
+    "dealer_longitude": -0.578131,
+    "dealer_latitude": 48.731862
   },
   {
     "dealer_internalid": "FR633",
-    "dealer_postcode": 62100,
+    "dealer_postcode":"62100",
     "dealer_residence": "CALAIS",
     "dealer_longitude": 1.8585319,
     "dealer_latitude": 50.937873
   },
   {
     "dealer_internalid": "FR622",
-    "dealer_postcode": 62204,
+    "dealer_postcode":"62204",
     "dealer_residence": "BOULOGNE SUR MER cedex",
     "dealer_longitude": 1.614218,
     "dealer_latitude": 50.691238
   },
   {
     "dealer_internalid": "FR629",
-    "dealer_postcode": 62217,
+    "dealer_postcode":"62217",
     "dealer_residence": "BEAURAINS",
     "dealer_longitude": 2.797643,
     "dealer_latitude": 50.266477
   },
   {
+    "dealer_internalid": "FR635",
+    "dealer_postcode":"62219",
+    "dealer_residence": "Longuenesse",
+    "dealer_longitude": 2.27916,
+    "dealer_latitude": 50.73943
+  },
+  {
     "dealer_internalid": "FR624",
-    "dealer_postcode": 62400,
+    "dealer_postcode":"62400",
     "dealer_residence": "BETHUNE",
     "dealer_longitude": 2.668464,
     "dealer_latitude": 50.5490619999999
   },
   {
     "dealer_internalid": "FR627",
-    "dealer_postcode": 62700,
+    "dealer_postcode":"62700",
     "dealer_residence": "BRUAY LA BUISSIERE",
     "dealer_longitude": 2.545135,
     "dealer_latitude": 50.48207
   },
   {
     "dealer_internalid": "FR626",
-    "dealer_postcode": 62800,
+    "dealer_postcode":"62800",
     "dealer_residence": "LIEVIN",
     "dealer_longitude": 2.777092,
     "dealer_latitude": 50.4239
   },
   {
     "dealer_internalid": "FR631",
-    "dealer_postcode": 63000,
+    "dealer_postcode":"63000",
     "dealer_residence": "CLERMONT FERRAND",
     "dealer_longitude": 3.08183,
     "dealer_latitude": 45.7776199999999
   },
   {
     "dealer_internalid": "FR655",
-    "dealer_postcode": 64140,
+    "dealer_postcode":"64140",
     "dealer_residence": "LONS (PAU)",
     "dealer_longitude": -0.380639,
     "dealer_latitude": 43.338058
   },
   {
     "dealer_internalid": "FR643",
-    "dealer_postcode": 64600,
+    "dealer_postcode":"64600",
     "dealer_residence": "ANGLET",
     "dealer_longitude": -1.501544,
     "dealer_latitude": 43.465005
   },
   {
     "dealer_internalid": "FR654",
-    "dealer_postcode": 65000,
+    "dealer_postcode":"65000",
     "dealer_residence": "TARBES",
     "dealer_longitude": 0.048783,
     "dealer_latitude": 43.211489
   },
   {
     "dealer_internalid": "FR661",
-    "dealer_postcode": 66000,
+    "dealer_postcode":"66000",
     "dealer_residence": "PERPIGNAN",
     "dealer_longitude": 2.904339,
     "dealer_latitude": 42.670067
   },
   {
+    "dealer_internalid": "FR671",
+    "dealer_postcode":"67200",
+    "dealer_residence": "STRASBOURG",
+    "dealer_longitude": 7.701136,
+    "dealer_latitude": 48.587636
+  },
+  {
     "dealer_internalid": "FR679",
-    "dealer_postcode": 67460,
+    "dealer_postcode":"67460",
     "dealer_residence": "Souffelweyersheim",
     "dealer_longitude": 7.7285357,
     "dealer_latitude": 48.6252
   },
   {
     "dealer_internalid": "FR675",
-    "dealer_postcode": 67500,
+    "dealer_postcode":"67500",
     "dealer_residence": "Haguenau",
     "dealer_longitude": 7.804018497467041,
     "dealer_latitude": 48.79653549194336
   },
   {
     "dealer_internalid": "FR673",
-    "dealer_postcode": 67700,
+    "dealer_postcode":"67700",
     "dealer_residence": "Monswiller",
     "dealer_longitude": 7.37566,
     "dealer_latitude": 48.7564009
   },
   {
     "dealer_internalid": "FR683",
-    "dealer_postcode": 68000,
+    "dealer_postcode":"68000",
     "dealer_residence": "Colmar",
     "dealer_longitude": 7.37878,
     "dealer_latitude": 48.112331
   },
   {
     "dealer_internalid": "FR682",
-    "dealer_postcode": 68200,
+    "dealer_postcode":"68200",
     "dealer_residence": "Mulhouse",
     "dealer_longitude": 7.304993,
     "dealer_latitude": 47.750015
   },
   {
     "dealer_internalid": "FR695",
-    "dealer_postcode": 69009,
+    "dealer_postcode":"69009",
     "dealer_residence": "LYON",
     "dealer_longitude": 4.79743999999999,
     "dealer_latitude": 45.773744
   },
   {
     "dealer_internalid": "FR692",
-    "dealer_postcode": 69200,
+    "dealer_postcode":"69200",
     "dealer_residence": "VENISSIEUX",
     "dealer_longitude": 4.869898,
     "dealer_latitude": 45.719512
   },
   {
     "dealer_internalid": "FR689",
-    "dealer_postcode": 69300,
+    "dealer_postcode":"69300",
     "dealer_residence": "CALUIRE-ET-CUIRE",
     "dealer_longitude": 4.871481,
     "dealer_latitude": 45.80807
   },
   {
     "dealer_internalid": "FR688",
-    "dealer_postcode": 69400,
+    "dealer_postcode":"69400",
     "dealer_residence": "Villefranche sur Saône",
     "dealer_longitude": 4.743072,
     "dealer_latitude": 45.991226
   },
   {
+    "dealer_internalid": "FR422",
+    "dealer_postcode":"69530",
+    "dealer_residence": "Brignais",
+    "dealer_longitude": 4.7665091,
+    "dealer_latitude": 45.6825274
+  },
+  {
     "dealer_internalid": "FR690",
-    "dealer_postcode": 69780,
+    "dealer_postcode":"69780",
     "dealer_residence": "MIONS",
     "dealer_longitude": 4.94903199999999,
     "dealer_latitude": 45.677166
   },
   {
     "dealer_internalid": "FR712",
-    "dealer_postcode": 71000,
+    "dealer_postcode":"71000",
     "dealer_residence": "MACON",
     "dealer_longitude": 4.804094,
     "dealer_latitude": 46.282287
   },
   {
     "dealer_internalid": "FR714",
-    "dealer_postcode": 71300,
+    "dealer_postcode":"71300",
     "dealer_residence": "MONTCEAU LES MINES",
     "dealer_longitude": 4.36262,
     "dealer_latitude": 46.6801
   },
   {
     "dealer_internalid": "FR713",
-    "dealer_postcode": 71380,
+    "dealer_postcode":"71380",
     "dealer_residence": "SAINT MARCEL",
     "dealer_longitude": 4.864484917,
     "dealer_latitude": 46.79423
   },
   {
-    "dealer_internalid": "FR072",
-    "dealer_postcode": 7200,
-    "dealer_residence": "AUBENAS",
-    "dealer_longitude": 4.4041784,
-    "dealer_latitude": 44.617733
-  },
-  {
     "dealer_internalid": "FR723",
-    "dealer_postcode": 72100,
+    "dealer_postcode":"72100",
     "dealer_residence": "LE MANS",
     "dealer_longitude": 0.176253,
     "dealer_latitude": 47.983057
   },
   {
     "dealer_internalid": "FR735",
-    "dealer_postcode": 73200,
+    "dealer_postcode":"73200",
     "dealer_residence": "ALBERTVILLE",
     "dealer_longitude": 6.371777,
     "dealer_latitude": 45.658226
   },
   {
     "dealer_internalid": "FR734",
-    "dealer_postcode": 73490,
+    "dealer_postcode":"73490",
     "dealer_residence": "LA RAVOIRE",
     "dealer_longitude": 5.97061499999999,
     "dealer_latitude": 45.5618899999999
   },
   {
     "dealer_internalid": "FR745",
-    "dealer_postcode": 74100,
+    "dealer_postcode":"74100",
     "dealer_residence": "VILLE-LA-GRAND",
     "dealer_longitude": 6.269438,
     "dealer_latitude": 46.202498
   },
   {
     "dealer_internalid": "FR749",
-    "dealer_postcode": 74200,
+    "dealer_postcode":"74200",
     "dealer_residence": "Margencel - Thonon",
     "dealer_longitude": 6.425843,
     "dealer_latitude": 46.347846
   },
   {
     "dealer_internalid": "FR747",
-    "dealer_postcode": 74700,
+    "dealer_postcode":"74700",
     "dealer_residence": "SALLANCHES",
     "dealer_longitude": 6.608403,
     "dealer_latitude": 45.919933
   },
   {
     "dealer_internalid": "FR739",
-    "dealer_postcode": 74960,
+    "dealer_postcode":"74960",
     "dealer_residence": "MEYTHET",
     "dealer_longitude": 6.082091,
     "dealer_latitude": 45.933856
   },
   {
     "dealer_internalid": "FR755",
-    "dealer_postcode": 75015,
-    "dealer_residence": "PARIS 15",
+    "dealer_postcode":"75015",
+    "dealer_residence": "Paris 15",
     "dealer_longitude": 2.299361,
     "dealer_latitude": 48.852546
   },
   {
     "dealer_internalid": "FR756",
-    "dealer_postcode": 75016,
+    "dealer_postcode":"75016",
     "dealer_residence": "PARIS 16",
     "dealer_longitude": 2.290641,
     "dealer_latitude": 48.875091
   },
   {
     "dealer_internalid": "FR753",
-    "dealer_postcode": 75017,
-    "dealer_residence": "PARIS 17",
+    "dealer_postcode":"75017",
+    "dealer_residence": "Paris 17",
     "dealer_longitude": 2.290199,
     "dealer_latitude": 48.880635
   },
   {
     "dealer_internalid": "FR764",
-    "dealer_postcode": 76000,
+    "dealer_postcode":"76000",
     "dealer_residence": "ROUEN",
     "dealer_longitude": 1.070775,
     "dealer_latitude": 49.446599
   },
   {
     "dealer_internalid": "FR766",
-    "dealer_postcode": 76370,
+    "dealer_postcode":"76370",
     "dealer_residence": "ROUXMESNIL BOUTEILLES (DIEPPE)",
     "dealer_longitude": 1.10871,
     "dealer_latitude": 49.905048
   },
   {
     "dealer_internalid": "FR763",
-    "dealer_postcode": 76600,
+    "dealer_postcode":"76600",
     "dealer_residence": "LE HAVRE",
     "dealer_longitude": 0.143058,
     "dealer_latitude": 49.493358
   },
   {
     "dealer_internalid": "FR776",
-    "dealer_postcode": 77100,
+    "dealer_postcode":"77100",
     "dealer_residence": "MEAUX",
     "dealer_longitude": 2.893174,
     "dealer_latitude": 48.957068
   },
   {
     "dealer_internalid": "FR777",
-    "dealer_postcode": 77130,
+    "dealer_postcode":"77130",
     "dealer_residence": "Varennes-Sur-Seine",
     "dealer_longitude": 2.956871,
     "dealer_latitude": 48.360811
   },
   {
     "dealer_internalid": "FR773",
-    "dealer_postcode": 77144,
+    "dealer_postcode":"77144",
     "dealer_residence": "MONTEVRAIN",
     "dealer_longitude": 2.7292943000793457,
     "dealer_latitude": 48.871246337890625
   },
   {
     "dealer_internalid": "FR771",
-    "dealer_postcode": 77170,
+    "dealer_postcode":"77170",
     "dealer_residence": "Brie Comte Robert",
     "dealer_longitude": 2.600266933441162,
     "dealer_latitude": 48.702003479003906
   },
   {
     "dealer_internalid": "FR772",
-    "dealer_postcode": 77240,
+    "dealer_postcode":"77240",
     "dealer_residence": "VERT SAINT DENIS",
     "dealer_longitude": 2.629251,
     "dealer_latitude": 48.56566
   },
   {
     "dealer_internalid": "FR789",
-    "dealer_postcode": 78200,
+    "dealer_postcode":"78200",
     "dealer_residence": "MAGNANVILLE",
     "dealer_longitude": 1.689131,
     "dealer_latitude": 48.978658
   },
   {
     "dealer_internalid": "FR798",
-    "dealer_postcode": 78240,
+    "dealer_postcode":"78240",
     "dealer_residence": "CHAMBOURCY",
     "dealer_longitude": 2.049714799,
     "dealer_latitude": 48.9059909
   },
   {
     "dealer_internalid": "FR787",
-    "dealer_postcode": 78310,
+    "dealer_postcode":"78310",
     "dealer_residence": "COIGNIÈRES",
     "dealer_longitude": 1.945353,
     "dealer_latitude": 48.762639
   },
   {
     "dealer_internalid": "FR788",
-    "dealer_postcode": 78500,
+    "dealer_postcode":"78500",
     "dealer_residence": "SARTROUVILLE",
     "dealer_longitude": 2.167525,
     "dealer_latitude": 48.940261
   },
   {
     "dealer_internalid": "FR796",
-    "dealer_postcode": 79000,
+    "dealer_postcode":"79000",
     "dealer_residence": "Niort",
     "dealer_longitude": -0.41391295194625854,
     "dealer_latitude": 46.333152770996094
   },
   {
     "dealer_internalid": "FR802",
-    "dealer_postcode": 80330,
+    "dealer_postcode":"80330",
     "dealer_residence": "Longueau",
     "dealer_longitude": 2.36746,
     "dealer_latitude": 49.87397
   },
   {
     "dealer_internalid": "FR810",
-    "dealer_postcode": 81000,
+    "dealer_postcode":"81000",
     "dealer_residence": "ALBI",
     "dealer_longitude": 2.14936999999999,
     "dealer_latitude": 43.9415219999999
   },
   {
     "dealer_internalid": "FR812",
-    "dealer_postcode": 81100,
+    "dealer_postcode":"81100",
     "dealer_residence": "CASTRES",
     "dealer_longitude": 2.219912,
     "dealer_latitude": 43.594227
   },
   {
     "dealer_internalid": "FR822",
-    "dealer_postcode": 82000,
+    "dealer_postcode":"82000",
     "dealer_residence": "Montauban",
     "dealer_longitude": 1.331991,
     "dealer_latitude": 43.986048
   },
   {
     "dealer_internalid": "FR835",
-    "dealer_postcode": 83100,
+    "dealer_postcode":"83100",
     "dealer_residence": "TOULON",
     "dealer_longitude": 5.977735,
     "dealer_latitude": 43.1274319999999
   },
   {
+    "dealer_internalid": "FR839",
+    "dealer_postcode":"83250",
+    "dealer_residence": "La Londe les Maures",
+    "dealer_longitude": 6.202250000000049,
+    "dealer_latitude": 43.1269
+  },
+  {
     "dealer_internalid": "FR836",
-    "dealer_postcode": 83500,
+    "dealer_postcode":"83500",
     "dealer_residence": "LA SEYNE SUR MER",
     "dealer_longitude": 5.855156,
     "dealer_latitude": 43.10802
   },
   {
+    "dealer_internalid": "FR837",
+    "dealer_postcode":"83580",
+    "dealer_residence": "Gassin",
+    "dealer_longitude": 6.60044,
+    "dealer_latitude": 43.262341
+  },
+  {
     "dealer_internalid": "FR834",
-    "dealer_postcode": 83600,
+    "dealer_postcode":"83600",
     "dealer_residence": "FREJUS",
     "dealer_longitude": 6.733767,
     "dealer_latitude": 43.472759
   },
   {
+    "dealer_internalid": "FR838",
+    "dealer_postcode":"83720",
+    "dealer_residence": "Trans en Provence",
+    "dealer_longitude": 6.4834992,
+    "dealer_latitude": 43.5045022
+  },
+  {
     "dealer_internalid": "FR842",
-    "dealer_postcode": 84100,
+    "dealer_postcode":"84100",
     "dealer_residence": "ORANGE",
     "dealer_longitude": 4.804102,
     "dealer_latitude": 44.144148
   },
   {
     "dealer_internalid": "FR847",
-    "dealer_postcode": 84120,
+    "dealer_postcode":"84120",
     "dealer_residence": "Pertuis",
     "dealer_longitude": 5.503420829772949,
     "dealer_latitude": 43.68148824347005
   },
   {
     "dealer_internalid": "FR843",
-    "dealer_postcode": 84130,
+    "dealer_postcode":"84130",
     "dealer_residence": "LE PONTET",
     "dealer_longitude": 4.859935,
     "dealer_latitude": 43.96188
   },
   {
     "dealer_internalid": "FR846",
-    "dealer_postcode": 84200,
+    "dealer_postcode":"84200",
     "dealer_residence": "CARPENTRAS",
     "dealer_longitude": 5.051150799999959,
     "dealer_latitude": 44.032512
   },
   {
     "dealer_internalid": "FR844",
-    "dealer_postcode": 84300,
+    "dealer_postcode":"84300",
     "dealer_residence": "CAVAILLON",
     "dealer_longitude": 5.03939867019653,
     "dealer_latitude": 43.855480776808
   },
   {
     "dealer_internalid": "FR853",
-    "dealer_postcode": 85000,
+    "dealer_postcode":"85000",
     "dealer_residence": "MOUILLERON LE CAPTIF",
     "dealer_longitude": -1.43001119999996,
     "dealer_latitude": 46.7088001
   },
   {
     "dealer_internalid": "FR855",
-    "dealer_postcode": 85180,
+    "dealer_postcode":"85180",
     "dealer_residence": "Le Château d'Olonne",
     "dealer_longitude": -1.73526,
     "dealer_latitude": 46.486016
   },
   {
     "dealer_internalid": "FR851",
-    "dealer_postcode": 85300,
+    "dealer_postcode":"85300",
     "dealer_residence": "CHALLANS",
     "dealer_longitude": -1.868108,
     "dealer_latitude": 46.85733
   },
   {
     "dealer_internalid": "FR861",
-    "dealer_postcode": 86100,
+    "dealer_postcode":"86100",
     "dealer_residence": "CHATELLERAULT",
     "dealer_longitude": 0.526058000000034,
     "dealer_latitude": 46.7921708
   },
   {
     "dealer_internalid": "FR860",
-    "dealer_postcode": 86440,
+    "dealer_postcode":"86440",
     "dealer_residence": "POITIERS CEDEX 9",
     "dealer_longitude": 0.315444,
     "dealer_latitude": 46.614609
   },
   {
     "dealer_internalid": "FR870",
-    "dealer_postcode": 87000,
+    "dealer_postcode":"87000",
     "dealer_residence": "LIMOGES",
     "dealer_longitude": 1.271152,
     "dealer_latitude": 45.886304
   },
   {
     "dealer_internalid": "FR882",
-    "dealer_postcode": 88150,
+    "dealer_postcode":"88150",
     "dealer_residence": "CHAVELOT",
     "dealer_longitude": 6.437598,
     "dealer_latitude": 48.216523
   },
   {
     "dealer_internalid": "FR892",
-    "dealer_postcode": 89000,
+    "dealer_postcode":"89000",
     "dealer_residence": "AUXERRE",
     "dealer_longitude": 3.579999,
     "dealer_latitude": 47.805929
   },
   {
     "dealer_internalid": "FR890",
-    "dealer_postcode": 89101,
+    "dealer_postcode":"89101",
     "dealer_residence": "SENS",
     "dealer_longitude": 3.288774,
     "dealer_latitude": 48.204712
   },
   {
     "dealer_internalid": "FR901",
-    "dealer_postcode": 90160,
+    "dealer_postcode":"90160",
     "dealer_residence": "DENNEY",
     "dealer_longitude": 6.887665,
     "dealer_latitude": 47.648294
   },
   {
-    "dealer_internalid": "FR090",
-    "dealer_postcode": 9100,
-    "dealer_residence": "PAMIERS",
-    "dealer_longitude": 1.630955,
-    "dealer_latitude": 43.110257
-  },
-  {
     "dealer_internalid": "FR911",
-    "dealer_postcode": 91100,
+    "dealer_postcode":"91100",
     "dealer_residence": "CORBEIL ESSONNES",
     "dealer_longitude": 2.4570999999999685,
     "dealer_latitude": 48.6108
   },
   {
     "dealer_internalid": "FR919",
-    "dealer_postcode": 91150,
+    "dealer_postcode":"91150",
     "dealer_residence": "MORIGNY CHAMPIGNY",
     "dealer_longitude": 2.17113,
     "dealer_latitude": 48.454595
   },
   {
     "dealer_internalid": "FR910",
-    "dealer_postcode": 91170,
+    "dealer_postcode":"91170",
     "dealer_residence": "VIRY CHATILLON",
     "dealer_longitude": 2.39927480000005,
     "dealer_latitude": 48.6639294999999
   },
   {
     "dealer_internalid": "FR914",
-    "dealer_postcode": 91300,
+    "dealer_postcode":"91300",
     "dealer_residence": "Massy",
     "dealer_longitude": 2.283741,
     "dealer_latitude": 48.721172
   },
   {
     "dealer_internalid": "FR917",
-    "dealer_postcode": 91700,
+    "dealer_postcode":"91700",
     "dealer_residence": "SAINTE GENEVIEVE DES BOIS",
     "dealer_longitude": 2.343071,
     "dealer_latitude": 48.621506
   },
   {
     "dealer_internalid": "FR918",
-    "dealer_postcode": 91940,
+    "dealer_postcode":"91940",
     "dealer_residence": "GOMETZ LE CHATEL",
     "dealer_longitude": 2.138214,
     "dealer_latitude": 48.674045
   },
   {
     "dealer_internalid": "FR924",
-    "dealer_postcode": 92100,
+    "dealer_postcode":"92100",
     "dealer_residence": "BOULOGNE BILLANCOURT",
     "dealer_longitude": 2.2516500000000406,
     "dealer_latitude": 48.8386
   },
   {
     "dealer_internalid": "FR927",
-    "dealer_postcode": 92400,
+    "dealer_postcode":"92400",
     "dealer_residence": "Courbevoie",
     "dealer_longitude": 2.25875,
     "dealer_latitude": 48.90255
   },
   {
     "dealer_internalid": "FR931",
-    "dealer_postcode": 93200,
+    "dealer_postcode":"93200",
     "dealer_residence": "SAINT DENIS",
     "dealer_longitude": 2.33869,
     "dealer_latitude": 48.916112
   },
   {
     "dealer_internalid": "FR946",
-    "dealer_postcode": 94500,
+    "dealer_postcode":"94500",
     "dealer_residence": "CHAMPIGNY SUR MARNE",
     "dealer_longitude": 2.492699,
     "dealer_latitude": 48.818072
   },
   {
     "dealer_internalid": "FR947",
-    "dealer_postcode": 94800,
+    "dealer_postcode":"94800",
     "dealer_residence": "VILLEJUIF",
     "dealer_longitude": 2.363284,
     "dealer_latitude": 48.807075
   },
   {
     "dealer_internalid": "FR957",
-    "dealer_postcode": 95100,
+    "dealer_postcode":"95100",
     "dealer_residence": "ARGENTEUIL",
     "dealer_longitude": 2.255738,
     "dealer_latitude": 48.95627
   },
   {
     "dealer_internalid": "FR953",
-    "dealer_postcode": 95140,
+    "dealer_postcode":"95140",
     "dealer_residence": "GARGES LES GONESSE",
     "dealer_longitude": 2.403292,
     "dealer_latitude": 48.961277
   },
   {
     "dealer_internalid": "FR956",
-    "dealer_postcode": 95520,
+    "dealer_postcode":"95520",
     "dealer_residence": "CERGY",
     "dealer_longitude": 2.075922,
     "dealer_latitude": 49.049373
+  },
+  {
+    "dealer_internalid": "FR979",
+    "dealer_postcode":"98000",
+    "dealer_residence": "MONACO",
+    "dealer_longitude": 7.416632,
+    "dealer_latitude": 43.736969
+  },
+  {
+    "dealer_internalid": "FR980",
+    "dealer_postcode":"98000",
+    "dealer_residence": "MONACO",
+    "dealer_longitude": 7.4172605,
+    "dealer_latitude": 43.7341474
   }
 ]
