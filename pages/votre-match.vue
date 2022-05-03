@@ -64,7 +64,7 @@ export default {
     more(){
       this.$axios.$post('/webservice/rest/kia/lp_niro_2022.php?step=2', {
         id:this.$store.state.user.id,
-        car:this.car
+        model:this.car
       }).then(
         (res) => {
           console.log(res);

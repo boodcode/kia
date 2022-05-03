@@ -57,6 +57,8 @@
               :reduce="(option)=> option.dealer_internalid"
               placeholder="Sélectionnez votre concession"
               autoscroll
+              append-to-body
+              :calculate-position="withPopper"
               @input="oninput"
             ></v-select>
           </span>
@@ -76,6 +78,8 @@
 </template>
 <script>
 import gsap, {Expo} from "gsap";
+import { createPopper } from '@popperjs/core'
+
 export default {
   components: {
   },
@@ -109,7 +113,7 @@ export default {
         concession: '',
         optin: false
       },
-      // placement: 'bottom'
+      placement: 'top'
     }
   },
   computed: {
@@ -158,12 +162,59 @@ export default {
         gsap.to(desc, {opacity:1, duration:0.5})
       })
     })
+
   },
   updated() {
-    console.log('updated')
+    // console.log('updated')
     this.checkFields();
     },
   methods: {
+    withPopper(dropdownList, component, { width }) {
+      /**
+       * We need to explicitly define the dropdown width since
+       * it is usually inherited from the parent with CSS.
+       */
+      dropdownList.style.width = width
+
+      /**
+       * Here we position the dropdownList relative to the $refs.toggle Element.
+       *
+       * The 'offset' modifier aligns the dropdown so that the $refs.toggle and
+       * the dropdownList overlap by 1 pixel.
+       *
+       * The 'toggleClass' modifier adds a 'drop-up' class to the Vue Select
+       * wrapper so that we can set some styles for when the dropdown is placed
+       * above.
+       */
+      const popper = createPopper(component.$refs.toggle, dropdownList, {
+        placement: this.placement,
+        modifiers: [
+          {
+            name: 'offset',
+            options: {
+              offset: [0, -1],
+            },
+          },
+          {
+            name: 'toggleClass',
+            enabled: true,
+            phase: 'write',
+            fn({ state }) {
+              component.$el.classList.toggle(
+                'drop-up',
+                state.placement === 'top'
+              )
+            },
+          },
+        ],
+      })
+
+      /**
+       * To prevent memory leaks Popper needs to be destroyed.
+       * If you return function, it will be called just before dropdown is removed from DOM.
+       */
+      return () => popper.destroy()
+    },
     oninput(value){
       this.user.concession= value;
       this.$store.commit('user/updateInfos', {...this.$store.state.user.infos, concession:value})
@@ -203,16 +254,14 @@ export default {
     fieldAlert(id,m){
       const error = document.createElement("div");
       error.classList.add('error');
-       console.log(this.fieldsOK)
+       // console.log(this.fieldsOK)
 
       if(id==='optin'){
         error.innerHTML = (this.fieldsOK === 0) ? '' : ' | ' + m;
         document.querySelector('#' + id).parentNode.querySelector('label').after(error);
       } else if(this.fieldsOK === 0){
-          console.log('-->')
           error.innerHTML = '';
         } else {
-          console.log('<--')
           document.querySelectorAll('.desc').forEach(desc => {
             gsap.to(desc, {opacity:1, duration:0.5})
             error.innerHTML = ' | ' + m;
@@ -471,13 +520,13 @@ export default {
            source:  this.$store.state.source
          }).then(
           (res) => {
-            console.log(res);
+            // console.log(res);
             this.$store.commit('user/updateId', res.id);
           },
           (err) => console.log(err)
         );
       } else {
-         console.log('all Fields are not OK');
+         // console.log('all Fields are not OK');
       };
     },
     validateEmail() {

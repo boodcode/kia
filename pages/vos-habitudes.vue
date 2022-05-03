@@ -46,13 +46,19 @@ export default {
   mounted() {
     const spanWidth = document.querySelector('.nav-step span').getBoundingClientRect().width
     gsap.to('.progress', {width: this.$store.state.activeStep * spanWidth, duration:timingNavStep, ease:Expo.easeOut})
+
+    window.addEventListener('resize', this.onResize)
+
   },
   updated(){
     const spanWidth = document.querySelector('.nav-step span').getBoundingClientRect().width
     gsap.to('.progress', {width: this.$store.state.activeStep* spanWidth, duration:timingNavStep, ease:Expo.easeOut})
   },
   methods: {
-
+    onResize(){
+      const spanWidth = document.querySelector('.nav-step span').getBoundingClientRect().width
+      gsap.to('.progress', {width: this.$store.state.activeStep * spanWidth, duration:0.2})
+    }
   }
 }
 </script>
@@ -87,10 +93,7 @@ export default {
       height:2px;
       background-color: #4c392b;
       flex-grow: 1;
-      max-width:200px;
       margin:0 0px;
-
-
 
       span {
         content:"";

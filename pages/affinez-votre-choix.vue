@@ -171,19 +171,19 @@ export default {
       if(this.$store.state.evLikes>=3){
         setCookie('match', 'ev')
         this.$router.push({path: '/votre-match', params:{car: 'ev'}})
-        this.$store.commit('setTheMatch', 'ev')
+        this.$store.commit('setTheMatch', 'NIRO HEV (SG2)')
         this.stopParticules()
       }
       else if(this.$store.state.phevLikes>=3){
         setCookie('match', 'ev')
         this.$router.push({path: '/votre-match', params:{car: 'phev'}})
-        this.$store.commit('setTheMatch', 'phev')
+        this.$store.commit('setTheMatch', 'NIRO PHEV (SG2)')
         this.stopParticules()
       }
       else if(this.$store.state.hevLikes>=3){
         setCookie('match', 'hev')
         this.$router.push({path:'/votre-match', params:{car: 'hev'}})
-        this.$store.commit('setTheMatch', 'hev')
+        this.$store.commit('setTheMatch', 'NIRO EV (SG2 EV)')
         this.stopParticules()
       }
     },
