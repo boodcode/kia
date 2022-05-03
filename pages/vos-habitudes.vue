@@ -1,6 +1,7 @@
 <template>
   <div class="choices">
     <div class="nav-steps">
+      <div class="progress"></div>
       <div v-for="(step, index) in steps" :id="step.id" :key="step.id" :class="{active: activeStep>=index+1, 'nav-step': true }"><span></span></div>
     </div>
     <div class="steps">
@@ -18,7 +19,7 @@
 <script>
 
 import gsap, {Expo} from "gsap";
-const timingNavStep = 3;
+const timingNavStep = 4;
 export default {
   data: () => {
     return {
@@ -43,10 +44,14 @@ export default {
 
   },
   mounted() {
-    gsap.to('#step1 span', {width:'100%', ease:Expo.easeOut, duration: timingNavStep})
+    const spanWidth = document.querySelector('.nav-step span').getBoundingClientRect().width
+    gsap.to('.progress', {width: this.$store.state.activeStep * spanWidth, duration:timingNavStep, ease:Expo.easeOut})
+  },
+  updated(){
+    const spanWidth = document.querySelector('.nav-step span').getBoundingClientRect().width
+    gsap.to('.progress', {width: this.$store.state.activeStep* spanWidth, duration:timingNavStep, ease:Expo.easeOut})
   },
   methods: {
-
 
   }
 }
@@ -67,6 +72,15 @@ export default {
     justify-content: center;
     width:75%;
     margin: 0 auto;
+    position: relative;
+
+    .progress{
+      position:absolute;
+      left:0;top:0;width:0;height:100%;
+      content:"";
+      background: #FFF;
+      z-index:10;
+    }
 
     .nav-step {
       position: relative;
@@ -74,8 +88,9 @@ export default {
       background-color: #4c392b;
       flex-grow: 1;
       max-width:200px;
-      //width: calc(16.6666666667% - 2px);
-      margin:0 2px;
+      margin:0 0px;
+
+
 
       span {
         content:"";
@@ -83,8 +98,15 @@ export default {
         width:0;
         height: 100%;
         left:0;top:0;
-        background:#FFFFFF;
-        transition: all 2s ease-out;
+        background:#4c392b;
+        transition: all 2s;
+        &:before {
+          position:absolute;
+          left:0;top:0;width:4px;height:100%;
+          content:"";
+          background: #28201c;
+          z-index: 20;
+        }
       }
       &.active span {
         width:100%;
