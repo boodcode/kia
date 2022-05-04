@@ -56,20 +56,23 @@
               label="label"
               :reduce="(option)=> option.dealer_internalid"
               placeholder="Sélectionnez votre concession"
-              autoscroll
-              append-to-body
               :calculate-position="withPopper"
+              :searchable=searchable
               @input="oninput"
             ></v-select>
           </span>
         </div>
         <div class="field last">
+          <div class="desc offres" >Je souhaite recevoir les offres commerciales, les nouveautés et exclusivités de la marque</div>
+          <BaseRadioButtonGroup v-model="user.offres" :options="offres" />
+        </div>
+        <!--div class="field last">
           <span class="required">
             <span class="desc"></span>
             <input id="optin" type="checkbox" :checked="user.optin">
             <label for="optin">J’accepte les <nuxt-link to="cgu"  target="_blank">conditions générales d’utilisation</nuxt-link></label>
           </span>
-        </div>
+        </div-->
         <input class="send" type="submit" value="Lancer l'analyse" >
       </form>
     </div>
@@ -94,12 +97,28 @@ export default {
         {
           label:"Monsieur",
           checked: "checked",
-          value:"M"
+          value:"M",
+          name:'civ'
         },
         {
           label:"Madame",
           checked: false,
-          value:"Mme"
+          value:"Mme",
+          name:'civ'
+        }
+      ],
+      offres:[
+        {
+          label:"Oui",
+          checked: false,
+          value:"oui",
+          name:'offres'
+        },
+        {
+          label:"Non",
+          checked: "checked",
+          value:"non",
+          name:'offres'
         }
       ],
       user : {
@@ -111,9 +130,11 @@ export default {
         cp:'',
         ville:'',
         concession: '',
-        optin: false
+        offres: 'non',
+        // optin: false
       },
-      placement: 'top'
+      placement: 'top',
+      searchable: true
     }
   },
   computed: {
@@ -123,6 +144,7 @@ export default {
     this.$nuxt.$on('RADIO_CHECKED', (v)=> {
       this.$store.commit('user/updateInfos', {...this.$store.state.user.infos, civ:v})
     })
+
     fetch('/dealers.json')
       .then(r => r.json())
       .then(json => {
@@ -132,11 +154,17 @@ export default {
           return d;
         })
       })
+
+    if(this.$store.state.device === 'desktop'){
+      this.searchable = true
+    }
   },
   mounted() {
     this.user.civ = this.$store.state.user.infos.civ;
+    this.user.offres = this.$store.state.user.infos.offres;
 
-    document.querySelector('input[type="checkbox"]').addEventListener('click', (e)=>{
+   /*
+   document.querySelector('input[type="checkbox"]').addEventListener('click', (e)=>{
       if(e.target.checked === true || e.target.checked === "checked") {
         e.target.checked = "checked";
       } else {
@@ -145,12 +173,18 @@ export default {
       //
       this.user.optin = e.target.checked;
       this.$store.commit('user/updateInfos', {...this.$store.state.user.infos, optin: this.user.optin})
-    })
+    }) */
+
     document.querySelectorAll('input[type="radio"]').forEach((elem) => {
       elem.addEventListener('click', (e) => {
        if(e.target.checked){
-         this.$store.commit('user/updateInfos', {...this.$store.state.user.infos, civ: e.target.value})
-         this.user.civ = this.$store.state.user.infos.civ;
+         if(e.target.name==="offres"){
+           this.$store.commit('user/updateInfos', {...this.$store.state.user.infos, offres: e.target.value})
+           this.user.offres = this.$store.state.user.infos.offres;
+         } else {
+           this.$store.commit('user/updateInfos', {...this.$store.state.user.infos, civ: e.target.value})
+           this.user.civ = this.$store.state.user.infos.civ;
+         }
        }
       })
     })
@@ -162,7 +196,6 @@ export default {
         gsap.to(desc, {opacity:1, duration:0.5})
       })
     })
-
   },
   updated() {
     // console.log('updated')
@@ -239,17 +272,17 @@ export default {
       if(regVille.test(this.user.ville)) {this.fieldsOK++; } else { this.fieldAlert('ville', 'champ incorrect');}
 
       if(this.user.concession !==''){this.fieldsOK++;} else {this.fieldAlert('concession', 'champ obligatoire');}
-      if(this.user.optin){this.fieldsOK++;} else {this.fieldAlert('optin', 'champ obligatoire');}
 
-      // gsap.to('.desc', {opacity:1, duration:0.5})
+      /* if(this.user.optin){this.fieldsOK++;} else {this.fieldAlert('optin', 'champ obligatoire');} */
 
-      if(this.fieldsOK === 8){
+
+      if(this.fieldsOK === 7){
         gsap.to('.send', {backgroundColor:'#FFFFFF', color: '#000000', duration:0.5, ease:Expo.easeOut})
       } else {
         gsap.to('.send', {backgroundColor:'transparent', color: '#FFFFFF', duration:0.5, ease:Expo.easeIn})
       }
 
-      return this.fieldsOK === 8;
+      return this.fieldsOK === 7;
     },
     fieldAlert(id,m){
       const error = document.createElement("div");
@@ -658,8 +691,11 @@ export default {
       font-family: "Kia Signature Fix Bold", serif;
       padding-bottom: 4px;
 
-      &.concession {
+      &.concession, &.offres {
         opacity: 1;
+      }
+      &.offres {
+        margin-bottom: 16px;
       }
     }
     .error {

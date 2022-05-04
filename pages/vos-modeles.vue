@@ -85,7 +85,8 @@ export default {
             line2: 'Hybride',
             line3: 'le style allié à l\'intelligence',
           }
-        }
+        },
+        loaded: false,
       }
   },
   head() {
@@ -122,7 +123,8 @@ export default {
 
       this.maskWidth = window.innerWidth/2 + window.innerWidth* Math.sin(10*Math.PI/180)/2
 
-      this.startReveal()
+      if(this.loaded) {this.startReveal()}
+
       const svg = document.querySelector('.tops svg').getBoundingClientRect()
       //
       gsap.set('#maskRevealTop1 .line1', {y:this.windowHeight - 280})
@@ -160,6 +162,7 @@ export default {
       return arr;
     },
     startReveal(){
+      this.loaded = true;
       const timing = 3;
       const timingTexts = 4
       // const svg = document.querySelector('.tops svg').getBoundingClientRect()

@@ -9,7 +9,8 @@ export const state = () => ({
       cp: '',
       ville: '',
       concession: '',
-      optin: false
+      offres: 'non',
+      // optin: false
     },
   conduite: {
      kmByDay: 0,

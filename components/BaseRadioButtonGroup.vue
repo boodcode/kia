@@ -1,6 +1,6 @@
 <template>
   <div class="input-group">
-    <BaseRadioButton v-for="option in options" :key="option.value" :option="option" />
+    <BaseRadioButton v-for="option in options" :key="option.label" :option="option" />
   </div>
 </template>
 
@@ -17,6 +17,7 @@ export default {
       required: true,
       type: Array,
     },
+
   },
 };
 </script>

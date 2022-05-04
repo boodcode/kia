@@ -62,9 +62,16 @@ export default {
       gsap.to('.conseiller', {opacity: 1, y:0, delay:8.5, duration:2, ease:Expo.easeOut})
     },
     more(){
+      let carName = 'NIRO HEV (SG2)';
+      if(this.car === 'phev') {
+        carName = 'NIRO PHEV (SG2)'
+      } else if(this.car === 'hev') {
+        carName = 'NIRO PHEV (SG2)'
+      }
+
       this.$axios.$post('/webservice/rest/kia/lp_niro_2022.php?step=2', {
         id:this.$store.state.user.id,
-        model:this.car
+        model:carName
       }).then(
         (res) => {
           console.log(res);

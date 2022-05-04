@@ -5,11 +5,9 @@
       :id="option.value"
       type="radio"
       :value="option.value"
-      name="radio-input"
+      :name="option.name"
       :checked="option.checked"
-
     />
-
   </label>
 </template>
 

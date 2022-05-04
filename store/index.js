@@ -6,10 +6,14 @@ export const state = () => ({
   phevLikes:0,
   hevLikes:0,
   thematch:'hev',
-  source: 'undefined'
+  source: 'undefined',
+  device: 'desktop'
 })
 
 export const mutations = {
+  setDevice(state, payload) {
+    state.device = payload;
+  },
   setSource(state, val){
     state.source = val;
   },
