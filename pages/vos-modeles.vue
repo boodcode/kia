@@ -228,7 +228,7 @@ export default {
           gsap.set('.imagemobile2', {y:'-150'})
         } else {
           gsap.set('#clipImage2',{y:"75", scaleY:1.2})
-          gsap.set('.imagemobile2', {y:'-180'})
+          gsap.set('.imagemobile2', {y:'-140'})
         }
 
 
@@ -325,13 +325,19 @@ export default {
         }
 
         @media screen and (max-width: 960px){
-          .line1, .line2 {
-            font-size: 24px !important;
-            line-height: 24px !important;
-          }
-          .line3{
-            margin-top:10px !important;
-            font-size: 14px !important;
+          .text {
+
+            padding: 10px;
+
+            .line1, .line2 {
+              font-size: 24px !important;
+              line-height: 24px !important;
+            }
+
+            .line3 {
+              margin-top: 5px !important;
+              font-size: 14px !important;
+            }
           }
         }
 
