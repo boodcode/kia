@@ -64,6 +64,7 @@ import gsap , {Expo} from 'gsap'
 import {removeNode} from "vuedraggable/src/util/helper";
 import Emitter from '~/assets/js/Emitter'
 import SwipeEvents from "assets/js/utils/SwipeEvents";
+import EventBus from "assets/js/utils/event-bus";
 
 export default {
   components: {
@@ -73,6 +74,7 @@ export default {
       qTypes: ['kmByDay', 'kmByYear', 'voyagesOver400km', 'frequenceVille', 'frequenceExtraUrbain', 'frequenceAutoroute', 'rechargeDomicile', 'rechargeBorne'],
       activeIndex: 4,
       maxSlides: 2,
+      intentDirection: 'next',
       statusLike: false,
       sliderOptions: {
         timing: 0.5,
@@ -83,7 +85,8 @@ export default {
       phevScore:0,
       hevScore:0,
       swipeInstance: null,
-      twoCars: this.$store.state.twoCars
+      twoCars: this.$store.state.twoCars,
+      autoAnimAfterLike: false
     }
   },
   head() {
@@ -138,8 +141,23 @@ export default {
     document.addEventListener('touchstart', swipeTouch.handleTouchStart, false);
     document.addEventListener('touchmove', this.swipe, false);
 
+
+    //
+    EventBus.$on("EMITTER_END", this.nextSlideAfterAnim)
+
+
   },
   methods:{
+    nextSlideAfterAnim(){
+      if(this.intentDirection==='next'){
+        if(this.autoAnimAfterLike){
+          setTimeout(this.nextSlide(), 1000)
+        }
+      } else if(this.autoAnimAfterLike) {
+          setTimeout(this.prevSlide(), 1000)
+        }
+    },
+    //
     userPriority(priority){
       return this.$store.state.user.conduite.priority['p'+priority]
     },
@@ -173,18 +191,21 @@ export default {
         this.$router.push({path: '/votre-match', params:{car: 'ev'}})
         this.$store.commit('setTheMatch', 'ev')
         this.stopParticules()
+        this.autoAnimAfterLike = false
       }
       else if(this.$store.state.phevLikes>=3){
         setCookie('match', 'ev')
         this.$router.push({path: '/votre-match', params:{car: 'phev'}})
         this.$store.commit('setTheMatch', 'phev')
         this.stopParticules()
+        this.autoAnimAfterLike = false
       }
       else if(this.$store.state.hevLikes>=3){
         setCookie('match', 'hev')
         this.$router.push({path:'/votre-match', params:{car: 'hev'}})
         this.$store.commit('setTheMatch', 'hev')
         this.stopParticules()
+        this.autoAnimAfterLike = false
       }
     },
     startParticules(index){
@@ -194,6 +215,7 @@ export default {
       slide.dataset.liked = 'true'
       this.particules = new Emitter();
       this.particules.startAnim()
+      this.autoAnimAfterLike = true
     },
     stopParticules(){
       this.particules = null
@@ -208,6 +230,8 @@ export default {
     },
     //
     prevSlide(){
+      this.intentDirection = 'prev';
+      this.autoAnimAfterLike = false
       const elem = document.querySelector('.slider-slide.active');
       const styles = window.getComputedStyle(elem)
       const decal = elem.offsetWidth + parseFloat(styles.marginLeft) + parseFloat(styles.marginRight)
@@ -232,6 +256,8 @@ export default {
       }
     },
     nextSlide(){
+      this.intentDirection = 'next'
+      this.autoAnimAfterLike = false
       const elem = document.querySelector('.slider-slide.active');
       const styles = window.getComputedStyle(elem)
       const decal = elem.offsetWidth + parseFloat(styles.marginLeft) + parseFloat(styles.marginRight)
