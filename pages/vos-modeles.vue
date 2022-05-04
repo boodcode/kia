@@ -223,9 +223,12 @@ export default {
         if(this.windowWidth>960){
           gsap.set('#clipImage2',{y:"135", scaleY:1.2})
           gsap.set('.imagemobile2', {y:'-170'})
-        } else {
+        } else if (this.windowWidth>640 && this.windowWidth<=960) {
           gsap.set('#clipImage2',{y:"75", scaleY:1.2})
           gsap.set('.imagemobile2', {y:'-150'})
+        } else {
+          gsap.set('#clipImage2',{y:"75", scaleY:1.2})
+          gsap.set('.imagemobile2', {y:'-180'})
         }
 
 
