@@ -85,6 +85,7 @@ export default {
 
   p {
     color: #FFF;
+    font-size:1.2em;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
   }
 
@@ -93,6 +94,9 @@ export default {
     width:90%;
     height: calc(100vh - 100px);
     margin: 0 5%;
+    p {
+      font-size: 1em;
+    }
   }
 
 
