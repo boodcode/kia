@@ -62,8 +62,8 @@
             ></v-select>
           </span>
         </div>
-        <div class="field last">
-          <div class="desc offres" >Je souhaite recevoir les offres commerciales, les nouveautés et exclusivités de la marque</div>
+        <div class="field">
+          <div class="desc offres" >Je souhaite recevoir les offres commerciales,<br>les nouveautés et exclusivités de la marque</div>
           <BaseRadioButtonGroup v-model="user.offres" :options="offres" />
         </div>
         <!--div class="field last">
@@ -533,20 +533,21 @@ export default {
 
        if(this.checkFields()){
         // console.log('all Fields are OK', this.user);
-
-
         this.$store.commit('user/updateInfos', this.user)
         this.checkTop3Cars();
         this.$router.push('/vos-modeles')
 
-         const bestCarModel = this.getSortedKeys(this.$store.state.top3).slice(0, 1)[0]
+         // START SEND TO WS
+/*       const bestCarModel = this.getSortedKeys(this.$store.state.top3).slice(0, 1)[0]
          let best=''
          if(bestCarModel === 'ev'){ best = 'NIRO HEV (SG2)'}
          else if(bestCarModel === 'phev'){ best = 'NIRO PHEV (SG2)'}
-         else if(bestCarModel === 'phev'){ best = 'NIRO EV (SG2 EV)'}
+         else if(bestCarModel === 'phev'){ best = 'NIRO EV (SG2 EV)'} */
 
          // console.log({ model: best, userInfos : this.user, userDatas : this.$store.state.user.conduite, source:  this.$store.state.source });
-         this.$axios.$post('/webservice/rest/kia/lp_niro_2022.php?step=1', {
+
+
+         /* this.$axios.$post('/webservice/rest/kia/lp_niro_2022.php?step=1', {
            model: best,
            userInfos : this.user,
            userPrefs : this.$store.state.user.conduite,
@@ -557,7 +558,9 @@ export default {
             this.$store.commit('user/updateId', res.id);
           },
           (err) => console.log(err)
-        );
+        ); */
+         // END SEND TO WS
+
       } else {
          // console.log('all Fields are not OK');
       };
@@ -695,6 +698,8 @@ export default {
         opacity: 1;
       }
       &.offres {
+        font-size: 12px;
+        font-family: "Kia Signature Fix Regular", serif;
         margin-bottom: 16px;
       }
     }
@@ -731,7 +736,7 @@ export default {
       /* For iOS < 15 to remove gradient background */
       background-color: transparent;
       /* Not removed via appearance */
-      margin: 0 0 0 10px;
+      margin: 0 10px 0 0;
       padding: 0 !important;
 
       font: inherit;

@@ -1,6 +1,5 @@
 <template>
   <label :for="option.value">
-    {{ option.label }}
     <input
       :id="option.value"
       type="radio"
@@ -8,6 +7,7 @@
       :name="option.name"
       :checked="option.checked"
     />
+    {{ option.label }}
   </label>
 </template>
 
@@ -28,13 +28,13 @@ export default {
     display: flex;
     align-items: center;
     color: #fff;
-    margin-right: 35px;
+    margin: 5px 15px 0 0;
     font-size: 14px;
     color:#FFF;
     font-family: "Kia Signature Fix Bold", serif;
     input {
       width:18px !important;
-      margin-left: 10px;
+      margin-right: 10px;
     }
   }
 </style>
