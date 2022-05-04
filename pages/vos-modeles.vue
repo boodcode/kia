@@ -30,22 +30,37 @@
           </g>
         </svg>
         <div class="mobile">
-
-          <div :style="{backgroundImage: `url(${imageSourceTop1})`}" class="imagemobile1">
+          <svg id="mask-models" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 500" width="0" height="0">
+            <defs>
+              <clipPath id="clipImage1">
+                <rect
+                      :x="0"
+                      :y="0"
+                      :width="windowWidth"
+                      :height="windowWidth/2"/>
+              </clipPath>
+              <clipPath id="clipImage2">
+                <rect
+                      :x="0"
+                      :y="0"
+                      :width="windowWidth+100"
+                      :height="windowWidth/2"/>
+              </clipPath>
+            </defs>
+          </svg>
+          <div :style="{backgroundImage: `url(${imageSourceTop1})`}" class="imagemobile1 clip1">
             <div class="text">
               <div class="line1">{{texts[getTop(1)].line1}}</div>
               <div class="line2">{{texts[getTop(1)].line2}}</div>
               <div class="line3">{{texts[getTop(1)].line3}}</div>
             </div>
-
           </div>
-          <div :style="{backgroundImage: `url(${imageSourceTop2})`}" class="imagemobile2">
+          <div :style="{backgroundImage: `url(${imageSourceTop2})`}" class="imagemobile2 clip2">
             <div class="text">
               <div class="line1">{{texts[getTop(2)].line1}}</div>
               <div class="line2">{{texts[getTop(2)].line2}}</div>
               <div class="line3">{{texts[getTop(2)].line3}}</div>
             </div>
-
           </div>
         </div>
         <NuxtLink to="/affinez-votre-choix" class="cta discover">Découvrez pourquoi et affinez votre choix</NuxtLink>
@@ -65,7 +80,7 @@ export default {
       return {
         maskWidth: window.innerWidth/2 + window.innerWidth* Math.sin(10*Math.PI/180)/2,
         maskHeight: 5000,
-        ratioLimit:1.4,
+        ratioLimit:1.25,
         angle: -10,
         windowWidth: window.innerWidth,
         windowHeight: window.innerHeight,
@@ -112,10 +127,8 @@ export default {
     EventBus.$on('LOAD_REVEAL_COMPLETE', this.startReveal)
     this.resize()
     window.addEventListener('resize', this.resize)
-
     this.$store.commit('setTwoCars', this.getSortedKeys(this.$store.state.top3).slice(0, 2))
   },
-
   methods:{
     resize(){
       this.windowWidth = window.innerWidth;
@@ -204,6 +217,21 @@ export default {
       }else {
         gsap.to('.mobile', {opacity:1, duration:1})
         gsap.to('#demo', {opacity:0, duration:1})
+
+        gsap.set('#clipImage1, #clipImage2',{transformOrigin:"50% 50%"})
+
+        if(this.windowWidth>960){
+          gsap.set('#clipImage2',{y:"135", scaleY:1.2})
+          gsap.set('.imagemobile2', {y:'-170'})
+        } else {
+          gsap.set('#clipImage2',{y:"75", scaleY:1.2})
+          gsap.set('.imagemobile2', {y:'-150'})
+        }
+
+
+        // gsap.to('#clipImage1', {rotation:"-5", duration:3, ease:Expo.easeOut})
+        gsap.to('#clipImage2', {rotation:"-6", duration:3, ease:Expo.easeOut})
+
       }
 
     }
@@ -233,7 +261,7 @@ export default {
             fill: white;
             text-shadow: 0 0  10px rgba(0, 0, 0, 0.35);
             &.line1, &.line2 {
-              font-size: 40px;
+              font-size: 36px;
               font-family: "Kia Signature Fix Bold";
             }
             &.line3{
@@ -247,39 +275,68 @@ export default {
         position:absolute;
         opacity: 0;
         width:100%;
-        height:calc(100vh - 140px);
+        height:calc(100vh - 180px);
         left:0;
+
+        @media screen and (max-width: 640px){
+          height:calc(100vh - 200px);
+        }
         .imagemobile1{
           position: relative;
+          z-index:2;
           background-size: cover;
-          background-position: top;
+          background-position: top left;
           height: calc(50%);
           .text{
             text-align: right;
             position: absolute;
-            bottom: 0;
+            top: 0;
             right:0;
           }
         }
         .imagemobile2{
+          position: relative;
+          z-index:10;
           background-size: cover;
-
-          background-position: bottom;
+          background-position: bottom right;
           height: calc(50%);
-          .text{ text-align: left;}
         }
         .text {
+          position: absolute;
+          bottom: 0;
+          left:0;
+          text-align: left;
           color: white;
           padding: 25px;
           text-shadow: 0 0  10px rgba(0, 0, 0, 0.35);
           .line1, .line2 {
             font-size: 30px;
             font-family: "Kia Signature Fix Bold";
+            line-height: 30px;
           }
           .line3{
+            margin-top:10px;
             font-size: 18px;
             font-family: "Kia Signature Fix Light";
           }
+        }
+
+        @media screen and (max-width: 960px){
+          .line1, .line2 {
+            font-size: 24px !important;
+            line-height: 24px !important;
+          }
+          .line3{
+            margin-top:10px !important;
+            font-size: 14px !important;
+          }
+        }
+
+        .clip1 {
+          clip-path: url(#clipImage1);
+        }
+        .clip2 {
+          clip-path: url(#clipImage2);
         }
       }
       .cta.discover {
@@ -287,8 +344,8 @@ export default {
         z-index: 1000;
         bottom: 10px;
 
-        @media screen and(max-width:640px) {
-          bottom: -42px;
+        @media screen and(max-width:960px) {
+          bottom: 75px;
           padding:20px;
           font-size: 14px;
         }
