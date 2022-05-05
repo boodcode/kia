@@ -219,6 +219,7 @@ export default {
     },
     stopParticules(){
       this.particules = null
+      this.autoAnimAfterLike = true
       document.querySelector('#emitter').classList.remove('liked')
 
       gsap.to('.dot',  {
