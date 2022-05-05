@@ -282,7 +282,7 @@
   "puissance":  [
     {
       "ev": {
-        "question": "Besoin d'un grand coffre ?",
+        "question": "Vous êtes attentif à la puissance du véhicule ?",
         "reponse": "Grâce au moteur électrique du nouveau Niro EV 100% électrique, c'est bien toute la puissance du véhicule qui est disponible instantanément. Découvrez à son bord une nouvelle façon de conduire et la sensation de reprises dynamiques qui se font sans effort. "
       },
       "phev": {

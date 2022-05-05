@@ -8,12 +8,12 @@
       <div class="coup-de-foudre"></div>
     </div>
     <div class="loadText">
-      <h3>Rencontrez votre Niro idéal</h3>
+      <h3>Rencontrez<br>votre Kia Niro idéal</h3>
     </div>
     <div class="home">
       <p>
         <strong>
-          En version hybride, hybride rechargeable ou 100&nbsp;% électrique,<br>
+          En version hybride, hybride rechargeable ou&nbsp;100&nbsp;%&nbsp;électrique,<br>
           découvrez le partenaire qui vous correspond vraiment en quelques étapes.
         </strong>
       </p>
@@ -85,7 +85,7 @@ export default {
 
   p {
     color: #FFF;
-    font-size:1.2em;
+    font-size:1.8em;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
   }
 
@@ -176,7 +176,7 @@ export default {
 .loadText{
   position:absolute;
   width:100%;
-  bottom:100px;
+  bottom:150px;
   color: #fff;
   font-size: 24px;
   text-align: center;

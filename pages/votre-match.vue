@@ -1,6 +1,6 @@
 <template>
   <div>
-    <loading time="4"></loading>
+    <loading time="2"></loading>
     <div class="match" >
       <div class="bg" :style="{backgroundImage: `url(${datas[car].img})`}"></div>
       <div class="text">
@@ -8,7 +8,7 @@
         <p v-html="datas[car].p"></p>
       </div>
       <div class="conseiller">
-        <h4>Votre conseiller Kia prendra contact avec vous<br>
+        <h4>Un conseiller Kia prendra contact avec vous<br>
           dans les prochains jours pour convenir d’un rendez-vous.</h4>
         <div class="cta" @click="more">En savoir plus</div>
       </div>
@@ -95,7 +95,12 @@ export default {
     top:0;left:0;width:100vw;height: 100vh;
     background-size:cover;
     background-position: center center;
-    transform: scale(1.2)
+    transform: scale(1.2);
+
+    @media screen and(max-width:640px){
+      transform: scale(1.1);
+      background-position: 40% center;
+    }
   }
 
   .text, .conseiller {

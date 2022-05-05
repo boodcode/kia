@@ -26,7 +26,7 @@ export default {
 
     tlLoad.to('.loading-cpt-full', { WebkitMaskPosition: '25% 0%', duration: time, ease: Linear.easeNone });
     if(this.$route.name === 'votre-match') {
-      delayPositionTL = 4;
+      delayPositionTL = 2;
       tlLoad.to('.loading-cpt-votrecoupdefoudre', {opacity: 1, duration: time, ease: Linear.easeNone});
       tlLoad.to('.loading-cpt-votrecoupdefoudre', {
         scale: 1.2,

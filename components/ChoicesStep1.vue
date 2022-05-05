@@ -42,3 +42,9 @@ export default {
   },
 }
 </script>
+<style>
+@media screen and (min-width:640px) {
+  #byDay, #byYear{transform: scale(1.25);}
+  #byDay{ padding:0 50px; }
+}
+</style>

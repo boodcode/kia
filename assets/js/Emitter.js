@@ -37,7 +37,7 @@ export default class Emitter {
   }
 
   startAnim = () => {
-    gsap.timeline({repeat: 20, onComplete: this.endOfAnimEvent}).call(this.shootDot, [], 2 / this.dotQuantity);
+    gsap.timeline({repeat: 10, onComplete: this.endOfAnimEvent}).call(this.shootDot, [], 2 / this.dotQuantity);
   }
 
   shootDot = () => {

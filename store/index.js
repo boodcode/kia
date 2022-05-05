@@ -31,6 +31,7 @@ export const mutations = {
     setCookie('twoCars', arr, 30)
   },
   incrementCarLikes(state, car){
+    console.log('---->', car)
     if(car ==='ev') {
       state.evLikes++
     } else if(car ==='phev') {

@@ -86,7 +86,8 @@ export default {
       hevScore:0,
       swipeInstance: null,
       twoCars: this.$store.state.twoCars,
-      autoAnimAfterLike: false
+      autoAnimAfterLike: false,
+      clonedSlidesLength:6,
     }
   },
   head() {
@@ -106,34 +107,24 @@ export default {
   },
   mounted(){
     const slides = document.querySelectorAll('.slider-slide')
-
     this.maxSlides = slides.length
     this.activeIndex = this.maxSlides/2
 
     // mix les slides
-    for(let i=0; i< this.maxSlides; i++){
-      const target1 = Math.floor(Math.random() * this.maxSlides -1) + 1;
-      const target2 = Math.floor(Math.random() * this.maxSlides -1) + 1;
-      slides[target1].before(slides[target2]);
-    }
-    // reattribute des data
-    document.querySelectorAll('.slider-slide').forEach((s, index)=> {
-      s.dataset.slideIndex = ''+index;
-      s.dataset.slideActive =  (index === this.maxSlides/2 ) ? 'true' : 'false';
-      s.dataset.liked = 'false';
-      s.classList.remove('active')
-    })
-    document.querySelector('.slider-slide[data-slide-active="true"]').classList.add('active')
+    this.mixSlides(slides)
+
+    // clone pour le infinite slider
+    setTimeout(this.clone(3), 1000)
 
 
+    //
     const activeSlide = slides[this.activeIndex];
     activeSlide.dataset.slideActive = true
-
+    //
     if(!getCookie('tutoShown')){
       gsap.to('.tuto', {scale:1,opacity:1, duration:0.5, ease:Expo.easeOut})
       setCookie('tutoShow', true, 10)
     }
-    // this.particules = new Emitter();
     //
     const swipeTouch = new SwipeEvents()
     this.swipeInstance = swipeTouch
@@ -141,21 +132,82 @@ export default {
     document.addEventListener('touchstart', swipeTouch.handleTouchStart, false);
     document.addEventListener('touchmove', this.swipe, false);
 
-
     //
     EventBus.$on("EMITTER_END", this.nextSlideAfterAnim)
 
+    //
+
 
   },
+  updated(){
+  },
   methods:{
+    clone(n){
+      const slider = document.querySelector('.slider-slides')
+      const first = slider.querySelector('.slider-slide:nth-child(1)')
+      const last = slider.querySelector('.slider-slide:nth-child('+this.maxSlides+')')
+      const arrClonesFirsts = []
+      const arrClonesLasts = []
+
+
+      for(let i=0; i<n; i++){
+        const tempFirst = slider.querySelector('.slider-slide:nth-child(' + (i+1) + ')')
+        const tempLast = slider.querySelector('.slider-slide:nth-child(' + (this.maxSlides - (n-1) + i) + ')')
+        //
+        const cloneFirst = tempFirst.cloneNode(true)
+        cloneFirst.dataset.slideIndex = 1000
+        //
+        const scrollContentFirst = tempFirst.querySelector('.scroll-content').innerHTML
+        const scrollContentFirst2 = tempFirst.querySelector('.scroll-content').textContent
+
+        console.log(tempFirst.querySelector('.scroll-content'), scrollContentFirst, scrollContentFirst2)
+
+        cloneFirst.querySelector('.scroll-content').innerHTML = '<h4>dffs</h4><p>fsdfs</p>'
+
+        const cloneLast = tempLast.cloneNode(true)
+        cloneLast.dataset.slideIndex = 1000
+        //
+        const tempLastTextContent = tempLast.querySelector('.scroll-content').cloneNode(true)
+        const cloneLastTextContent = cloneLast.querySelector('.scroll-content')
+        cloneLastTextContent.replaceWith(tempLastTextContent)
+        //
+        arrClonesFirsts.push(cloneFirst)
+        arrClonesLasts.push(cloneLast)
+        //
+      }
+      for(let i=0; i<n; i++){
+        first.before(arrClonesLasts[(n-1)-i])
+      }
+      for(let i=0; i<n; i++){
+        last.after(arrClonesFirsts[(n-1)-i])
+      }
+    },
+    mixSlides(slides){
+      for(let i=0; i< this.maxSlides; i++){
+        const target1 = Math.floor(Math.random() * this.maxSlides -1) + 1;
+        const target2 = Math.floor(Math.random() * this.maxSlides -1) + 1;
+        slides[target1].before(slides[target2]);
+      }
+      // reattribute des data
+      document.querySelectorAll('.slider-slide').forEach((s, index)=> {
+        s.dataset.slideIndex = ''+index;
+        s.dataset.slideActive =  (index === this.maxSlides/2 ) ? 'true' : 'false';
+        s.dataset.liked = 'false';
+        s.classList.remove('active')
+      })
+      document.querySelector('.slider-slide[data-slide-active="true"]').classList.add('active')
+    },
+    //
     nextSlideAfterAnim(){
       if(this.intentDirection==='next'){
         if(this.autoAnimAfterLike){
           setTimeout(this.nextSlide(), 1000)
         }
-      } else if(this.autoAnimAfterLike) {
+      } else if(this.intentDirection==='prev') {
+        if (this.autoAnimAfterLike) {
           setTimeout(this.prevSlide(), 1000)
         }
+      }
     },
     //
     userPriority(priority){
@@ -174,7 +226,9 @@ export default {
     },
     //
     toggleLike(index){
-      const slide = document.querySelector('.slider-slide:nth-of-type(' + (index+1) +')')
+      console.log(this.activeIndex, index)
+      const slide = document.querySelector('.slider-slide:nth-child(' + (index+1+3) +')')
+
 
       if(slide.dataset.liked==="true") {
         slide.dataset.liked = 'false'
@@ -186,6 +240,7 @@ export default {
         this.$store.commit('incrementCarLikes', slide.dataset.car)
       }
       //
+      //
       if(this.$store.state.evLikes>=3){
         setCookie('match', 'ev')
         this.$router.push({path: '/votre-match', params:{car: 'ev'}})
@@ -194,7 +249,7 @@ export default {
         this.autoAnimAfterLike = false
       }
       else if(this.$store.state.phevLikes>=3){
-        setCookie('match', 'ev')
+        setCookie('match', 'phev')
         this.$router.push({path: '/votre-match', params:{car: 'phev'}})
         this.$store.commit('setTheMatch', 'phev')
         this.stopParticules()
@@ -219,7 +274,7 @@ export default {
     },
     stopParticules(){
       this.particules = null
-      this.autoAnimAfterLike = true
+      this.autoAnimAfterLike = false
       document.querySelector('#emitter').classList.remove('liked')
 
       gsap.to('.dot',  {
@@ -233,6 +288,7 @@ export default {
     prevSlide(){
       this.intentDirection = 'prev';
       this.autoAnimAfterLike = false
+      const slider = document.querySelector('.slider-slides')
       const elem = document.querySelector('.slider-slide.active');
       const styles = window.getComputedStyle(elem)
       const decal = elem.offsetWidth + parseFloat(styles.marginLeft) + parseFloat(styles.marginRight)
@@ -242,46 +298,49 @@ export default {
           const prevTween = gsap.to('.slider-slides', {x: '+='+decal, ease:this.sliderOptions.ease, duration: this.sliderOptions.timing})
           prevTween.play();
           --this.activeIndex;
-
-          document.querySelectorAll('.slider-slide[data-slide-index]:not([data-slide-index="'+this.activeIndex+'"])').forEach(s=>{s.classList.remove('active')})
-          document.querySelector('.slider-slide[data-slide-index="'+this.activeIndex+'"]').classList.add('active')
-
-          if(document.querySelector('.slider-slide:nth-of-type(' + (this.activeIndex + 1) +')').dataset.liked === 'true'){
-            this.startParticules(this.activeIndex)
-          } else {
-            this.stopParticules()
-          }
+          //
+          this.initSlideAfterMove()
         }
       } else {
-        this.activeIndex = 0
+        this.activeIndex = this.maxSlides-1
+        const sliderWidth = slider.getBoundingClientRect().width
+        gsap.set(slider, {x:'-='+(sliderWidth - decal - decal*(this.clonedSlidesLength))})
+        //
+        this.initSlideAfterMove()
       }
     },
     nextSlide(){
       this.intentDirection = 'next'
       this.autoAnimAfterLike = false
+      const slider = document.querySelector('.slider-slides')
       const elem = document.querySelector('.slider-slide.active');
       const styles = window.getComputedStyle(elem)
       const decal = elem.offsetWidth + parseFloat(styles.marginLeft) + parseFloat(styles.marginRight)
-
-
-
-      if(this.activeIndex<this.maxSlides-1){
+      //
+       if(this.activeIndex<this.maxSlides-1){
         if(!gsap.isTweening('.slider-slides')){
           const nextTween = gsap.to('.slider-slides', {x: '-='+decal, ease:this.sliderOptions.ease, duration: this.sliderOptions.timing})
           nextTween.play();
           ++this.activeIndex;
-
-          document.querySelectorAll('.slider-slide[data-slide-index]:not([data-slide-index="'+this.activeIndex+'"])').forEach(s=>{s.classList.remove('active')})
-          document.querySelector('.slider-slide[data-slide-index="'+this.activeIndex+'"]').classList.add('active')
-
-          if(document.querySelector('.slider-slide:nth-of-type(' + (this.activeIndex+1) +')').dataset.liked === 'true'){
-            this.startParticules(this.activeIndex)
-          } else {
-            this.stopParticules()
-          }
+          //
+          this.initSlideAfterMove()
         }
+       } else {
+         this.activeIndex = 0
+         const sliderWidth = slider.getBoundingClientRect().width
+         gsap.set(slider, {x:'+='+(sliderWidth - decal - decal*(this.clonedSlidesLength))})
+         //
+         this.initSlideAfterMove()
+       }
+    },
+    initSlideAfterMove(){
+      document.querySelectorAll('.slider-slide[data-slide-index]:not([data-slide-index="'+this.activeIndex+'"])').forEach(s=>{s.classList.remove('active')})
+      document.querySelector('.slider-slide[data-slide-index="'+this.activeIndex+'"]').classList.add('active')
+      //
+      if(document.querySelector('.slider-slide:nth-of-type(' + (this.activeIndex+1) +')').dataset.liked === 'true'){
+        this.startParticules(this.activeIndex)
       } else {
-        this.activeIndex = this.maxSlides-1
+        this.stopParticules()
       }
     },
     getSortedKeys(obj) {
@@ -367,11 +426,11 @@ export default {
     width: 350px;
     padding:10px 0;
 
-    .fantom {
+/*    .fantom {
       opacity:0;
       cursor:pointer;
       pointer-events: none;
-    }
+    }*/
 
     &-prev{
       transform: rotate(180deg);
