@@ -538,16 +538,15 @@ export default {
         this.$router.push('/vos-modeles')
 
          // START SEND TO WS
-/*       const bestCarModel = this.getSortedKeys(this.$store.state.top3).slice(0, 1)[0]
+      const bestCarModel = this.getSortedKeys(this.$store.state.top3).slice(0, 1)[0]
          let best=''
          if(bestCarModel === 'ev'){ best = 'NIRO HEV (SG2)'}
          else if(bestCarModel === 'phev'){ best = 'NIRO PHEV (SG2)'}
-         else if(bestCarModel === 'phev'){ best = 'NIRO EV (SG2 EV)'} */
+         else if(bestCarModel === 'phev'){ best = 'NIRO EV (SG2 EV)'}
 
          // console.log({ model: best, userInfos : this.user, userDatas : this.$store.state.user.conduite, source:  this.$store.state.source });
 
-
-         /* this.$axios.$post('/webservice/rest/kia/lp_niro_2022.php?step=1', {
+         this.$axios.$post('/webservice/rest/kia/lp_niro_2022.php?step=1', {
            model: best,
            userInfos : this.user,
            userPrefs : this.$store.state.user.conduite,
@@ -558,7 +557,7 @@ export default {
             this.$store.commit('user/updateId', res.id);
           },
           (err) => console.log(err)
-        ); */
+        );
          // END SEND TO WS
 
       } else {
