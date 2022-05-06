@@ -9,6 +9,7 @@
             data-slide-active=false
             data-liked=false
             :data-car="twoCars[0]"
+            :data-qtype="qType"
           >
             <div class="overlay"></div>
             <NiroCard :q-type="qType" :car="twoCars[0]"  />
@@ -20,23 +21,24 @@
           data-slide-active=false
           data-liked=false
           :data-car="twoCars[1]"
+          :data-qtype="qType"
         >
           <div class="overlay"></div>
           <NiroCard :q-type="qType" :car="twoCars[1]"  />
         </div>
-        <div class="slider-slide" data-slide-index="16" data-slide-active=false data-liked=false :data-car="twoCars[0]">
+        <div class="slider-slide" data-slide-index="16" data-slide-active=false data-liked=false :data-car="twoCars[0]" :data-qtype="userPriority(1)">
           <div class="overlay"></div>
           <NiroCard :q-type="userPriority(1)" :car="twoCars[0]" />
         </div>
-        <div class="slider-slide" data-slide-index="17" data-slide-active=false data-liked=false :data-car="twoCars[1]">
+        <div class="slider-slide" data-slide-index="17" data-slide-active=false data-liked=false :data-car="twoCars[1]" :data-qtype="userPriority(1)">
           <div class="overlay"></div>
           <NiroCard :q-type="userPriority(1)" :car="twoCars[1]" />
         </div>
-        <div class="slider-slide" data-slide-index="18" data-slide-active=false data-liked=false :data-car="twoCars[0]">
+        <div class="slider-slide" data-slide-index="18" data-slide-active=false data-liked=false :data-car="twoCars[0]" :data-qtype="userPriority(2)">
           <div class="overlay"></div>
           <NiroCard :q-type="userPriority(2)" :car="twoCars[0]" />
         </div>
-        <div class="slider-slide" data-slide-index="19" data-slide-active=false data-liked=false :data-car="twoCars[1]">
+        <div class="slider-slide" data-slide-index="19" data-slide-active=false data-liked=false :data-car="twoCars[1]" :data-qtype="userPriority(2)">
           <div class="overlay"></div>
           <NiroCard :q-type="userPriority(2)" :car="twoCars[1]" />
         </div>
@@ -62,9 +64,12 @@
 <script>
 import gsap , {Expo} from 'gsap'
 import {removeNode} from "vuedraggable/src/util/helper";
+
 import Emitter from '~/assets/js/Emitter'
 import SwipeEvents from "assets/js/utils/SwipeEvents";
 import EventBus from "assets/js/utils/event-bus";
+
+
 
 export default {
   components: {
@@ -88,6 +93,7 @@ export default {
       twoCars: this.$store.state.twoCars,
       autoAnimAfterLike: false,
       clonedSlidesLength:6,
+      textCards:null
     }
   },
   head() {
@@ -104,6 +110,13 @@ export default {
       this.twoCars = getCookie('twoCars').split(',')
       this.$store.commit('setTwoCars', this.twoCars)
     }
+    fetch('/cards.json')
+      .then(r => r.json())
+      .then(json => {
+        this.textCards = json
+        // clone pour le infinite slider
+        this.clone(3)
+      })
   },
   mounted(){
     const slides = document.querySelectorAll('.slider-slide')
@@ -112,9 +125,6 @@ export default {
 
     // mix les slides
     this.mixSlides(slides)
-
-    // clone pour le infinite slider
-    setTimeout(this.clone(3), 1000)
 
 
     //
@@ -142,6 +152,28 @@ export default {
   updated(){
   },
   methods:{
+    getUserResponseByqType(qType){
+      let rep = 0;
+      if(qType==="kmByDay") {rep = (this.$store.state.user.conduite[qType] < 50)  ? 0 : (this.$store.state.user.conduite[qType] >= 150) ? 2 : 1; }
+      else if (qType === "kmByYear") { rep = (this.$store.state.user.conduite[qType] < 10000)  ? 0 : (this.$store.state.user.conduite[qType] >= 20000) ? 2 : 1; }
+      else if (qType === "voyagesOver400km") { rep = (this.$store.state.user.conduite[qType] === "rarement")  ? 0 : (this.$store.state.user.conduite[qType] === "De temps en temps") ? 1 : 2; }
+      else if (qType === "frequenceVille") { rep = (this.$store.state.user.conduite[qType] === "Parfois")  ? 0 : (this.$store.state.user.conduite[qType] === "Régulièrement") ? 1 : 2; }
+      else if (qType === "frequenceExtraUrbain") { rep = (this.$store.state.user.conduite[qType] === "Parfois")  ? 0 : (this.$store.state.user.conduite[qType] === "Régulièrement") ? 1 : 2; }
+      else if (qType === "frequenceAutoroute") { rep = (this.$store.state.user.conduite[qType] === "Parfois")  ? 0 : (this.$store.state.user.conduite[qType] === "Régulièrement") ? 1 : 2; }
+      else if (qType === "rechargeDomicile") { rep = (this.$store.state.user.conduite[qType] === true || this.$store.state.user.conduite[qType] === 1)  ? 0 : 1; }
+      else if (qType === "rechargeBorne") { rep = (this.$store.state.user.conduite[qType] === true || this.$store.state.user.conduite[qType] === 1)  ? 0 : 1; }
+      else if (qType === "coffre") {rep =0;}
+      //
+      return rep;
+    },
+    getQuestion(qType, car){
+      const index = this.getUserResponseByqType(qType);
+      return this.textCards[qType][index][car].question
+    },
+    getReponse(qType, car){
+      const index = this.getUserResponseByqType(qType);
+      return this.textCards[qType][index][car].reponse
+    },
     clone(n){
       const slider = document.querySelector('.slider-slides')
       const first = slider.querySelector('.slider-slide:nth-child(1)')
@@ -155,28 +187,26 @@ export default {
         const tempLast = slider.querySelector('.slider-slide:nth-child(' + (this.maxSlides - (n-1) + i) + ')')
         //
         const cloneFirst = tempFirst.cloneNode(true)
-        cloneFirst.dataset.slideIndex = 1000
+        cloneFirst.dataset.slideIndex = 1000;
         //
-        const scrollContentFirst = tempFirst.querySelector('.scroll-content').innerHTML
-        const scrollContentFirst2 = tempFirst.querySelector('.scroll-content').textContent
-
-        console.log(tempFirst.querySelector('.scroll-content'), scrollContentFirst, scrollContentFirst2)
-
-        cloneFirst.querySelector('.scroll-content').innerHTML = '<h4>dffs</h4><p>fsdfs</p>'
-
+        const qFirst = this.getQuestion(cloneFirst.dataset.qtype, cloneFirst.dataset.car)
+        const rFirst = this.getReponse(cloneFirst.dataset.qtype, cloneFirst.dataset.car)
+        cloneFirst.querySelector('.scroll-content').innerHTML = '<h4>'+qFirst+'</h4><p>'+rFirst+'</p>'
+        //
         const cloneLast = tempLast.cloneNode(true)
         cloneLast.dataset.slideIndex = 1000
         //
-        const tempLastTextContent = tempLast.querySelector('.scroll-content').cloneNode(true)
-        const cloneLastTextContent = cloneLast.querySelector('.scroll-content')
-        cloneLastTextContent.replaceWith(tempLastTextContent)
+        const qLast = this.getQuestion(cloneLast.dataset.qtype, cloneLast.dataset.car)
+        const rLast = this.getReponse(cloneLast.dataset.qtype, cloneLast.dataset.car)
+        console.log(qLast, rLast)
+        cloneLast.querySelector('.scroll-content').innerHTML = '<h4>'+qLast+'</h4><p>'+rLast+'</p>'
         //
         arrClonesFirsts.push(cloneFirst)
         arrClonesLasts.push(cloneLast)
         //
       }
       for(let i=0; i<n; i++){
-        first.before(arrClonesLasts[(n-1)-i])
+        first.before(arrClonesLasts[i])
       }
       for(let i=0; i<n; i++){
         last.after(arrClonesFirsts[(n-1)-i])
@@ -227,7 +257,7 @@ export default {
     //
     toggleLike(index){
       console.log(this.activeIndex, index)
-      const slide = document.querySelector('.slider-slide:nth-child(' + (index+1+3) +')')
+      const slide = document.querySelector('.slider-slide:nth-child(' + (index + 1 + this.clonedSlidesLength/2) +')')
 
 
       if(slide.dataset.liked==="true") {
@@ -388,7 +418,16 @@ export default {
       background-color: rgba(42,32,24,0.85);
       z-index:1000;
     }
+
+    .nirocard {
+
+    }
+
+
     &.active {
+      .nirocard {
+
+      }
       .overlay {
         opacity:0;
         z-index: 0;
@@ -396,7 +435,6 @@ export default {
       .nirocard{
         background-color: #FFF;
         color: black;
-
         .content {
           &:after {
             background: linear-gradient(0deg, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 0) 100% );
@@ -411,6 +449,10 @@ export default {
         }
       }
     }
+
+
+
+
 
     @media screen and (max-width:640px){
       margin:0 5px;
