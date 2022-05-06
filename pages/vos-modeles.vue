@@ -223,11 +223,13 @@ export default {
         if(this.windowWidth>960){
           gsap.set('#clipImage2',{y:"135", scaleY:1.2})
           gsap.set('.imagemobile2', {y:'-170'})
+
         } else if (this.windowWidth>640 && this.windowWidth<=960) {
           gsap.set('#clipImage2',{y:"75", scaleY:1.2})
           gsap.set('.imagemobile2', {y:'-150'})
+
         } else {
-          gsap.set('#clipImage2',{y:"75", scaleY:1.2})
+          gsap.set('#clipImage2',{y:"75", scaleY:1.4, scaleX: 1.2})
           gsap.set('.imagemobile2', {y:'-140'})
         }
 
@@ -354,7 +356,7 @@ export default {
         bottom: 10px;
 
         @media screen and(max-width:960px) {
-          bottom: 75px;
+          bottom: 30px;
           padding:20px;
           font-size: 14px;
         }
