@@ -182,7 +182,6 @@ export default {
       gsap.to('.reveal-anim', {opacity:1, duration:1})
 
       if(this.windowWidth/this.windowHeight > this.ratioLimit){
-
         gsap.to('.mobile', {opacity:0, duration:1})
         gsap.to('#demo', {opacity:1, duration:1})
 
@@ -206,15 +205,14 @@ export default {
           rect2Tween.play()
         }
 
-
         gsap.to('#maskRevealTop1 .line1', {opacity:1, x:0, duration:timingTexts, delay:timing-2, ease:Expo.easeOut})
         gsap.to('#maskRevealTop1 .line2', {opacity:1, x:0, duration:timingTexts, delay:timing-2, ease:Expo.easeOut})
-        gsap.to('#maskRevealTop1 .line3', {opacity:1, duration:timingTexts/2, delay:timing+timingTexts-5, ease:Expo.easeOut})
+        gsap.to('#maskRevealTop1 .line3', {opacity:1, duration:timingTexts/2, delay:timing-1})
 
-        gsap.to('#maskRevealTop2 .line1', {opacity:1, x:0, duration:timingTexts, delay:timing, ease:Expo.easeOut})
-        gsap.to('#maskRevealTop2 .line2', {opacity:1, x:0, duration:timingTexts, delay:timing, ease:Expo.easeOut})
-        gsap.to('#maskRevealTop2 .line3', {opacity:1, duration:timingTexts/2, delay:timing+timingTexts-4, ease:Expo.easeOut})
-      }else {
+        gsap.to('#maskRevealTop2 .line1', {opacity:1, x:0, duration:timingTexts, delay:timing-2, ease:Expo.easeOut})
+        gsap.to('#maskRevealTop2 .line2', {opacity:1, x:0, duration:timingTexts, delay:timing-2, ease:Expo.easeOut})
+        gsap.to('#maskRevealTop2 .line3', {opacity:1, duration:timingTexts/2, delay:timing-1})
+      } else {
         gsap.to('.mobile', {opacity:1, duration:1})
         gsap.to('#demo', {opacity:0, duration:1})
 
@@ -229,10 +227,11 @@ export default {
           gsap.set('.imagemobile2', {y:'-150'})
 
         } else {
-          gsap.set('#clipImage2',{y:"75", scaleY:1.4, scaleX: 1.2})
-          gsap.set('.imagemobile2', {y:'-140'})
+          gsap.set('#clipImage2',{y:"90", scaleY:1.4, scaleX: 1.4})
+          gsap.set('.imagemobile2', {y:'-170'})
+          gsap.set('#clipImage1',{y:"0", scaleY:1.4, scaleX: 1})
+          gsap.set('.imagemobile1', {y:'0'})
         }
-
 
         // gsap.to('#clipImage1', {rotation:"-5", duration:3, ease:Expo.easeOut})
         gsap.to('#clipImage2', {rotation:"-6", duration:3, ease:Expo.easeOut})
@@ -251,7 +250,14 @@ export default {
     opacity: 0;
     h3 {
       margin-top: 0;
+
     }
+    @media screen and(max-width: 640px){
+      h3 {font-size: 21px;}
+    }
+
+
+
     .tops{
       position:relative;
       margin-top: 0px;
@@ -264,7 +270,8 @@ export default {
           position:relative;
           text {
             fill: white;
-            text-shadow: 0 0  10px rgba(0, 0, 0, 0.35);
+            //text-shadow: 0 0  10px rgba(0, 0, 0, 0.35);
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
             &.line1, &.line2 {
               font-size: 36px;
               font-family: "Kia Signature Fix Bold";
