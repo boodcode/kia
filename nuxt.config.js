@@ -2,15 +2,15 @@ export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
   env: {
-    baseURL: (process.env.NODE_ENV === 'production' ? 'https//kia.agence-shift.com' : 'http://localhost:3000')
+    baseURL: (process.env.NODE_ENV === 'production' ? 'https://coupdefoudre-kia-niro.com/' : 'http://localhost:3000')
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'kia',
+    title: 'Kia France | Nouveau Niro',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1' },
-      { hid: 'description', name: 'description', content: 'Kia' },
+      { hid: 'description', name: 'description', content: 'Le nouveau Kia Niro est le seul crossover familial disponible en trois motorisations (hybride, hybride rechargeable, 100 électrique), découvrez grâce à ce site laquelle est faite pour vous.' },
       { name: 'format-detection', content: 'telephone=no' },
       ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
@@ -22,7 +22,7 @@ export default {
     mode: 'out-in'
   },
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  // plugins: ['@/plugins/gtag'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -39,10 +39,50 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    ['nuxt-vue-select', { /* option */ }]
-
+    ['nuxt-vue-select', { /* option */ }],
+    ['nuxt-cookie-control',{
+      controlButton: false,
+    }]
   ],
-
+  cookies: {
+    colors: {
+      modalBackground: '#697279',
+      checkboxDisabledBackground: '#ddd',
+      checkboxActiveCircleBackground: '#00c58e',
+      checkboxInactiveCircleBackground: '#f44336',
+      checkboxDisabledCircleBackground: '#fff',
+    },
+    necessary: [
+      {
+        name: {
+          fr: 'Cookies par défault'
+        },
+        description: {
+          fr: 'Utilisés pour la gestion des cookies et pour assurer le bon fonctionnement du site.'
+        },
+        cookies: ['cookie_control_enabled_cookies', 'cookie_control_consent', 'twoCars', 'exitIntentShown', 'tutoShown', 'match']
+      }
+    ],
+    optional: [
+      {
+        name: {fr: 'Google Analitycs'},
+        identifier: 'ga',
+        description: {fr: 'Google Analytics est un service d\'analyse de trafic et de statistiques proposé par Google.'},
+        src:  'https://www.googletagmanager.com/gtag/js?id=G-J6FT00B7LM',
+        async:  true,
+        cookies: ['_ga', '_gat', '_gid'],
+        accepted: () =>{
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            'gtm.start': new Date().getTime(),
+            event: 'gtm.js'
+          });
+        },
+        declined: () =>{
+        }
+      }
+    ]
+  },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308

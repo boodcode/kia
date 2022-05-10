@@ -1601,12 +1601,5 @@
     "dealer_residence": "MONACO",
     "dealer_longitude": 7.416632,
     "dealer_latitude": 43.736969
-  },
-  {
-    "dealer_internalid": "FR980",
-    "dealer_postcode":"98000",
-    "dealer_residence": "MONACO",
-    "dealer_longitude": 7.4172605,
-    "dealer_latitude": 43.7341474
   }
 ]

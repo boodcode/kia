@@ -1,5 +1,7 @@
 <template>
   <div class="index">
+    <PopinML></PopinML>
+    <CookieControl v-if="showCookieComponent===1" locale="fr"/>
     <div class="home-bg"></div>
     <div class="loading">
       <div class="loading-black"></div>
@@ -19,48 +21,54 @@
       </p>
         <NuxtLink class="cta" to="/vos-habitudes">Commencer</NuxtLink>
     </div>
+    <div class="links">
+      <div @click="popinML">Mentions légales</div>
+    </div>
   </div>
 
 </template>
 
-<script lang="ts">
+<script>
 import gsap, {Linear, Expo} from 'gsap'
 export default {
   name: 'IndexPage',
-  data() {
+  data(){
     return {
+      showCookieComponent: 0,
     }
   },
-   mounted() {
+  mounted() {
+    setTimeout(()=>{this.showCookieComponent=1;}, 8000)
     const tl = gsap.timeline({});
     const loaderTiming = 2;
-     gsap.set('.loading-white, .home p, .home .cta, .loading .coup-de-foudre', {opacity:0})
-     gsap.set('.loading-white', {opacity:0})
-     gsap.set('.home-bg', {scale:1.15})
-     gsap.set('.loading-full', {
-       WebkitMaskPosition: '70% 0%'
-     })
-     tl.to('.loading-full', { WebkitMaskPosition: '30% 0%', duration: loaderTiming, delay: 0, ease: Linear.easeNone });
+    gsap.set('.loading-white, .home p, .home .cta, .loading .coup-de-foudre', {opacity: 0})
+    gsap.set('.loading-white', {opacity: 0})
+    gsap.set('.home-bg', {scale: 1.15})
+    gsap.set('.loading-full', {
+      WebkitMaskPosition: '70% 0%'
+    })
+    tl.to('.loading-full', {WebkitMaskPosition: '30% 0%', duration: loaderTiming, delay: 0, ease: Linear.easeNone});
 
-    tl.to('.loading-black', {opacity:0, duration:0})
-     tl.to('.loading', {top:180,  duration:2, ease: Expo.easeInOut }, loaderTiming+0.5);
-     tl.to('.loadText',{ opacity:0, y:100,duration:2, ease:Expo.easeInOut },loaderTiming+0.5);
+    tl.to('.loading-black', {opacity: 0, duration: 0})
+    tl.to('.loading', {top: 180, duration: 2, ease: Expo.easeInOut}, loaderTiming + 0.5);
+    tl.to('.loadText', {opacity: 0, y: 100, duration: 2, ease: Expo.easeInOut}, loaderTiming + 0.5);
 
-     tl.to('.loading-full', {opacity:0, duration:1}, loaderTiming+1.5)
-     tl.to('.loading-white', { opacity:1,  duration:1 }, loaderTiming+1.5)
-     tl.to('.loading .coup-de-foudre', {opacity:1, duration: 1}, loaderTiming+2.5);
+    tl.to('.loading-full', {opacity: 0, duration: 1}, loaderTiming + 1.5)
+    tl.to('.loading-white', {opacity: 1, duration: 1}, loaderTiming + 1.5)
+    tl.to('.loading .coup-de-foudre', {opacity: 1, duration: 1}, loaderTiming + 2.5);
+
+    tl.fromTo('.home-bg', {opacity: 0}, {opacity: 1, duration: 2}, loaderTiming + 1.5);
+    tl.to('.home-bg', {scale: 1, duration: 20}, loaderTiming + 1.5);
+
+    tl.to('.home p', {opacity: 1, duration: 1}, +loaderTiming + 2.5);
+    tl.to('.home .cta', {opacity: 1, duration: 1.5}, loaderTiming + 3.5);
 
 
-     tl.fromTo('.home-bg',{opacity:0}, {opacity:1, duration:2}, loaderTiming+1.5);
-     tl.to('.home-bg',{scale:1, duration:20}, loaderTiming+1.5);
-
-     tl.to('.home p', {opacity:1, duration: 1}, +loaderTiming+2.5);
-     tl.to('.home .cta', {opacity:1, duration: 1.5}, loaderTiming+3.5);
-
-
-   },
+  },
   methods: {
-
+    popinML(){
+      document.querySelector('.popin').classList.add('visible');
+    }
   }
 }
 </script>
@@ -189,4 +197,59 @@ export default {
     height: 100vh;
 }
 
+
+.cookieControl__ModalContent{
+  max-width: 500px;
+  overflow-y : auto;
+  h3{
+    text-shadow:none;
+    text-align: left;
+    font-family: "Kia Signature Fix Bold", serif;
+    margin: 25px 0;
+  }
+  .cookieControl__ModalButtons {
+    justify-content: center;
+  }
+  ul {}
+  ul ul {
+    padding-top: 1em;
+  }
+  li {
+    display: inline;
+    color:#222;
+    &+li {
+      padding-left: .75em;
+      position:relative;
+      &:before {
+        position:absolute;
+        content:',';
+        left:0;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    position: absolute;
+    width:90%;
+    height:100vh;
+    top:0;
+    left:50%;
+    right:unset;
+    bottom:unset;
+    transform: translate3d(-50%, 0, 0);
+    .cookieControl__ModalButtons {
+      margin-top: 30px;
+    }
+  }
+}
+.links {
+  position:absolute;
+  right:50px;
+  bottom:20px;
+  font-size:14px;
+  color:#FFF;
+  div {
+    cursor: pointer;
+  }
+}
 </style>

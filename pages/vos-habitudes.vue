@@ -19,6 +19,7 @@
 <script>
 
 import gsap, {Expo} from "gsap";
+
 const timingNavStep = 4;
 export default {
   data: () => {
@@ -48,11 +49,11 @@ export default {
     gsap.to('.progress', {width: this.$store.state.activeStep * spanWidth, duration:timingNavStep, ease:Expo.easeOut})
 
     window.addEventListener('resize', this.onResize)
-
   },
   updated(){
     const spanWidth = document.querySelector('.nav-step span').getBoundingClientRect().width
     gsap.to('.progress', {width: this.$store.state.activeStep* spanWidth, duration:timingNavStep, ease:Expo.easeOut})
+
   },
   methods: {
     onResize(){
@@ -196,6 +197,9 @@ export default {
             justify-content: center;
             align-items: center;
           }
+        }
+        &#step-6{
+          .nav{padding-bottom:150px;}
         }
       }
     }

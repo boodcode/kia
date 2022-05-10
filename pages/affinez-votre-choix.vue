@@ -44,15 +44,16 @@
         </div>
       </div>
       <div class="slider-nav">
-        <div :class="{fantom: activeIndex===0}" class="slider-nav-prev" @click="prevSlide"><bt /></div>
+        <div class="slider-nav-prev" @click="prevSlide"><bt /></div>
         <div @click="toggleLike(activeIndex)"><like-bt/></div>
-        <div :class="{fantom: activeIndex===maxSlides-1}" class="slider-nav-next" @click="nextSlide"><bt /></div>
+        <div class="slider-nav-next" @click="nextSlide"><bt /></div>
       </div>
     </div>
     <div class="tuto">
       <div class="content">
         <h4>À vous le dernier mot&nbsp;!</h4>
         <p>Pour affiner votre choix, faites défiler les propositions<br>et «&#8239;likez&#8239;» celles qui vous correspondent le mieux.</p>
+        <p>Votre motorisation idéale appaitra au bout de minimum 3 likes...</p>
         <figure><img src="~/assets/images/picto-affinez@2x.png" alt="principe slider"></figure>
         <div class="cta" @click="closeTuto">C'est parti</div>
       </div>
@@ -62,8 +63,10 @@
 
 
 <script>
+
 import gsap , {Expo} from 'gsap'
 import {removeNode} from "vuedraggable/src/util/helper";
+import SmoothScrollbar from '~/assets/js/utils/vue-smooth-scrollbar'
 
 import Emitter from '~/assets/js/Emitter'
 import SwipeEvents from "assets/js/utils/SwipeEvents";
@@ -119,13 +122,14 @@ export default {
       })
   },
   mounted(){
+    // this.$cookie.modal = true;
+
     const slides = document.querySelectorAll('.slider-slide')
     this.maxSlides = slides.length
     this.activeIndex = this.maxSlides/2
 
     // mix les slides
     this.mixSlides(slides)
-
 
     //
     const activeSlide = slides[this.activeIndex];
@@ -256,9 +260,8 @@ export default {
     },
     //
     toggleLike(index){
-      console.log(this.activeIndex, index)
-      const slide = document.querySelector('.slider-slide:nth-child(' + (index + 1 + this.clonedSlidesLength/2) +')')
-
+      // console.log(this.activeIndex, index)
+      const slide = document.querySelector('.slider-slide[data-slide-index="'+index+'"]')
 
       if(slide.dataset.liked==="true") {
         slide.dataset.liked = 'false'
@@ -267,6 +270,7 @@ export default {
       } else {
         slide.dataset.liked = 'true';
         this.startParticules(index)
+        this.autoAnimAfterLike= true;
         this.$store.commit('incrementCarLikes', slide.dataset.car)
       }
       //
@@ -294,13 +298,13 @@ export default {
       }
     },
     startParticules(index){
-      const slide = document.querySelector('.slider-slide:nth-of-type(' + (index+1) +')')
+      const slide = document.querySelector('.slider-slide[data-slide-index="'+index+'"]')
       document.querySelector('#emitter').classList.add('liked')
 
       slide.dataset.liked = 'true'
       this.particules = new Emitter();
       this.particules.startAnim()
-      this.autoAnimAfterLike = true
+      // this.autoAnimAfterLike = true
     },
     stopParticules(){
       this.particules = null
@@ -332,11 +336,11 @@ export default {
           this.initSlideAfterMove()
         }
       } else {
-        this.activeIndex = this.maxSlides-1
+        this.activeIndex = this.maxSlides
         const sliderWidth = slider.getBoundingClientRect().width
-        gsap.set(slider, {x:'-='+(sliderWidth - decal - decal*(this.clonedSlidesLength))})
+        gsap.set(slider, {x:'-='+(sliderWidth  - decal*(this.clonedSlidesLength))})
         //
-        this.initSlideAfterMove()
+        this.prevSlide()
       }
     },
     nextSlide(){
@@ -356,18 +360,18 @@ export default {
           this.initSlideAfterMove()
         }
        } else {
-         this.activeIndex = 0
+         this.activeIndex = -1
          const sliderWidth = slider.getBoundingClientRect().width
-         gsap.set(slider, {x:'+='+(sliderWidth - decal - decal*(this.clonedSlidesLength))})
+         gsap.set(slider, {x:'+='+(sliderWidth  - decal*(this.clonedSlidesLength))})
          //
-         this.initSlideAfterMove()
+         this.nextSlide()
        }
     },
     initSlideAfterMove(){
       document.querySelectorAll('.slider-slide[data-slide-index]:not([data-slide-index="'+this.activeIndex+'"])').forEach(s=>{s.classList.remove('active')})
       document.querySelector('.slider-slide[data-slide-index="'+this.activeIndex+'"]').classList.add('active')
       //
-      if(document.querySelector('.slider-slide:nth-of-type(' + (this.activeIndex+1) +')').dataset.liked === 'true'){
+      if(document.querySelector('.slider-slide[data-slide-index="'+this.activeIndex+'"]').dataset.liked === 'true'){
         this.startParticules(this.activeIndex)
       } else {
         this.stopParticules()
@@ -499,13 +503,14 @@ export default {
     position:absolute;
     top:50%;
     left:50%;
-    width:60%;
+    width:70%;
     max-width:640px;
     transform: translate3d(-50%, -50%, 0);
     @media screen and(max-width: 640px) {
+      width:90%;
       transform: translate3d(-50%, calc(-50% - 50px), 0);
       figure {
-        margin: 40px auto 60px !important;
+        margin: 30px auto 20px !important;
       }
     }
     h4{
@@ -515,7 +520,7 @@ export default {
     }
     figure {
       width:145px;
-      margin: 40px auto 100px;
+      margin: 30px auto 60px;
       img {
         width:100%;
         height: auto;

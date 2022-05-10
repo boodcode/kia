@@ -69,8 +69,8 @@ export default{
 
   .newsletter {
     position: absolute;
-    width:60%;
-    max-width:800px;
+    width:80%;
+    max-width:1000px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -79,6 +79,10 @@ export default{
     align-items: center;
     background-color: #000;
     padding:0 0 30px;
+    @media screen and(max-width: 760px){
+      width:80%;
+      max-width:620px;
+    }
   }
   .visuel {
     figure {
@@ -94,7 +98,10 @@ export default{
   }
   p {text-align: center;}
   .exit-form{
-
+    @media screen and (max-width: 760px){
+      display:flex;
+      flex-direction: column;
+    }
     input {
       width:300px;
       margin: 0 10px 0 0;

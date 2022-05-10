@@ -9,49 +9,50 @@
         </div>
         <div class="field">
           <span class="required">
-            <span class="desc">Email</span>
+            <span class="desc">Email <sup>*</sup></span>
           <input id="email" v-model="user.email" type="email" placeholder="Email" required aria-required="true" autocomplete="email">
         </span>
         </div>
         <div class="fields">
           <div class="field">
           <span class="required">
-            <span class="desc">Nom</span>
+            <span class="desc">Nom <sup>*</sup></span>
             <input id="lastname" v-model="user.lastname" type="text" placeholder="Nom" required aria-required="true" autocomplete="family-name">
           </span>
           </div>
           <div class="field">
           <span class="required">
-            <span class="desc">Prénom</span>
+            <span class="desc">Prénom<sup>*</sup></span>
             <input id="firstname" v-model="user.firstname" type="text" placeholder="Prénom" required aria-required="true" autocomplete="given-name">
           </span>
           </div>
         </div>
         <div class="field">
           <span class="required">
-            <span class="desc">N° de téléphone</span>
+            <span class="desc">N° de téléphone<sup>*</sup></span>
             <input id="tel" v-model="user.tel" type="text" placeholder="N° de téléphone" required aria-required="true" autocomplete="tel">
           </span>
         </div>
         <div class="fields">
           <div class="field">
             <span class="required">
-              <span class="desc">Code postal</span>
+              <span class="desc">Code postal<sup>*</sup></span>
               <input id="cp" v-model="user.cp" type="text" placeholder="Code postal" required aria-required="true" autocomplete="postal-code">
             </span>
           </div>
           <div class="field">
             <span class="required">
-              <span class="desc">Ville</span>
+              <span class="desc">Ville<sup>*</sup></span>
               <input id="ville" v-model="user.ville" type="text" placeholder="Ville" required aria-required="true" >
             </span>
           </div>
         </div>
         <div class="field">
           <span class="required">
-            <div class="desc concession">Concession</div>
+            <span class="desc concession">Concession<sup>*</sup></span>
             <v-select
               id="concession"
+              ref="vselect"
               :options="dealersListe"
               label="label"
               :reduce="(option)=> option.dealer_internalid"
@@ -62,18 +63,19 @@
             ></v-select>
           </span>
         </div>
-        <div class="field">
+<!--        <div class="field">
           <div class="desc offres" >Je souhaite recevoir les offres commerciales,<br>les nouveautés et exclusivités de la marque</div>
           <BaseRadioButtonGroup v-model="user.offres" :options="offres" />
-        </div>
-        <!--div class="field last">
+        </div>-->
+        <div class="field last">
           <span class="required">
             <span class="desc"></span>
             <input id="optin" type="checkbox" :checked="user.optin">
-            <label for="optin">J’accepte les <nuxt-link to="cgu"  target="_blank">conditions générales d’utilisation</nuxt-link></label>
+            <label for="optin">J’accepte d’être recontacté par un conseiller Kia dans le cadre de mon expérience et je consens au traitement de mes données personnelles à des fins de marketing, tels que définis dans <a href="https://www.kia.com/fr/politique-de-confidentialite/" target="_blank">la Politique de confidentialité</a>. Je pourrais à tout moment exercer mon droit d’opposition à l’utilisation de mes données personnelles.*</label>
           </span>
-        </div-->
+        </div>
         <input class="send" type="submit" value="Lancer l'analyse" >
+        <p class="obligatoire">* Champ obligatoire</p>
       </form>
     </div>
     <NavButtons></NavButtons>
@@ -83,7 +85,13 @@
 import gsap, {Expo} from "gsap";
 import { createPopper } from '@popperjs/core'
 
+const regCp = /[0-9]{5}/
+const regTel = /[0-9]{10}/
+const regFirstname = /[a-zA-Z- ]{2,}/
+const regLastname = /[a-zA-Z- ]{2,}/
+const regVille = /[a-zA-Z- ]{2,}/
 export default {
+
   components: {
   },
   data(){
@@ -92,6 +100,7 @@ export default {
       subtitle: 'Nous avons besoin d’en savoir un peu plus',
       checkForm: false,
       fieldsOK:0,
+      fieldsRequiredFilled:0,
       dealersListe: [],
       civs:[
         {
@@ -107,7 +116,7 @@ export default {
           name:'civ'
         }
       ],
-      offres:[
+      /* offres:[
         {
           label:"Oui",
           checked: false,
@@ -120,7 +129,7 @@ export default {
           value:"non",
           name:'offres'
         }
-      ],
+      ], */
       user : {
         civ:'',
         email:'',
@@ -130,11 +139,12 @@ export default {
         cp:'',
         ville:'',
         concession: '',
-        offres: 'non',
-        // optin: false
+        // offres: 'non',
+         optin: false
       },
       placement: 'top',
-      searchable: true
+      searchable: false,
+      csvDataCP:null,
     }
   },
   computed: {
@@ -155,15 +165,17 @@ export default {
         })
       })
 
-    if(this.$store.state.device === 'desktop'){
+
+     if(this.$device.isDesktop){
       this.searchable = true
+    } else {
+      this.searchable = false
     }
   },
   mounted() {
     this.user.civ = this.$store.state.user.infos.civ;
-    this.user.offres = this.$store.state.user.infos.offres;
+    // this.user.offres = this.$store.state.user.infos.offres;
 
-   /*
    document.querySelector('input[type="checkbox"]').addEventListener('click', (e)=>{
       if(e.target.checked === true || e.target.checked === "checked") {
         e.target.checked = "checked";
@@ -172,8 +184,9 @@ export default {
       }
       //
       this.user.optin = e.target.checked;
+      this.checkField('optin')
       this.$store.commit('user/updateInfos', {...this.$store.state.user.infos, optin: this.user.optin})
-    }) */
+    })
 
     document.querySelectorAll('input[type="radio"]').forEach((elem) => {
       elem.addEventListener('click', (e) => {
@@ -188,19 +201,17 @@ export default {
        }
       })
     })
-
     /* affichage des labels(desc) */
     document.querySelectorAll('.form input').forEach((elem)=> {
       elem.addEventListener('keypress', (e) => {
         const desc  = e.target.closest('span').querySelector('.desc')
         gsap.to(desc, {opacity:1, duration:0.5})
       })
+      elem.addEventListener('blur', (e)=> {
+        this.onblur(e);
+      })
     })
   },
-  updated() {
-    // console.log('updated')
-    this.checkFields();
-    },
   methods: {
     withPopper(dropdownList, component, { width }) {
       /**
@@ -248,59 +259,193 @@ export default {
        */
       return () => popper.destroy()
     },
+    onblur(e){
+      this.checkField(e.target.id)
+    },
     oninput(value){
       this.user.concession= value;
       this.$store.commit('user/updateInfos', {...this.$store.state.user.infos, concession:value})
       this.checkFields()
-
     },
-    checkFields() {
-      const regCp = new RegExp(/[0-9]{5}/, 'g');
-      const regTel = new RegExp(/[0-9]{10}/, 'g');
-      const regFirstname = new RegExp(/[a-zA-Z- ]{2,}/, 'g')
-      const regLastname = new RegExp(/[a-zA-Z- ]{2,}/, 'g')
-      const regVille = new RegExp(/[a-zA-Z- ]{2,}/, 'g')
+    checkField (id) {
+      if (id === 'email') {
+        if (this.validateEmail()) {
+          this.fieldAlert('email', 'valide');
+        } else if (this.user.email === '') {
+          this.fieldAlert('email', 'champ obligatoire');
+        } else {
+          this.fieldAlert('email', 'Adresse Email incorrecte');
+        }
+      } else if (id === 'lastname') {
+        if (regLastname.test(this.user.lastname)) {
+          this.fieldAlert('lastname', 'valide');
+        } else if (this.user.lastname === '') {
+          this.fieldAlert('lastname', 'champ obligatoire');
+        } else {
+          this.fieldAlert('lastname', 'champ invalide');
+        }
+      } else if (id === 'firstname') {
+        if (regFirstname.test(this.user.firstname)) {
+          this.fieldAlert('firstname', 'valide');
+        } else if (this.user.firstname === '') {
+          this.fieldAlert('firstname', 'champ obligatoire');
+        } else {
+          this.fieldAlert('firstname', 'champ invalide');
+        }
+      } else if (id === 'tel') {
+        if (regTel.test(this.user.tel)) {
+          this.fieldAlert('tel', 'valide');
+        } else if (this.user.tel === '') {
+          this.fieldAlert('tel', 'champ obligatoire');
+        } else {
+          this.fieldAlert('tel', 'champ incorrect, ex: 0622446688');
+        }
+      } else if (id === 'cp') {
+        if (regCp.test(this.user.cp)) {
+          this.fieldAlert('cp', 'valide');
+          //
+          const preOptionsSep = (opt)=> opt.label === '———————————————';
+          const index = this.$refs.vselect.options.findIndex(preOptionsSep)
+          if(index>0){
+            this.$refs.vselect.options = this.$refs.vselect.options.slice(-(this.$refs.vselect.options.length-index-1))
+          }
+          const cpRes = this.$refs.vselect.options.filter(opt => opt.dealer_postcode.substring(0, 2) === this.user.cp.substring(0, 2))
+          cpRes.push({
+            "dealer_internalid": "0",
+            "dealer_postcode":"",
+            "dealer_residence": "",
+            "dealer_longitude": 0,
+            "dealer_latitude": 0,
+            "label":"———————————————"
+          })
+          cpRes.reverse();
+          cpRes.forEach(c => {
+            this.$refs.vselect.options.unshift(c)
+          })
 
-      document.querySelectorAll('.error').forEach(e => e.remove());
-      this.fieldsOK=0;
-      if(this.validateEmail()){this.fieldsOK++;} else {this.fieldAlert('email', 'Adresse Email incorrecte')}
-      if(regLastname.test(this.user.lastname)){this.fieldsOK++;} else {this.fieldAlert('lastname', 'champ incorrect');}
-      if(regFirstname.test(this.user.firstname)){this.fieldsOK++;} else {this.fieldAlert('firstname', 'champ incorrect');}
-      if(regTel.test(this.user.tel)){this.fieldsOK++;} else {this.fieldAlert('tel', 'champ incorrect, ex: 0622446688');}
-      if(regCp.test(this.user.cp)){this.fieldsOK++;} else {this.fieldAlert('cp', 'champ incorrect');}
 
-      if(regVille.test(this.user.ville)) {this.fieldsOK++; } else { this.fieldAlert('ville', 'champ incorrect');}
+          //
 
-      if(this.user.concession !==''){this.fieldsOK++;} else {this.fieldAlert('concession', 'champ obligatoire');}
-
-      /* if(this.user.optin){this.fieldsOK++;} else {this.fieldAlert('optin', 'champ obligatoire');} */
-
-
-      if(this.fieldsOK === 7){
-        gsap.to('.send', {backgroundColor:'#FFFFFF', color: '#000000', duration:0.5, ease:Expo.easeOut})
-      } else {
-        gsap.to('.send', {backgroundColor:'transparent', color: '#FFFFFF', duration:0.5, ease:Expo.easeIn})
+        } else if (this.user.cp === '') {
+          this.fieldAlert('cp', 'champ obligatoire');
+        } else {
+          this.fieldAlert('cp', 'champ incorrect');
+        }
+      } else if (id === 'ville') {
+        if (regVille.test(this.user.ville)) {
+          this.fieldAlert('ville', 'valide');
+        } else if (this.user.ville === '') {
+          this.fieldAlert('ville', 'champ obligatoire');
+        } else {
+          this.fieldAlert('ville', 'champ incorrect');
+        }
+      } else if (id === 'optin') {
+        if(this.user.optin) {
+          this.fieldAlert('optin', 'valide');
+        } else {
+          this.fieldAlert('optin', 'champ obligatoire');
+        }
       }
 
-      return this.fieldsOK === 7;
+      if (this.user.email !== '' &&
+        this.user.lastname !== '' &&
+        this.user.firstname !== '' &&
+        this.user.tel !== '' &&
+        this.user.cp !== '' &&
+        this.user.ville !== '' &&
+        this.user.concession !== '' && this.user.concession !=='0' &&
+        this.user.optin
+        ) {
+        gsap.to('.send', {backgroundColor: '#FFFFFF', color: '#000000', duration: 0.5, ease: Expo.easeOut})
+      } else {
+        gsap.to('.send', {backgroundColor: 'transparent', color: '#FFFFFF', duration: 0.5, ease: Expo.easeIn})
+      }
+
+    },
+    checkFields () {
+      document.querySelectorAll('.error').forEach(e => e.remove());
+      this.fieldsOK = 0;
+      if (this.validateEmail()) {
+        this.fieldsOK++;
+        this.fieldAlert('email', 'valide');
+      } else if(this.user.email ==='') {
+        this.fieldAlert('email', 'champ obligatoire');
+      } else  {
+        this.fieldAlert('email', 'Adresse Email incorrecte');
+      }
+      if (regLastname.test(this.user.lastname)) {
+        this.fieldsOK++;
+        this.fieldAlert('lastname', 'valide');
+      } else if(this.user.lastname ==='') {
+        this.fieldAlert('lastname', 'champ obligatoire');
+      } else {
+        this.fieldAlert('lastname', 'champ invalide');
+      }
+      if (regFirstname.test(this.user.firstname)) {
+        this.fieldsOK++;
+        this.fieldAlert('firstname', 'valide');
+      } else if(this.user.firstname ==='') {
+        this.fieldAlert('firstname', 'champ obligatoire');
+      } else {
+        this.fieldAlert('firstname', 'champ invalide');
+      }
+      if (regTel.test(this.user.tel)) {
+        this.fieldsOK++;
+        this.fieldAlert('tel', 'valide');
+      } else if(this.user.tel ==='') {
+        this.fieldAlert('tel', 'champ obligatoire');
+      } else {
+        this.fieldAlert('tel', 'champ incorrect, ex: 0622446688');
+      }
+      if (regCp.test(this.user.cp)) {
+        this.fieldsOK++;
+        this.fieldAlert('cp', 'valide');
+      } else if(this.user.cp ==='') {
+        this.fieldAlert('cp', 'champ obligatoire');
+      } else {
+        this.fieldAlert('cp', 'champ incorrect');
+      }
+      if (regVille.test(this.user.ville)) {
+        this.fieldsOK++;
+        this.fieldAlert('ville', 'valide');
+      } else if(this.user.ville ==='') {
+        this.fieldAlert('ville', 'champ obligatoire');
+      } else {
+        this.fieldAlert('ville', 'champ incorrect');
+      }
+      if (this.user.concession !== '' && this.user.concession !== '0') {
+        this.fieldsOK++;
+      } else {
+        this.fieldAlert('concession', 'champ obligatoire');
+      }
+
+      if(this.user.optin){
+        this.fieldsOK++;
+      } else {
+        this.fieldAlert('optin', 'champ obligatoire');
+      }
+
+      //
+      return this.fieldsOK === 8;
     },
     fieldAlert(id,m){
-      const error = document.createElement("div");
-      error.classList.add('error');
-       // console.log(this.fieldsOK)
+      if(document.querySelector('#'+id).parentNode.querySelector('.error')!==null || m==="valide"){
+        document.querySelector('#'+id).parentNode.querySelectorAll('.error').forEach(e=>e.remove())
+      } else if(m!=="valide"){
+        const error = document.createElement("div");
+        error.classList.add('error');
+        error.innerHTML = m
+        document.querySelector('#' + id).before(error);
+      }
 
-      if(id==='optin'){
-        error.innerHTML = (this.fieldsOK === 0) ? '' : ' | ' + m;
-        document.querySelector('#' + id).parentNode.querySelector('label').after(error);
-      } else if(this.fieldsOK === 0){
-          error.innerHTML = '';
-        } else {
-          document.querySelectorAll('.desc').forEach(desc => {
-            gsap.to(desc, {opacity:1, duration:0.5})
-            error.innerHTML = ' | ' + m;
-            document.querySelector('#' + id).before(error);
-          })
-        }
+      document.querySelectorAll('.desc').forEach(desc => {
+        gsap.to(desc, {opacity:1, duration:0.5})
+      })
+
+    },
+    validateEmail() {
+      const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(String(this.user.email).toLowerCase());
     },
     checkTop3Cars(){
       this.$store.commit('top3/initTop3', {ev: 0, phev: 0, hev: 0})
@@ -537,12 +682,12 @@ export default {
         this.checkTop3Cars();
         this.$router.push('/vos-modeles')
 
-         // START SEND TO WS
-      const bestCarModel = this.getSortedKeys(this.$store.state.top3).slice(0, 1)[0]
-         let best=''
-         if(bestCarModel === 'ev'){ best = 'NIRO HEV (SG2)'}
-         else if(bestCarModel === 'phev'){ best = 'NIRO PHEV (SG2)'}
-         else if(bestCarModel === 'phev'){ best = 'NIRO EV (SG2 EV)'}
+        // START SEND TO WS
+        const bestCarModel = this.getSortedKeys(this.$store.state.top3).slice(0, 1)[0]
+        let best=''
+        if(bestCarModel === 'ev'){ best = 'NIRO EV (SG2 EV)'}
+        else if(bestCarModel === 'phev'){ best = 'NIRO PHEV (SG2)'}
+        else if(bestCarModel === 'hev'){ best = 'NIRO HEV (SG2)'}
 
          // console.log({ model: best, userInfos : this.user, userDatas : this.$store.state.user.conduite, source:  this.$store.state.source });
 
@@ -564,10 +709,7 @@ export default {
          // console.log('all Fields are not OK');
       };
     },
-    validateEmail() {
-      const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return re.test(String(this.user.email).toLowerCase());
-    },
+
     getSortedKeys(obj) {
       // console.log(obj)
       const keys = Object.keys(obj);
@@ -634,7 +776,7 @@ export default {
   --vs-dropdown-color: inherit;
   --vs-dropdown-z-index: 1000;
   --vs-dropdown-min-width: 450px;
-  --vs-dropdown-max-height: 350px;
+  --vs-dropdown-max-height: 300px;
   --vs-dropdown-box-shadow: 0px 3px 6px 0px var(--vs-colors--darkest);
 
   /* Options */
@@ -653,6 +795,11 @@ export default {
   /* Transitions */
   --vs-transition-timing-function: cubic-bezier(1, -0.115, 0.975, 0.855);
   --vs-transition-duration: 150ms;
+}
+
+body {
+  position:fixed;
+  top:0;width:100vw;
 }
 
 .vs__dropdown-option{
@@ -686,12 +833,20 @@ export default {
       }
     }
     .desc {
+      position: relative;
       display: inline;
       opacity:0;
       font-size: 14px;
       color:#FFF;
       font-family: "Kia Signature Fix Bold", serif;
       padding-bottom: 4px;
+
+      sup {
+        font-size: 1.4em;
+        position:absolute;
+        right:-10px;top:-3px;
+        font-family: "Kia Signature Fix Light", serif;
+      }
 
       &.concession, &.offres {
         opacity: 1;
@@ -702,12 +857,14 @@ export default {
         margin-bottom: 16px;
       }
     }
+
+
     .error {
       display: inline;
       font-size: 12px;
       color:red;
       font-family: "Kia Signature Fix Bold", serif;
-      padding-bottom: 4px;
+      float:right;
     }
     input{
       width: calc(100% - 22px);
@@ -810,8 +967,8 @@ export default {
         }
       }
     }
-
   }
+
 
   input{
     &.send{
@@ -893,12 +1050,22 @@ export default {
     border-bottom-color: #999;
   }
 
+  ul[role="listbox"]{
+    max-height: 300px;
+  }
+
   [data-popper-placement='top'] {
     border-radius: 4px 4px 0 0;
     border-top-style: solid;
     border-bottom-style: none;
     box-shadow: none;
 
+  }
+
+  .obligatoire {
+    font-size: 12px;
+    font-family: "Kia Signature Fix Regular", serif;
+    margin-bottom: 16px;
   }
 
   @media screen and(max-width: 640px) {

@@ -1,7 +1,7 @@
 <template>
   <div :id="qType" :class="car" class="nirocard"  >
     <div :class="`visuel visuel-${car}`" :style="{backgroundImage: `url(${imageCard})`}">
-      <span style="background-color: black;color:#999 !important;padding:3px 6px;top:3px;position:relative;">{{car}}-{{qType}}</span>
+      <!--span style="background-color: black;color:#999 !important;padding:3px 6px;top:3px;position:relative;">{{car}}-{{qType}}</span-->
     </div>
     <div class="content">
       <div class="picto">
@@ -79,7 +79,6 @@ export default{
       const index = this.getUserResponseByqType(qType);
       return this.textCards[qType][index][car].reponse
     },
-
   }
 }
 </script>
@@ -115,6 +114,7 @@ export default{
   .content {
     padding:20px 25px;
     position: relative;
+    opacity:1;
     &:after {
       position:absolute;
       content:"";

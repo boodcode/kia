@@ -227,7 +227,7 @@ export default {
           gsap.set('.imagemobile2', {y:'-150'})
 
         } else {
-          gsap.set('#clipImage2',{y:"90", scaleY:1.4, scaleX: 1.4})
+          gsap.set('#clipImage2',{y:"90", x:'-50', scaleY:1.4, scaleX: 1.6})
           gsap.set('.imagemobile2', {y:'-170'})
           gsap.set('#clipImage1',{y:"0", scaleY:1.4, scaleX: 1})
           gsap.set('.imagemobile1', {y:'0'})
