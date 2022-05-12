@@ -12,6 +12,7 @@
         <a class="cta" href="https://www.kia.com/fr/modeles/niro/pre-lancement/" target="_blank">En savoir plus</a>
       </div>
     </div>
+
   </div>
 </template>
 <script>
@@ -69,6 +70,7 @@ export default {
 
   },
   methods:{
+
     revealMatch(){
       gsap.set('.text, .conseiller', {y: '+=50', opacity:0})
       gsap.to('.match', {opacity:1, duration:2, ease:Expo.easeIn})

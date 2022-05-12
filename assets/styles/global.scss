@@ -120,3 +120,21 @@ p {
 .page-enter, .page-leave-to {
   opacity: 0;
 }
+
+.links {
+  position:fixed;
+  z-index: 99999;
+  right:20px;
+  bottom:20px;
+  font-size:12px;
+  color:#FFF;
+  transform: translate3d(-50%, 0, 0);
+  opacity: 0.3;
+
+  @media screen and (max-width:640px){
+   bottom:20px;
+  }
+  div {
+    cursor: pointer;
+  }
+}

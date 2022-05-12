@@ -4,7 +4,9 @@
       <div class="progress"></div>
       <div v-for="(step, index) in steps" :id="step.id" :key="step.id" :class="{active: activeStep>=index+1, 'nav-step': true }"><span></span></div>
     </div>
+
     <div class="steps">
+
       <transition-group :name="animType">
         <ChoicesStep1 v-show="activeStep===1" id="step-1" key="step1" class="step"></ChoicesStep1>
         <ChoicesStep2 v-show="activeStep===2" id="step-2" key="step2" class="step"></ChoicesStep2>
@@ -13,7 +15,9 @@
         <ChoicesStep5 v-show="activeStep===5" id="step-5" key="step5" class="step"></ChoicesStep5>
         <ChoicesStep6 v-show="activeStep===6" id="step-6" key="step6" class="step"></ChoicesStep6>
       </transition-group>
+
     </div>
+
   </div>
 </template>
 <script>
@@ -56,6 +60,7 @@ export default {
 
   },
   methods: {
+
     onResize(){
       const spanWidth = document.querySelector('.nav-step span').getBoundingClientRect().width
       gsap.to('.progress', {width: this.$store.state.activeStep * spanWidth, duration:0.2})

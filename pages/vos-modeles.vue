@@ -66,6 +66,7 @@
         <NuxtLink to="/affinez-votre-choix" class="cta discover">Découvrez pourquoi et affinez votre choix</NuxtLink>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -130,6 +131,7 @@ export default {
     this.$store.commit('setTwoCars', this.getSortedKeys(this.$store.state.top3).slice(0, 2))
   },
   methods:{
+
     resize(){
       this.windowWidth = window.innerWidth;
       this.windowHeight = window.innerHeight;

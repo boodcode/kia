@@ -1,7 +1,6 @@
 <template>
   <div class="index">
-    <PopinML></PopinML>
-    <CookieControl v-if="showCookieComponent===1" locale="fr"/>
+    <CookieControl v-if="showCookieComponent" locale="fr"/>
     <div class="home-bg"></div>
     <div class="loading">
       <div class="loading-black"></div>
@@ -21,25 +20,39 @@
       </p>
         <NuxtLink class="cta" to="/vos-habitudes">Commencer</NuxtLink>
     </div>
-    <div class="links">
-      <div @click="popinML">Mentions légales</div>
-    </div>
-  </div>
 
+  </div>
 </template>
 
 <script>
 import gsap, {Linear, Expo} from 'gsap'
+const tl = gsap.timeline({paused:true});
+
 export default {
   name: 'IndexPage',
   data(){
     return {
       showCookieComponent: 0,
+      si: null,
+      cookieBar: null
+    }
+  },
+  updated(){
+     if(getCookie('cookie_control_consent')==='true'){
+      tl.play()
+      this.showCookieComponent=0;
+      // window.location.reload()
+    } else if(getCookie('cookie_control_consent')==='false') {
+      tl.play()
+      this.showCookieComponent=0;
     }
   },
   mounted() {
-    setTimeout(()=>{this.showCookieComponent=1;}, 8000)
-    const tl = gsap.timeline({});
+    this.cookieBar = this.$cookies
+    console.log(this.$cookies)
+    this.testCookie()
+    this.si = setInterval(this.testCookie, 1500);
+
     const loaderTiming = 2;
     gsap.set('.loading-white, .home p, .home .cta, .loading .coup-de-foudre', {opacity: 0})
     gsap.set('.loading-white', {opacity: 0})
@@ -65,9 +78,20 @@ export default {
 
 
   },
+
   methods: {
-    popinML(){
-      document.querySelector('.popin').classList.add('visible');
+    testCookie(){
+      if(getCookie('cookie_control_consent') ==='true'){
+        clearInterval(this.si)
+        tl.play()
+        this.showCookieComponent=0;
+      } else if(getCookie('cookie_control_consent') === 'false'){
+        clearInterval(this.si)
+        tl.play()
+        this.showCookieComponent=0;
+      } else {
+        this.showCookieComponent=1;
+      }
     }
   }
 }
@@ -240,16 +264,17 @@ export default {
     .cookieControl__ModalButtons {
       margin-top: 30px;
     }
+    ul ul {
+      padding-top: 0.25em;
+    }
+    h3{
+      font-size: 0.9em;
+      margin: 10px 0 10px;
+    }
+    li {
+      font-size: 0.8em;
+    }
   }
 }
-.links {
-  position:absolute;
-  right:50px;
-  bottom:20px;
-  font-size:14px;
-  color:#FFF;
-  div {
-    cursor: pointer;
-  }
-}
+
 </style>

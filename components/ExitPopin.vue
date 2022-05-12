@@ -10,7 +10,7 @@
       <p>Vous souhaitez avoir des nouvelles de Kia,<br>Inscrivez-vous à notre newsletter</p>
       <div class="exit-form">
         <input type="email" placeholder="Votre adresse email" class="email" autocomplete="email" />
-        <div class="cta">Recevoir la newsletter</div>
+        <div class="cta" @click="registerNewsletter">Recevoir la newsletter</div>
       </div>
 
     </div>
@@ -29,6 +29,20 @@ export default{
     }
   },
   methods: {
+    registerNewsletter(){
+      const customAxios = this.$axios.create({
+        baseURL: 'https://kia-nl.agence-shift.com'
+      });
+      customAxios.$post('/', {
+        m:document.querySelector('input[type="email"]').value,
+      })
+        .then(
+          (res) => {
+            console.log(res)
+          },
+          (err) => console.log(err)
+        );
+    },
     mouseEvent(e) {
       const shouldShowExitIntent = !e.toElement && !e.relatedTarget && e.clientY < 10;
 

@@ -156,6 +156,7 @@ export default {
   updated(){
   },
   methods:{
+
     getUserResponseByqType(qType){
       let rep = 0;
       if(qType==="kmByDay") {rep = (this.$store.state.user.conduite[qType] < 50)  ? 0 : (this.$store.state.user.conduite[qType] >= 150) ? 2 : 1; }

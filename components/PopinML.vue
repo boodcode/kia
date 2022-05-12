@@ -38,7 +38,11 @@
           Sous Chrome : Cliquez en haut à droite du navigateur sur le pictogramme de menu (symbolisé par trois lignes horizontales). Sélectionnez Paramètres. Cliquez sur Afficher les paramètres avancés. Dans la section « Confidentialité », cliquez sur préférences. Dans l’onglet « Confidentialité », vous pouvez bloquer les cookies.</p>
 
         <h2>8. DROIT APPLICABLE </h2>
-        <p>Tout litige en relation avec l’utilisation du Site est soumis au droit français </p>
+        <p>Tout litige en relation avec l’utilisation du Site est soumis au droit français<br><br><br> </p>
+
+        <p>Consommations mixtes et émissions de CO2 du Niro Hybride : de 4,4 à 4,7 L/100 km ; du Niro Hybride Rechargeable : de 0,8 à 1,0 L/100 km ; du Niro EV 100% électrique : 16,2kWh/100km.</p>
+        <figure><img src="~/assets/images/polluscore@2x.png" alt="polluscore" width="331"/></figure>
+        <p>Au quotidien, prenez les transports en commun #SeDéplacerMoinsPolluer</p>
       </smooth-scrollbar>
     </div>
   </div>
@@ -115,7 +119,15 @@ export default{
     }
   }
 
-
+  figure {
+    width:331px;
+    margin:0px 0 0 0;
+    padding:0;
+    img {
+      width:100%;
+      height: auto;
+    }
+  }
 
 }
 

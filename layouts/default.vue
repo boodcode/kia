@@ -1,10 +1,14 @@
 <template>
   <div class="kia">
     <div class="container">
+      <PopinML></PopinML>
       <LogoKia />
       <Nuxt />
     </div>
     <ExitPopin />
+    <div class="links">
+      <div @click="openPopinML">Mentions légales</div>
+    </div>
   </div>
 </template>
 <script>
@@ -23,6 +27,11 @@ export default {
    if(this.$route.query.source){
      this.$store.commit('setSource', this.$route.query.source)
    }
+  },
+  methods:{
+    openPopinML(){
+      document.querySelector('.popin').classList.add('visible');
+    },
   }
 
 

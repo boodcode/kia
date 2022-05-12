@@ -22,7 +22,7 @@ export default {
     mode: 'out-in'
   },
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  // plugins: ['@/plugins/gtag'],
+   plugins: ['~/plugins/openPopinML.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -68,6 +68,7 @@ export default {
         name: {fr: 'Google Analitycs'},
         identifier: 'ga',
         description: {fr: 'Google Analytics est un service d\'analyse de trafic et de statistiques proposé par Google.'},
+        initialState: false,
         src:  'https://www.googletagmanager.com/gtag/js?id=G-J6FT00B7LM',
         async:  true,
         cookies: ['_ga', '_gat', '_gid'],
@@ -79,13 +80,13 @@ export default {
           });
         },
         declined: () =>{
+
         }
       }
     ]
   },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
     baseURL: 'https://www.insightondemand.fr',
     withCredentials: true,
     retry: { retries: 2 },

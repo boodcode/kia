@@ -1,6 +1,6 @@
 setCookie = (name, value, days) =>{
   let expires = '';
-  const prefix = 'kia-';
+  const prefix = '';
 
   if (days) {
     const date = new Date();
@@ -13,7 +13,7 @@ setCookie = (name, value, days) =>{
 
 getCookie = (name) => {
   const cookies = document.cookie.split(';');
-  const prefix = 'kia-';
+  const prefix = '';
 
   for (const cookie of cookies) {
     if (cookie.includes(prefix+name + '=')) {
