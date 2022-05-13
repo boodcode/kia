@@ -67,11 +67,18 @@
           <div class="desc offres" >Je souhaite recevoir les offres commerciales,<br>les nouveautés et exclusivités de la marque</div>
           <BaseRadioButtonGroup v-model="user.offres" :options="offres" />
         </div>-->
-        <div class="field last">
+        <div class="field">
           <span class="required">
             <span class="desc"></span>
+            <input id="accept" type="checkbox" :checked="user.accept">
+            <label for="accept">J’accepte d’être recontacté par un conseiller Kia dans le cadre de mon expérience*</label>
+          </span>
+        </div>
+        <div class="field">
+          <span class="">
+            <span class="desc"></span>
             <input id="optin" type="checkbox" :checked="user.optin">
-            <label for="optin">J’accepte d’être recontacté par un conseiller Kia dans le cadre de mon expérience et je consens au traitement de mes données personnelles à des fins de marketing, tels que définis dans <a href="https://www.kia.com/fr/politique-de-confidentialite/" target="_blank">la Politique de confidentialité</a>. Je pourrais à tout moment exercer mon droit d’opposition à l’utilisation de mes données personnelles.*</label>
+            <label for="optin">Je consens au traitement de mes données personnelles à des fins de marketing, tels que définis dans <a href="https://www.kia.com/fr/politique-de-confidentialite/" target="_blank">la Politique de confidentialité</a>. Je pourrais à tout moment exercer mon droit d’opposition à l’utilisation de mes données personnelles.</label>
           </span>
         </div>
         <input class="send" type="submit" value="Lancer l'analyse" >
@@ -140,7 +147,8 @@ export default {
         ville:'',
         concession: '',
         // offres: 'non',
-         optin: false
+        accept:false,
+        optin: false,
       },
       placement: 'top',
       searchable: false,
@@ -176,17 +184,27 @@ export default {
     this.user.civ = this.$store.state.user.infos.civ;
     // this.user.offres = this.$store.state.user.infos.offres;
 
-   document.querySelector('input[type="checkbox"]').addEventListener('click', (e)=>{
+   document.querySelectorAll('input[type="checkbox"]').forEach(cb=> cb.addEventListener('click', (e)=>{
       if(e.target.checked === true || e.target.checked === "checked") {
         e.target.checked = "checked";
       } else {
         e.target.checked = null;
       }
       //
-      this.user.optin = e.target.checked;
-      this.checkField('optin')
-      this.$store.commit('user/updateInfos', {...this.$store.state.user.infos, optin: this.user.optin})
+     console.log()
+     if(e.target.id==="accept"){
+       this.user.accept = e.target.checked;
+       this.checkField('accept')
+       this.$store.commit('user/updateInfos', {...this.$store.state.user.infos, accept: this.user.accept})
+     }
+     if(e.target.id==="optin"){
+       this.user.optin = e.target.checked;
+       this.checkField('optin')
+       this.$store.commit('user/updateInfos', {...this.$store.state.user.infos, optin: this.user.optin})
+     }
+
     })
+   )
 
     document.querySelectorAll('input[type="radio"]').forEach((elem) => {
       elem.addEventListener('click', (e) => {
@@ -339,11 +357,11 @@ export default {
         } else {
           this.fieldAlert('ville', 'champ incorrect');
         }
-      } else if (id === 'optin') {
-        if(this.user.optin) {
-          this.fieldAlert('optin', 'valide');
+      } else if (id === 'accept') {
+        if(this.user.accept) {
+          this.fieldAlert('accept', 'valide');
         } else {
-          this.fieldAlert('optin', 'champ obligatoire');
+          this.fieldAlert('accept', 'champ obligatoire');
         }
       }
 
@@ -354,7 +372,7 @@ export default {
         this.user.cp !== '' &&
         this.user.ville !== '' &&
         this.user.concession !== '' && this.user.concession !=='0' &&
-        this.user.optin
+        this.user.accept
         ) {
         gsap.to('.send', {backgroundColor: '#FFFFFF', color: '#000000', duration: 0.5, ease: Expo.easeOut})
       } else {
@@ -419,10 +437,10 @@ export default {
         this.fieldAlert('concession', 'champ obligatoire');
       }
 
-      if(this.user.optin){
+      if(this.user.accept){
         this.fieldsOK++;
       } else {
-        this.fieldAlert('optin', 'champ obligatoire');
+        this.fieldAlert('accept', 'champ obligatoire');
       }
 
       //
