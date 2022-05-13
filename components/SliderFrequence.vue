@@ -51,6 +51,7 @@ export default {
     font-family: "Kia Signature Fix Regular";
     @media only screen and (max-width : 640px) {
       font-size: 14px;
+      padding-top: 0;
     }
   }
   .legend{
@@ -63,6 +64,7 @@ export default {
     font-family: "Kia Signature Fix Bold";
     @media only screen and (max-width : 640px) {
       font-size: 14px;
+      padding-bottom: 5px;
     }
   }
   svg {

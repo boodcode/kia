@@ -108,6 +108,7 @@ $circle-radius : 150px;
 
   @media only screen and (max-width : 640px) {
     transform: translate3d(-10px,0, 0);
+    height: calc(2 * #{$circle-radius} - 40px);
   }
 
 }

@@ -53,7 +53,8 @@ $circle-radius : 96px;
   width: calc(2 * #{$circle-radius});
   @media only screen and (max-width : 640px) {
     margin:20px auto;
-    transform: scale3d(0.8, 0.8, 1);
+    transform: scale(0.7);
+
   }
 
   svg {

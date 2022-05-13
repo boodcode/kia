@@ -19,7 +19,7 @@ export default {
       progressValueVille:'',
       progressValueAutoroute:'',
       progressValueExtraUrbain:'',
-      title: 'À quelle fréquence vous déplacez-vous ?',
+      title: 'À quelle fréquence vous déplacez&#8209;vous ?',
     }
   },
   mounted() {

@@ -102,14 +102,19 @@ export default {
 }
 .list-group, .order-infos {
   min-height: 20px;
+  margin:1em 0;
   padding-left: 0;
+
+  @media screen and(max-width: 640px){
+    margin:0.5em 0;
+  }
 }
 
   .list-group-item i {
     cursor: move;
   }
   .order-infos {
-    margin:1em 0;
+
     .ordre {
       position:relative;
       padding: 0;
@@ -121,6 +126,7 @@ export default {
       margin: 5px 0px;
 
       @media screen and (max-width: 640px) {
+        height:60px;
         font-size: 16px;
       }
     }
@@ -143,6 +149,7 @@ export default {
     @media screen and (max-width: 640px){
       padding: 0 80px 0 20px;
       font-size: 16px;
+      height:58px;
     }
 
     &:after {

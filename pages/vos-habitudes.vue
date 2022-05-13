@@ -138,6 +138,13 @@ export default {
         display: flex;
         flex-direction: column;
         //justify-content: flex-start;
+
+        h3 {
+          @media screen and (max-width: 640px){
+            font-size:18px;
+          }
+        }
+
         .content {
           width:100%;
           margin: 0 auto;
@@ -148,6 +155,7 @@ export default {
           text-align: left;
           @media only screen and (max-width : 640px) {
             flex-direction: column;
+            height: calc(100vh - 170px - 95px);
           }
         }
         &#step-1{
@@ -167,20 +175,24 @@ export default {
 
             @media only screen and (max-width: 640px) {
               //margin-top: 50px;
+
             }
           }
         }
         &#step-3{
+          align-items: center;
           .content {
             width:720px;
             //height: 100%;
             align-items: center;
-            padding:20px 0;
+            margin:20px 0;
           }
           @media only screen and (max-width : 640px) {
             .content {
               width:100%;
               flex-direction: row;
+              height: calc(100vh - 285px);
+              margin:10px 0 0;
             }
           }
         }
@@ -205,6 +217,11 @@ export default {
         }
         &#step-6{
           .nav{padding-bottom:150px;}
+          .content {
+            @media screen and (max-width: 640px){
+              height: unset;
+            }
+          }
         }
       }
     }
