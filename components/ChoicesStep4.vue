@@ -3,7 +3,7 @@
     <h3 v-html="title"></h3>
     <div class="content">
       <ToggleRadioButton id="domicile" :value="progressValueDomicile" label="Prise à domicile ou installation possible"></ToggleRadioButton>
-      <ToggleRadioButton id="borne" :value="progressValueBorne" label="Borne de rechargement à proximité"></ToggleRadioButton>
+      <ToggleRadioButton id="borne" :value="progressValueBorne" label="Borne de rechargement à proximité ou au travail"></ToggleRadioButton>
     </div>
     <NavButtons></NavButtons>
   </div>
