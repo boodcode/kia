@@ -24,7 +24,7 @@ export default {
 
 <style scoped lang="scss">
   label {
-    width:100px;
+    //width:100px;
     display: flex;
     align-items: center;
     color: #fff;

@@ -1,7 +1,8 @@
 <template>
   <div>
     <h3 v-html="title"></h3>
-    <p>{{subtitle}}</p>
+    <p>Nous avons besoin d'en savoir un peu plus<br>pour pouvoir vous recontacter<br>
+      et vous proposer l'offre la plus adaptée.</p>
     <div class="content">
       <form class="form" @submit.prevent="submit">
         <div class="field">
@@ -77,8 +78,9 @@
         <div class="field">
           <span class="">
             <span class="desc"></span>
-            <input id="optin" type="checkbox" :checked="user.optin">
             <label for="optin">Je consens au traitement de mes données personnelles à des fins de marketing, tels que définis dans <a href="https://www.kia.com/fr/politique-de-confidentialite/" target="_blank">la Politique de confidentialité</a>. Je pourrais à tout moment exercer mon droit d’opposition à l’utilisation de mes données personnelles.</label>
+            <!--input id="optin" type="checkbox" :checked="user.optin"-->
+            <BaseRadioButtonGroup v-model="user.optin" :options="marketing" />
           </span>
         </div>
         <input class="send" type="submit" value="Lancer l'analyse" >
@@ -104,7 +106,6 @@ export default {
   data(){
     return {
       title: 'Et vous ?',
-      subtitle: 'Nous avons besoin d’en savoir un peu plus',
       checkForm: false,
       fieldsOK:0,
       fieldsRequiredFilled:0,
@@ -137,6 +138,20 @@ export default {
           name:'offres'
         }
       ], */
+      marketing:[
+        {
+          label:"Oui",
+          checked: false,
+          value:true,
+          name:'marketing'
+        },
+        {
+          label:"Non",
+          checked: "checked",
+          value:false,
+          name:'marketing'
+        }
+      ],
       user : {
         civ:'',
         email:'',
@@ -182,7 +197,7 @@ export default {
   },
   mounted() {
     this.user.civ = this.$store.state.user.infos.civ;
-    // this.user.offres = this.$store.state.user.infos.offres;
+    this.user.optin = this.$store.state.user.infos.optin;
 
    document.querySelectorAll('input[type="checkbox"]').forEach(cb=> cb.addEventListener('click', (e)=>{
       if(e.target.checked === true || e.target.checked === "checked") {
@@ -197,11 +212,11 @@ export default {
        this.checkField('accept')
        this.$store.commit('user/updateInfos', {...this.$store.state.user.infos, accept: this.user.accept})
      }
-     if(e.target.id==="optin"){
+     /* if(e.target.id==="optin"){
        this.user.optin = e.target.checked;
        this.checkField('optin')
        this.$store.commit('user/updateInfos', {...this.$store.state.user.infos, optin: this.user.optin})
-     }
+     } */
 
     })
    )
@@ -209,9 +224,9 @@ export default {
     document.querySelectorAll('input[type="radio"]').forEach((elem) => {
       elem.addEventListener('click', (e) => {
        if(e.target.checked){
-         if(e.target.name==="offres"){
-           this.$store.commit('user/updateInfos', {...this.$store.state.user.infos, offres: e.target.value})
-           this.user.offres = this.$store.state.user.infos.offres;
+         if(e.target.name==="marketing") {
+           this.$store.commit('user/updateInfos', {...this.$store.state.user.infos, optin: e.target.value == "true"})
+           this.user.optin = this.$store.state.user.infos.optin;
          } else {
            this.$store.commit('user/updateInfos', {...this.$store.state.user.infos, civ: e.target.value})
            this.user.civ = this.$store.state.user.infos.civ;
@@ -707,7 +722,7 @@ export default {
         else if(bestCarModel === 'phev'){ best = 'NIRO PHEV (SG2)'}
         else if(bestCarModel === 'hev'){ best = 'NIRO HEV (SG2)'}
 
-         // console.log({ model: best, userInfos : this.user, userDatas : this.$store.state.user.conduite, source:  this.$store.state.source });
+          // console.log({ model: best, userInfos : this.user, userDatas : this.$store.state.user.conduite, source:  this.$store.state.source });
 
          this.$axios.$post('/webservice/rest/kia/lp_niro_2022.php?step=1', {
            model: best,
@@ -839,6 +854,14 @@ body {
   }
   .field {
     margin-bottom: 1em;
+    label {
+      font-size: 12px;
+      font-family: "Kia Signature Fix Regular", serif;
+      color: #fff;
+      a {
+        color: inherit;
+      }
+    }
     &.last {
       margin-top: 30px;
       label {
@@ -987,7 +1010,6 @@ body {
     }
   }
 
-
   input{
     &.send{
       width:160px;
@@ -1029,7 +1051,6 @@ body {
 
 
   }
-
 
   .v-select {
     width: 470px;

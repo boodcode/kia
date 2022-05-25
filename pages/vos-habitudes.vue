@@ -13,7 +13,7 @@
         <ChoicesStep3 v-show="activeStep===3" id="step-3" key="step3" class="step"></ChoicesStep3>
         <ChoicesStep4 v-show="activeStep===4" id="step-4" key="step4" class="step"></ChoicesStep4>
         <ChoicesStep5 v-show="activeStep===5" id="step-5" key="step5" class="step"></ChoicesStep5>
-        <ChoicesStep6 v-show="activeStep===6" id="step-6" key="step6" class="step"></ChoicesStep6>
+        <ChoicesStep6 v-show="activeStep===6 && $store.state.source !=='lead'" id="step-6" key="step6" class="step"></ChoicesStep6>
       </transition-group>
 
     </div>
@@ -29,18 +29,32 @@ export default {
   data: () => {
     return {
       btActive: false,
-      steps: [
-        {id:'step1'},
-        {id:'step2'},
-        {id:'step3'},
-        {id:'step4'},
-        {id:'step5'},
-        {id:'step6'}
-      ],
       animType:'fade'
     }
   },
   computed: {
+    steps() {
+      let steps = [];
+      if (this.$store.state.source === "lead") {
+        steps = [
+          {id: 'step1'},
+          {id: 'step2'},
+          {id: 'step3'},
+          {id: 'step4'},
+          {id: 'step5'}
+        ]
+      } else {
+        steps = [
+          {id: 'step1'},
+          {id: 'step2'},
+          {id: 'step3'},
+          {id: 'step4'},
+          {id: 'step5'},
+          {id: 'step6'}
+        ]
+      }
+      return steps
+    },
     activeStep(){
       return this.$store.state.activeStep;
     }

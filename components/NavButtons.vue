@@ -39,8 +39,14 @@ export default {
     nextStep() {
       gsap.to(document.querySelector('.container'), {scrollTo:0, duration:.5})
       if(this.isBtActive){
-        this.$store.commit('increment', this.activeStep);
+        if(this.activeStep === 5 && this.$store.state.source === 'lead'){
+          this.$router.push('/vos-modeles')
+        } else {
+          this.$store.commit('increment', this.activeStep);
+        }
+
         this.$store.commit('activeNextButton', ((this.activeStep === 2 || this.activeStep === 4 || this.activeStep === 5) || (this.activeStep===3 && this.$store.state.user.conduite.frequenceAutoroute!=="" && this.$store.state.user.conduite.frequenceExtraUrbain!=="" && this.$store.state.user.conduite.frequenceVille!=="")))
+
       }
     }
   }

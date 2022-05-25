@@ -49,7 +49,6 @@ export default {
   },
   mounted() {
     this.cookieBar = this.$cookies
-    console.log(this.$cookies)
     this.testCookie()
     this.si = setInterval(this.testCookie, 1500);
 
