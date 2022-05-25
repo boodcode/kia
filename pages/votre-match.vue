@@ -8,7 +8,7 @@
         <p v-html="datas[car].p"></p>
       </div>
       <div class="conseiller">
-        <h4>Un conseiller Kia prendra contact avec vous dans les prochains jours.</h4>
+        <h4>Un Conseiller Commercial Kia prendra contact avec vous dans les prochains jours.</h4>
         <a class="cta" href="https://www.kia.com/fr/modeles/niro/pre-lancement/" target="_blank">En savoir plus</a>
       </div>
     </div>

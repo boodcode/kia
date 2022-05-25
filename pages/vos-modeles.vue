@@ -29,6 +29,8 @@
             <text text-anchor="start" class="line3" x="30">{{ texts[getTop(1)].line3 }}</text>
           </g>
         </svg>
+        <NuxtLink to="/affinez-votre-choix" class="cta discover desktop">Encore une étape<br>pour découvrir votre coup de foudre final</NuxtLink>
+
         <div class="mobile">
           <svg id="mask-models" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 500" width="0" height="0">
             <defs>
@@ -62,8 +64,8 @@
               <div class="line3">{{texts[getTop(2)].line3}}</div>
             </div>
           </div>
+          <NuxtLink to="/affinez-votre-choix" class="cta discover">Encore une étape<br>pour découvrir votre coup de foudre final</NuxtLink>
         </div>
-        <NuxtLink to="/affinez-votre-choix" class="cta discover">Découvrez pourquoi et affinez votre choix</NuxtLink>
       </div>
     </div>
 
@@ -185,7 +187,7 @@ export default {
 
       if(this.windowWidth/this.windowHeight > this.ratioLimit){
         gsap.to('.mobile', {opacity:0, duration:1})
-        gsap.to('#demo', {opacity:1, duration:1})
+        gsap.to('#demo, .cta.discover.desktop', {opacity:1, duration:1})
 
         gsap.set('#maskRevealTop1 .line1', {y:this.windowHeight - 280, opacity:0, x:"-=100"})
         gsap.set('#maskRevealTop1 .line2', {y:this.windowHeight - 235, opacity:0, x:"-=100"})
@@ -216,7 +218,7 @@ export default {
         gsap.to('#maskRevealTop2 .line3', {opacity:1, duration:timingTexts/2, delay:timing-1})
       } else {
         gsap.to('.mobile', {opacity:1, duration:1})
-        gsap.to('#demo', {opacity:0, duration:1})
+        gsap.to('#demo, .cta.discover.desktop', {opacity:0, duration:1})
 
         gsap.set('#clipImage1, #clipImage2',{transformOrigin:"50% 50%"})
 
@@ -292,6 +294,22 @@ export default {
         height:calc(100vh - 180px);
         left:0;
 
+        .cta.discover {
+          position: absolute;
+          display: inline-block;
+          z-index: 1000;
+          top: 200px;
+          left:50%;
+          transform: translate3d(-50%, 0, 0);
+
+          @media screen and(max-width:960px) {
+            //bottom: 30px;
+            transform: translate3d(-50%, -50%, 0);
+            padding:10px 20px;
+            font-size: 14px;
+          }
+        }
+
         @media screen and (max-width: 640px){
           height:calc(100vh - 200px);
         }
@@ -359,13 +377,15 @@ export default {
           clip-path: url(#clipImage2);
         }
       }
-      .cta.discover {
+      .cta.discover.desktop {
         position: absolute;
+        display: inline-block;
         z-index: 1000;
-        bottom: 10px;
+        top: 50%;
+        transform: translate3d(0, -50%, 0);
 
         @media screen and(max-width:960px) {
-          bottom: 30px;
+          //bottom: 30px;
           padding:20px;
           font-size: 14px;
         }
