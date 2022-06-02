@@ -1281,25 +1281,18 @@
     "dealer_latitude": 48.56566
   },
   {
+    "dealer_internalid": "FR797",
+    "dealer_postcode":"78500",
+    "dealer_residence": "SARTROUVILLE",
+    "dealer_longitude": 2.16748,
+    "dealer_latitude": 48.93972
+  },
+  {
     "dealer_internalid": "FR798",
     "dealer_postcode":"78240",
     "dealer_residence": "CHAMBOURCY",
     "dealer_longitude": 2.049714799,
     "dealer_latitude": 48.9059909
-  },
-  {
-    "dealer_internalid": "FR787",
-    "dealer_postcode":"78310",
-    "dealer_residence": "COIGNIÈRES",
-    "dealer_longitude": 1.945353,
-    "dealer_latitude": 48.762639
-  },
-  {
-    "dealer_internalid": "FR788",
-    "dealer_postcode":"78500",
-    "dealer_residence": "SARTROUVILLE",
-    "dealer_longitude": 2.167525,
-    "dealer_latitude": 48.940261
   },
   {
     "dealer_internalid": "FR796",
